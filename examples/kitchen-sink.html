@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grit.css — Kitchen Sink</title>
+  <link rel="stylesheet" href="../grit.css">
+  <style>
+    .swatch {
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 600;
+      background: var(--bg, #6c757d);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="brand">grit.css</a>
+  <a href="#typography">Typography</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#components">Components</a>
+  <a href="#layout">Layout</a>
+  <a href="#forms">Forms</a>
+</nav>
+
+<div class="container col gap-xl pad-lg">
+
+  <!-- Typography -->
+  <section id="typography">
+    <h2>Typography</h2>
+    <h1>Heading 1 — The quick brown fox</h1>
+    <h2>Heading 2 — The quick brown fox</h2>
+    <h3>Heading 3 — The quick brown fox</h3>
+    <h4>Heading 4 — The quick brown fox</h4>
+    <h5>Heading 5 — The quick brown fox</h5>
+    <h6>Heading 6 — The quick brown fox</h6>
+    <p>This is a paragraph of body text. grit.css provides beautiful defaults for semantic HTML — no classes needed. You can include <a href="#">inline links</a>, <strong>bold text</strong>, <em>italic text</em>, <code>inline code</code>, and <mark>highlighted text</mark>.</p>
+    <blockquote>
+      "Simplicity is the ultimate sophistication." — Leonardo da Vinci
+    </blockquote>
+    <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+console.log(greet("world"));</code></pre>
+    <hr>
+  </section>
+
+  <!-- Buttons -->
+  <section id="buttons">
+    <h2>Buttons</h2>
+    <h3>Color Variants</h3>
+    <div class="row wrap gap-sm">
+      <button class="btn">Default</button>
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-accent">Accent</button>
+      <button class="btn btn-success">Success</button>
+      <button class="btn btn-warning">Warning</button>
+      <button class="btn btn-error">Error</button>
+      <button class="btn btn-info">Info</button>
+    </div>
+    <h3>Styles</h3>
+    <div class="row wrap gap-sm">
+      <button class="btn btn-outline">Outline</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn btn-primary btn-pill">Pill</button>
+      <button class="btn btn-primary btn-sm">Small</button>
+      <button class="btn btn-primary btn-lg">Large</button>
+      <button class="btn btn-primary" disabled>Disabled</button>
+    </div>
+    <h3>Block Button</h3>
+    <button class="btn btn-primary btn-block">Full Width Block Button</button>
+  </section>
+
+  <!-- Cards -->
+  <section id="cards">
+    <h2>Cards</h2>
+    <div class="grid grid-3 gap-lg">
+      <div class="card">
+        <img src="https://picsum.photos/400/200?random=1" alt="Mountain landscape">
+        <div class="card-body">
+          <h3 class="card-title">Mountain Retreat</h3>
+          <p>Escape to the mountains for a weekend of hiking, fresh air, and stunning views.</p>
+          <div class="card-actions">
+            <button class="btn btn-primary btn-sm">Book Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Weekly Report</h3>
+          <p>Revenue is up 12% this quarter. Customer satisfaction scores hit an all-time high of 94%.</p>
+          <div class="card-actions">
+            <button class="btn btn-sm">View Details</button>
+            <button class="btn btn-ghost btn-sm">Dismiss</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row between">
+            <h3 class="card-title">Server Status</h3>
+            <span class="badge badge-success">Online</span>
+          </div>
+          <p>All systems operational. Last incident was 47 days ago. Uptime: 99.98%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Badges -->
+  <section id="badges">
+    <h2>Badges</h2>
+    <div class="row wrap gap-sm">
+      <span class="badge">Default</span>
+      <span class="badge badge-primary">Primary</span>
+      <span class="badge badge-secondary">Secondary</span>
+      <span class="badge badge-accent">Accent</span>
+      <span class="badge badge-success">Success</span>
+      <span class="badge badge-warning">Warning</span>
+      <span class="badge badge-error">Error</span>
+      <span class="badge badge-info">Info</span>
+      <span class="badge badge-outline">Outline</span>
+      <span class="badge badge-primary badge-lg">Large</span>
+    </div>
+  </section>
+
+  <!-- Alerts -->
+  <section id="alerts">
+    <h2>Alerts</h2>
+    <div class="col gap-sm">
+      <div class="alert alert-info">Your trial expires in 3 days. Upgrade to keep your data.</div>
+      <div class="alert alert-success">Payment received — $49.00 charged to Visa ending 4242.</div>
+      <div class="alert alert-warning">API rate limit at 80%. Consider upgrading your plan.</div>
+      <div class="alert alert-error">Failed to deploy build #347. Check logs for details.</div>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section id="tabs">
+    <h2>Tabs</h2>
+    <div class="tabs">
+      <button class="tab tab-active">Overview</button>
+      <button class="tab">Analytics</button>
+      <button class="tab">Settings</button>
+      <button class="tab">Billing</button>
+    </div>
+  </section>
+
+  <!-- Toggle -->
+  <section id="toggles">
+    <h2>Toggle Switches</h2>
+    <div class="col gap-sm">
+      <label class="row gap-sm">
+        <input type="checkbox" class="toggle" checked>
+        <span>Dark mode</span>
+      </label>
+      <label class="row gap-sm">
+        <input type="checkbox" class="toggle">
+        <span>Email notifications</span>
+      </label>
+      <label class="row gap-sm">
+        <input type="checkbox" class="toggle" checked>
+        <span>Two-factor authentication</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Avatar -->
+  <section id="avatars">
+    <h2>Avatars</h2>
+    <div class="row gap-md">
+      <img src="https://i.pravatar.cc/24?u=a" alt="Small avatar" class="avatar avatar-sm">
+      <img src="https://i.pravatar.cc/40?u=b" alt="Default avatar" class="avatar">
+      <img src="https://i.pravatar.cc/56?u=c" alt="Large avatar" class="avatar avatar-lg">
+      <img src="https://i.pravatar.cc/80?u=d" alt="XL avatar" class="avatar avatar-xl">
+    </div>
+  </section>
+
+  <!-- Dropdown -->
+  <section id="dropdown">
+    <h2>Dropdown</h2>
+    <details class="dropdown">
+      <summary class="btn">Options ▾</summary>
+      <div class="dropdown-menu">
+        <a href="#">Edit Profile</a>
+        <a href="#">Account Settings</a>
+        <a href="#">Billing</a>
+        <hr>
+        <a href="#">Sign Out</a>
+      </div>
+    </details>
+  </section>
+
+  <!-- Tooltips -->
+  <section id="tooltips">
+    <h2>Tooltips</h2>
+    <div class="row gap-lg">
+      <button class="btn" data-tooltip="Save your changes">Hover me</button>
+      <button class="btn btn-primary" data-tooltip="Deploy to production">Deploy</button>
+      <span data-tooltip="Written by Jane Doe on March 14, 2025">Hover this text</span>
+    </div>
+  </section>
+
+  <!-- Progress -->
+  <section id="progress">
+    <h2>Progress Bars</h2>
+    <div class="col gap-md">
+      <div>
+        <small class="text-muted">Storage — 45%</small>
+        <div class="progress">
+          <div class="progress-bar" style="width: 45%"></div>
+        </div>
+      </div>
+      <div>
+        <small class="text-success">Build — Complete</small>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+        </div>
+      </div>
+      <div>
+        <small class="text-warning">Memory — 72%</small>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" style="width: 72%"></div>
+        </div>
+      </div>
+      <div>
+        <small class="text-error">Disk — 91%</small>
+        <div class="progress">
+          <div class="progress-bar progress-bar-error" style="width: 91%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <section id="modal">
+    <h2>Modal</h2>
+    <button class="btn btn-primary" onclick="document.getElementById('demo-modal').showModal()">Open Modal</button>
+    <dialog class="modal" id="demo-modal">
+      <div class="modal-body">
+        <h3 class="modal-title">Delete Project?</h3>
+        <p>This will permanently delete "acme-app" and all associated data. This action cannot be undone.</p>
+        <div class="modal-actions">
+          <button class="btn btn-ghost" onclick="this.closest('dialog').close()">Cancel</button>
+          <button class="btn btn-error" onclick="this.closest('dialog').close()">Delete Project</button>
+        </div>
+      </div>
+    </dialog>
+  </section>
+
+  <!-- Divider -->
+  <section id="divider">
+    <h2>Dividers</h2>
+    <div class="divider"></div>
+    <div class="divider" data-text="OR"></div>
+    <div class="divider" data-text="Section Break"></div>
+  </section>
+
+  <!-- Skeleton -->
+  <section id="skeleton">
+    <h2>Skeleton Loading</h2>
+    <div class="card">
+      <div class="card-body col gap-md">
+        <div class="row gap-md">
+          <div class="skeleton skeleton-avatar"></div>
+          <div class="col gap-sm grow">
+            <div class="skeleton skeleton-title" style="width: 40%"></div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text" style="width: 75%"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chips -->
+  <section id="chips">
+    <h2>Chips</h2>
+    <div class="row wrap gap-sm">
+      <span class="chip">JavaScript</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">React</span>
+      <span class="chip">Vue</span>
+      <span class="chip">Svelte</span>
+      <span class="chip">CSS</span>
+    </div>
+  </section>
+
+  <!-- Table -->
+  <section id="tables">
+    <h2>Tables</h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Joined</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sarah Chen</td>
+          <td>sarah@example.com</td>
+          <td>Admin</td>
+          <td><span class="badge badge-success">Active</span></td>
+          <td>Jan 12, 2024</td>
+        </tr>
+        <tr>
+          <td>Marcus Johnson</td>
+          <td>marcus@example.com</td>
+          <td>Editor</td>
+          <td><span class="badge badge-success">Active</span></td>
+          <td>Mar 5, 2024</td>
+        </tr>
+        <tr>
+          <td>Emily Rodriguez</td>
+          <td>emily@example.com</td>
+          <td>Viewer</td>
+          <td><span class="badge badge-warning">Pending</span></td>
+          <td>Jun 20, 2024</td>
+        </tr>
+        <tr>
+          <td>James Kim</td>
+          <td>james@example.com</td>
+          <td>Editor</td>
+          <td><span class="badge badge-error">Suspended</span></td>
+          <td>Aug 1, 2024</td>
+        </tr>
+        <tr>
+          <td>Olivia Patel</td>
+          <td>olivia@example.com</td>
+          <td>Admin</td>
+          <td><span class="badge badge-success">Active</span></td>
+          <td>Sep 14, 2024</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Forms -->
+  <section id="forms">
+    <h2>Forms</h2>
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Create Account</h3>
+        <form class="col gap-md" onsubmit="event.preventDefault()">
+          <div class="grid grid-2 gap-md">
+            <div class="col gap-xs">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" placeholder="Jane">
+            </div>
+            <div class="col gap-xs">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" placeholder="Doe">
+            </div>
+          </div>
+          <div class="col gap-xs">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="jane@example.com">
+          </div>
+          <div class="col gap-xs">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <input type="password" id="password" placeholder="Min. 8 characters">
+              <span class="input-group-text">🔒</span>
+            </div>
+          </div>
+          <div class="col gap-xs">
+            <label for="role-select">Role</label>
+            <select id="role-select">
+              <option>Viewer</option>
+              <option>Editor</option>
+              <option>Admin</option>
+            </select>
+          </div>
+          <div class="col gap-xs">
+            <label for="bio">Bio</label>
+            <textarea id="bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+          </div>
+          <fieldset>
+            <legend>Notifications</legend>
+            <div class="col gap-sm">
+              <label class="row gap-sm">
+                <input type="checkbox" checked> Email notifications
+              </label>
+              <label class="row gap-sm">
+                <input type="checkbox"> SMS notifications
+              </label>
+              <label class="row gap-sm">
+                <input type="checkbox" checked> Push notifications
+              </label>
+            </div>
+          </fieldset>
+          <div class="row gap-sm end">
+            <button type="button" class="btn btn-ghost">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Layout -->
+  <section id="layout">
+    <h2>Layout</h2>
+
+    <h3>Grid — 2 Columns</h3>
+    <div class="grid grid-2 gap-md">
+      <div class="swatch" style="--bg: #3b82f6">1</div>
+      <div class="swatch" style="--bg: #3b82f6">2</div>
+    </div>
+
+    <h3>Grid — 3 Columns</h3>
+    <div class="grid grid-3 gap-md">
+      <div class="swatch" style="--bg: #8b5cf6">1</div>
+      <div class="swatch" style="--bg: #8b5cf6">2</div>
+      <div class="swatch" style="--bg: #8b5cf6">3</div>
+    </div>
+
+    <h3>Grid — 4 Columns</h3>
+    <div class="grid grid-4 gap-md">
+      <div class="swatch" style="--bg: #ec4899">1</div>
+      <div class="swatch" style="--bg: #ec4899">2</div>
+      <div class="swatch" style="--bg: #ec4899">3</div>
+      <div class="swatch" style="--bg: #ec4899">4</div>
+    </div>
+
+    <h3>Grid — Auto (Responsive)</h3>
+    <div class="grid grid-auto gap-md">
+      <div class="swatch" style="--bg: #f59e0b">A</div>
+      <div class="swatch" style="--bg: #f59e0b">B</div>
+      <div class="swatch" style="--bg: #f59e0b">C</div>
+      <div class="swatch" style="--bg: #f59e0b">D</div>
+      <div class="swatch" style="--bg: #f59e0b">E</div>
+    </div>
+
+    <h3>Row — Space Between</h3>
+    <div class="row between pad" style="background: #f1f5f9; border-radius: 8px;">
+      <span class="font-bold">Left</span>
+      <span class="font-bold">Center</span>
+      <span class="font-bold">Right</span>
+    </div>
+
+    <h3>Row — Center</h3>
+    <div class="row center pad" style="background: #f1f5f9; border-radius: 8px;">
+      <button class="btn btn-primary btn-sm">Centered</button>
+    </div>
+
+    <h3>Column — Gap</h3>
+    <div class="col gap-sm pad" style="background: #f1f5f9; border-radius: 8px;">
+      <div class="swatch" style="--bg: #10b981; height: 40px;">Row 1</div>
+      <div class="swatch" style="--bg: #10b981; height: 40px;">Row 2</div>
+      <div class="swatch" style="--bg: #10b981; height: 40px;">Row 3</div>
+    </div>
+  </section>
+
+  <!-- Utilities -->
+  <section id="utilities">
+    <h2>Utilities</h2>
+
+    <h3>Text Sizes</h3>
+    <p class="text-sm">text-sm — Small text for captions and fine print</p>
+    <p>Default — Regular body text size</p>
+    <p class="text-lg">text-lg — Slightly larger for emphasis</p>
+    <p class="text-xl">text-xl — Section headings and callouts</p>
+    <p class="text-2xl">text-2xl — Large display text</p>
+
+    <h3>Text Colors</h3>
+    <div class="row wrap gap-md">
+      <span class="text-muted">text-muted</span>
+      <span class="text-primary">text-primary</span>
+      <span class="text-success">text-success</span>
+      <span class="text-warning">text-warning</span>
+      <span class="text-error">text-error</span>
+      <span class="text-info">text-info</span>
+    </div>
+
+    <h3>Text Alignment</h3>
+    <p class="text-left">text-left — Aligned to the left</p>
+    <p class="text-center">text-center — Centered text</p>
+    <p class="text-right">text-right — Aligned to the right</p>
+
+    <h3>Font Styles</h3>
+    <p class="font-bold">font-bold — Bold weight text</p>
+    <p class="font-mono">font-mono — Monospaced text for code</p>
+
+    <h3>Truncate</h3>
+    <p class="truncate" style="max-width: 300px;">This is a very long line of text that will be truncated with an ellipsis when it exceeds the container width.</p>
+
+    <h3>Shadow &amp; Border</h3>
+    <div class="row gap-lg">
+      <div class="shadow pad rounded">shadow + rounded</div>
+      <div class="border pad rounded">border + rounded</div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

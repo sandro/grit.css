@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acme Admin — Dashboard</title>
+  <link rel="stylesheet" href="../grit.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="brand">Acme Admin</a>
+  <a href="#">Dashboard</a>
+  <a href="#">Users</a>
+  <a href="#">Settings</a>
+  <div class="grow"></div>
+  <div class="row gap-sm center">
+    <span class="hide-mobile">Diana Reeves</span>
+    <img src="https://i.pravatar.cc/32?u=diana" alt="Avatar" class="avatar avatar-sm">
+  </div>
+</nav>
+
+<div class="container col gap-lg pad-lg">
+
+  <!-- Stats Row -->
+  <div class="grid grid-4 gap-lg">
+    <div class="card">
+      <div class="card-body">
+        <p class="text-muted text-sm">Total Users</p>
+        <div class="row between center">
+          <span class="text-2xl font-bold">12,847</span>
+          <span class="badge badge-success">+12%</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <p class="text-muted text-sm">Revenue</p>
+        <div class="row between center">
+          <span class="text-2xl font-bold">$48,290</span>
+          <span class="badge badge-success">+8%</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <p class="text-muted text-sm">Orders</p>
+        <div class="row between center">
+          <span class="text-2xl font-bold">1,423</span>
+          <span class="badge badge-error">-3%</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <p class="text-muted text-sm">Conversion</p>
+        <div class="row between center">
+          <span class="text-2xl font-bold">3.2%</span>
+          <span class="badge badge-warning">-0.4%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="grid grid-3 gap-lg">
+
+    <!-- Recent Orders (spans 2 columns) -->
+    <div class="card span-2">
+      <div class="card-body">
+        <div class="row between center">
+          <h3 class="card-title">Recent Orders</h3>
+          <button class="btn btn-ghost btn-sm">View All →</button>
+        </div>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Order #</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-mono">#ORD-7291</td>
+              <td>Sarah Chen</td>
+              <td>$249.00</td>
+              <td>Jun 25, 2025</td>
+              <td><span class="badge badge-success">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="font-mono">#ORD-7290</td>
+              <td>Marcus Johnson</td>
+              <td>$89.50</td>
+              <td>Jun 25, 2025</td>
+              <td><span class="badge badge-success">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="font-mono">#ORD-7289</td>
+              <td>Emily Rodriguez</td>
+              <td>$1,200.00</td>
+              <td>Jun 24, 2025</td>
+              <td><span class="badge badge-warning">Pending</span></td>
+            </tr>
+            <tr>
+              <td class="font-mono">#ORD-7288</td>
+              <td>James Kim</td>
+              <td>$67.30</td>
+              <td>Jun 24, 2025</td>
+              <td><span class="badge badge-error">Failed</span></td>
+            </tr>
+            <tr>
+              <td class="font-mono">#ORD-7287</td>
+              <td>Olivia Patel</td>
+              <td>$340.00</td>
+              <td>Jun 23, 2025</td>
+              <td><span class="badge badge-success">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="font-mono">#ORD-7286</td>
+              <td>Liam Foster</td>
+              <td>$520.75</td>
+              <td>Jun 23, 2025</td>
+              <td><span class="badge badge-success">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="col gap-lg">
+      <!-- Quick Actions -->
+      <div class="card">
+        <div class="card-body col gap-sm">
+          <h3 class="card-title">Quick Actions</h3>
+          <button class="btn btn-primary btn-block">+ New Order</button>
+          <button class="btn btn-outline btn-block">Add Product</button>
+          <button class="btn btn-ghost btn-block">Generate Report</button>
+        </div>
+      </div>
+
+      <!-- Activity -->
+      <div class="card">
+        <div class="card-body col gap-md">
+          <h3 class="card-title">Activity</h3>
+          <div class="col gap-sm">
+            <div class="row gap-sm">
+              <img src="https://i.pravatar.cc/24?u=sarah" alt="" class="avatar avatar-sm">
+              <div>
+                <p class="text-sm"><strong>Sarah Chen</strong> placed order #ORD-7291</p>
+                <p class="text-sm text-muted">2 hours ago</p>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row gap-sm">
+              <img src="https://i.pravatar.cc/24?u=marcus" alt="" class="avatar avatar-sm">
+              <div>
+                <p class="text-sm"><strong>Marcus Johnson</strong> updated his profile</p>
+                <p class="text-sm text-muted">4 hours ago</p>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row gap-sm">
+              <img src="https://i.pravatar.cc/24?u=emily" alt="" class="avatar avatar-sm">
+              <div>
+                <p class="text-sm"><strong>Emily Rodriguez</strong> submitted a refund request</p>
+                <p class="text-sm text-muted">6 hours ago</p>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row gap-sm">
+              <img src="https://i.pravatar.cc/24?u=james" alt="" class="avatar avatar-sm">
+              <div>
+                <p class="text-sm"><strong>James Kim</strong> signed up</p>
+                <p class="text-sm text-muted">Yesterday</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Row -->
+  <div class="grid grid-2 gap-lg">
+    <!-- Add User Form -->
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Add User</h3>
+        <form class="col gap-md" onsubmit="event.preventDefault()">
+          <div class="grid grid-2 gap-md">
+            <div class="col gap-xs">
+              <label for="new-first">First Name</label>
+              <input type="text" id="new-first" placeholder="Jane">
+            </div>
+            <div class="col gap-xs">
+              <label for="new-last">Last Name</label>
+              <input type="text" id="new-last" placeholder="Doe">
+            </div>
+          </div>
+          <div class="col gap-xs">
+            <label for="new-email">Email</label>
+            <input type="email" id="new-email" placeholder="jane@acme.com">
+          </div>
+          <div class="col gap-xs">
+            <label for="new-role">Role</label>
+            <select id="new-role">
+              <option>Viewer</option>
+              <option>Editor</option>
+              <option>Admin</option>
+            </select>
+          </div>
+          <label class="row gap-sm">
+            <input type="checkbox" class="toggle">
+            <span>Send welcome email</span>
+          </label>
+          <div class="row end gap-sm">
+            <button type="button" class="btn btn-ghost">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- System Metrics -->
+    <div class="card">
+      <div class="card-body col gap-md">
+        <h3 class="card-title">System Metrics</h3>
+        <div>
+          <div class="row between">
+            <span class="text-sm">CPU Usage</span>
+            <span class="text-sm font-bold">34%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" style="width: 34%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="row between">
+            <span class="text-sm">Memory</span>
+            <span class="text-sm font-bold">68%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-warning" style="width: 68%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="row between">
+            <span class="text-sm">Disk Space</span>
+            <span class="text-sm font-bold">89%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-error" style="width: 89%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="row between">
+            <span class="text-sm">Bandwidth</span>
+            <span class="text-sm font-bold">52%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 52%"></div>
+          </div>
+        </div>
+        <div class="alert alert-warning text-sm">Disk space running low. Consider archiving old data.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
