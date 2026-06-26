@@ -97,6 +97,59 @@
     @media (max-width: 768px) {
       .sidebar { display: none; }
     }
+
+    /* Syntax highlighting */
+    .hl-tag { color: #22863a; }
+    .hl-attr { color: #6f42c1; }
+    .hl-str { color: #032f62; }
+    .hl-cmt { color: #6a737d; font-style: italic; }
+    .hl-kw { color: #d73a49; }
+    .hl-fn { color: #6f42c1; }
+    .hl-num { color: #005cc5; }
+    .hl-cls { color: #e36209; }
+    .hl-prop { color: #005cc5; }
+
+    .dark .hl-tag { color: #7ee787; }
+    .dark .hl-attr { color: #d2a8ff; }
+    .dark .hl-str { color: #a5d6ff; }
+    .dark .hl-cmt { color: #8b949e; }
+    .dark .hl-kw { color: #ff7b72; }
+    .dark .hl-fn { color: #d2a8ff; }
+    .dark .hl-num { color: #79c0ff; }
+    .dark .hl-cls { color: #ffa657; }
+    .dark .hl-prop { color: #79c0ff; }
+
+    /* Spacing reference table */
+    .spacing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.875rem;
+    }
+    .spacing-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--grit-border);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--grit-muted);
+    }
+    .spacing-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--grit-border);
+    }
+    .spacing-table code {
+      font-size: 0.8125rem;
+    }
+    .spacing-swatch {
+      display: inline-block;
+      height: 0.75rem;
+      background: var(--grit-primary);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
@@ -150,127 +203,164 @@
     <!-- Installation -->
     <section class="doc-section" id="installation">
       <h2>Installation</h2>
-      <p class="doc-desc">Drop a single CSS file into your project. No build step, no JavaScript, no dependencies.</p>
+      <p class="doc-desc">Drop a single CSS file into your project. No build step, no JavaScript, no dependencies. grit.css weighs in under 10KB gzipped and has zero external dependencies — just download <code>grit.css</code> and link it in your <code>&lt;head&gt;</code>.</p>
     </section>
 
     <!-- Usage -->
     <section class="doc-section" id="usage">
       <h2>Usage</h2>
-      <p class="doc-desc">Link the stylesheet and write semantic HTML. Most elements look great with zero classes.</p>
+      <p class="doc-desc">Link the stylesheet and start writing semantic HTML. Headings, paragraphs, links, inputs, and buttons all look polished out of the box — no classes needed. When you want more control, layer on utility classes like <code>.btn-primary</code>, <code>.card</code>, or <code>.row gap-md</code>. Everything composes: you can mix and match without conflicts.</p>
     </section>
 
     <!-- Dark Mode -->
     <section class="doc-section" id="dark-mode">
       <h2>Dark Mode</h2>
-      <p class="doc-desc">Automatic via <code>prefers-color-scheme: dark</code>, or toggle manually with a <code>.dark</code> class on <code>&lt;html&gt;</code>.</p>
+      <p class="doc-desc">grit.css supports dark mode in two ways. By default, it reads your system preference via <code>prefers-color-scheme: dark</code> — no extra work required. If you want manual control (e.g., a toggle button), add a <code>.dark</code> class to <code>&lt;html&gt;</code>. You can also force light mode with <code>.light</code> to override a dark system preference. All components, colors, shadows, and borders adapt automatically.</p>
     </section>
 
     <!-- Themes -->
     <section class="doc-section" id="themes">
       <h2>Themes</h2>
-      <p class="doc-desc">Apply a theme class to any container to restyle everything inside it.</p>
+      <p class="doc-desc">Themes restyle everything inside a container by overriding grit's CSS custom properties. Apply <code>.theme-midnight</code>, <code>.theme-forest</code>, or <code>.theme-rose</code> to any element and all child components — buttons, badges, cards, alerts — pick up the new colors automatically. You can nest themes, scope them to a single card, or apply them to the whole page.</p>
     </section>
 
     <!-- Buttons -->
     <section class="doc-section" id="buttons">
       <h2>Buttons</h2>
-      <p class="doc-desc">Buttons come in color variants, outline/ghost styles, and multiple sizes. Combine classes freely.</p>
+      <p class="doc-desc">Start with the base <code>.btn</code> class, then add a color variant (<code>.btn-primary</code>, <code>.btn-error</code>, etc.) and optional style modifiers. Use <code>.btn-outline</code> for bordered buttons, <code>.btn-ghost</code> for minimal text-only buttons, and <code>.btn-pill</code> for fully rounded edges. Size modifiers <code>.btn-sm</code> and <code>.btn-lg</code> adjust padding and font size. Add <code>.btn-block</code> for full-width. All buttons support <code>disabled</code> natively.</p>
     </section>
 
     <!-- Cards -->
     <section class="doc-section" id="cards">
       <h2>Cards</h2>
-      <p class="doc-desc">Flexible content containers with optional image, body, title, and action areas.</p>
+      <p class="doc-desc">Cards are flexible content containers with a subtle border, rounded corners, and an optional shadow on hover. Wrap content in <code>.card-body</code> for padding. Use <code>.card-title</code> for headings and <code>.card-actions</code> for a button row at the bottom. Cards can also hold a top image — just place an <code>&lt;img&gt;</code> before the body and it will fill the card width with rounded top corners.</p>
     </section>
 
     <!-- Badges -->
     <section class="doc-section" id="badges">
       <h2>Badges</h2>
-      <p class="doc-desc">Small status indicators in every color variant, with outline and size options.</p>
+      <p class="doc-desc">Small inline status indicators. Apply a color variant (<code>.badge-primary</code>, <code>.badge-success</code>, <code>.badge-error</code>, etc.) for filled badges, or add <code>.badge-outline</code> for a bordered style. Use <code>.badge-lg</code> for a slightly larger size. Badges work great inside headings, table cells, or next to avatars.</p>
     </section>
 
     <!-- Alerts -->
     <section class="doc-section" id="alerts">
       <h2>Alerts</h2>
-      <p class="doc-desc">Contextual feedback messages with colored left borders.</p>
+      <p class="doc-desc">Contextual feedback messages with a tinted background and colored left border. Use <code>.alert-info</code> for informational, <code>.alert-success</code> for confirmations, <code>.alert-warning</code> for cautions, and <code>.alert-error</code> for failures. Alerts are block-level and take the full width of their container — perfect for form validation messages, system notifications, or status banners.</p>
     </section>
 
     <!-- Tabs -->
     <section class="doc-section" id="tabs">
       <h2>Tabs</h2>
-      <p class="doc-desc">Navigation tabs with an active state indicator. Add <code>.tab-active</code> to the current tab.</p>
+      <p class="doc-desc">A horizontal tab bar built with <code>.tabs</code> as the container and <code>.tab</code> on each item. Mark the current tab with <code>.tab-active</code> — it gets an underline and bolder color. Tabs are styled buttons by default, so they work with <code>onclick</code> handlers or as part of a router. The active indicator is a 2px bottom border that transitions smoothly.</p>
     </section>
 
     <!-- Toggles -->
     <section class="doc-section" id="toggles">
       <h2>Toggles</h2>
-      <p class="doc-desc">iOS-style toggle switches built on native checkboxes. Zero JavaScript required.</p>
+      <p class="doc-desc">iOS-style toggle switches built on native <code>&lt;input type="checkbox"&gt;</code> elements — just add the <code>.toggle</code> class. No JavaScript required; the switch state is backed by the real checkbox. The knob slides with a smooth transition and the track changes color when checked. Pair with a <code>&lt;label&gt;</code> for an accessible, clickable label.</p>
     </section>
 
     <!-- Dropdown -->
     <section class="doc-section" id="dropdown">
       <h2>Dropdown</h2>
-      <p class="doc-desc">Dropdown menus using native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>. No JS needed.</p>
+      <p class="doc-desc">Dropdown menus powered by the native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> elements — zero JavaScript. Wrap links inside <code>.dropdown-menu</code> and they'll appear on click with a smooth fade. Use <code>&lt;hr&gt;</code> for dividers between menu groups. The menu auto-positions below the trigger and closes when you click outside.</p>
     </section>
 
     <!-- Modal -->
     <section class="doc-section" id="modal">
       <h2>Modal</h2>
-      <p class="doc-desc">Modal dialogs using the native <code>&lt;dialog&gt;</code> element with backdrop blur.</p>
+      <p class="doc-desc">Modal dialogs built on the native <code>&lt;dialog&gt;</code> element. Open with <code>el.showModal()</code> and close with <code>el.close()</code> — just two lines of JS, no library needed. The modal centers on screen with a blurred backdrop. Structure content with <code>.modal-body</code>, <code>.modal-title</code>, and <code>.modal-actions</code>. Pressing Escape closes it automatically.</p>
     </section>
 
     <!-- Progress -->
     <section class="doc-section" id="progress">
       <h2>Progress</h2>
-      <p class="doc-desc">Simple progress bars with color variants for different states.</p>
+      <p class="doc-desc">Lightweight progress bars with a track-and-fill pattern. The outer <code>.progress</code> div provides the gray track, and the inner <code>.progress-bar</code> fills to whatever <code>width</code> you set inline. Color variants — <code>.progress-bar-success</code>, <code>.progress-bar-warning</code>, <code>.progress-bar-error</code> — change the fill color. Great for upload indicators, storage meters, or step-completion visuals.</p>
     </section>
 
     <!-- Avatars -->
     <section class="doc-section" id="avatars">
       <h2>Avatars</h2>
-      <p class="doc-desc">Circular image avatars in four sizes: sm, default, lg, and xl.</p>
+      <p class="doc-desc">Circular image thumbnails in four sizes. The base <code>.avatar</code> class gives you a 2.5rem circle. Add <code>.avatar-sm</code> (2rem), <code>.avatar-lg</code> (3.5rem), or <code>.avatar-xl</code> (5rem) for different scales. Images are <code>object-fit: cover</code>, so they crop gracefully. Stack avatars in a <code>.row gap-sm</code> for a team member bar.</p>
     </section>
 
     <!-- Tooltips -->
     <section class="doc-section" id="tooltips">
       <h2>Tooltips</h2>
-      <p class="doc-desc">Pure-CSS tooltips via <code>data-tooltip</code> attribute. No JavaScript.</p>
+      <p class="doc-desc">Pure-CSS tooltips — add a <code>data-tooltip="Your text"</code> attribute to any element and a tooltip appears on hover. No JavaScript, no initialization. The tooltip fades in above the element with a subtle arrow. Works on buttons, links, spans, or any inline/block element. Keep tooltip text short (one line) for best results.</p>
     </section>
 
     <!-- Inputs -->
     <section class="doc-section" id="inputs">
       <h2>Inputs</h2>
-      <p class="doc-desc">Text inputs, selects, textareas, and labels with focus ring styling.</p>
+      <p class="doc-desc">Text inputs, selects, and textareas are styled globally — no classes needed. Every input gets consistent padding, border radius, and a colored focus ring that matches <code>--grit-primary</code>. Pair each input with a <code>&lt;label&gt;</code> for accessibility and wrap the pair in a <code>.col gap-xs</code> for standard form spacing. Inputs stretch to fill their container width by default.</p>
     </section>
 
     <!-- Input Groups -->
     <section class="doc-section" id="input-groups">
       <h2>Input Groups</h2>
-      <p class="doc-desc">Combine inputs with prefix/suffix text or icons.</p>
+      <p class="doc-desc">Visually attach a prefix or suffix to an input. Wrap an <code>&lt;input&gt;</code> and a <code>.input-group-text</code> span inside <code>.input-group</code> — the addon and input merge into a single bordered row. Use this for currency symbols, "@" username prefixes, search icons, or domain suffixes. The addon inherits the surface background so it's visually distinct from the input area.</p>
     </section>
 
     <!-- Container -->
     <section class="doc-section" id="container">
       <h2>Container</h2>
-      <p class="doc-desc">Centered max-width container (1200px) with horizontal padding.</p>
+      <p class="doc-desc">The <code>.container</code> class centers content and caps it at a max-width of 1200px with horizontal padding on each side. Use it as the outermost wrapper for your page content. It works at every viewport width — on mobile it's full-width with padding, on desktop it creates comfortable reading margins. Nest grids, rows, and sections inside it.</p>
     </section>
 
     <!-- Grid -->
     <section class="doc-section" id="grid">
       <h2>Grid</h2>
-      <p class="doc-desc">CSS Grid utilities for 2, 3, 4, and auto-fit column layouts. Responsive by default.</p>
+      <p class="doc-desc">CSS Grid utilities for common column layouts. Start with <code>.grid</code>, then add <code>.grid-2</code>, <code>.grid-3</code>, or <code>.grid-4</code> for fixed-column layouts. Use <code>.grid-auto</code> for a responsive auto-fit grid that wraps items into rows at 250px minimum width. All grid layouts collapse to a single column on mobile. Use <code>.span-2</code>, <code>.span-3</code>, or <code>.span-full</code> on children to span multiple columns.</p>
     </section>
 
     <!-- Flex -->
     <section class="doc-section" id="flex">
       <h2>Flex Utilities</h2>
-      <p class="doc-desc">Row, column, alignment, and distribution helpers for flexbox layouts.</p>
+      <p class="doc-desc">Flexbox helpers for common layout patterns. <code>.row</code> creates a horizontal flex container (items centered vertically); <code>.col</code> creates a vertical stack. Both accept gap utilities. Use <code>.between</code> for space-between, <code>.center</code> for centering both axes, <code>.end</code> for flex-end, and <code>.wrap</code> for wrapping. <code>.grow</code> makes a child fill available space. Combine freely: <code>.row between wrap gap-md</code> is a common pattern.</p>
     </section>
 
     <!-- Spacing -->
     <section class="doc-section" id="spacing">
       <h2>Spacing</h2>
-      <p class="doc-desc">Gap and padding utilities in five sizes: xs, sm, md, lg, xl.</p>
+      <p class="doc-desc">Control the space between and inside elements with gap and padding utilities. Gap classes set the <code>--gap</code> custom property, which is picked up by <code>.row</code>, <code>.col</code>, and <code>.grid</code> containers. Padding classes add uniform padding on all sides. Both use a consistent size scale so your layouts feel cohesive.</p>
+
+      <h3 style="font-size: 1rem; margin-top: 1.5rem;">Gap (space between children)</h3>
+      <p style="color: var(--grit-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">Add a gap class to any flex or grid container. Gap only affects the space <em>between</em> children — it doesn't add space on the outer edges. If no gap class is set, <code>.row</code>, <code>.col</code>, and <code>.grid</code> default to <code>0.75rem</code>.</p>
+
+      <table class="spacing-table">
+        <thead>
+          <tr><th>Class</th><th>Value</th><th>Pixels (at 16px base)</th><th>Visual</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>.gap-xs</code></td><td>0.25rem</td><td>4px</td><td><span class="spacing-swatch" style="width: 4px;"></span></td></tr>
+          <tr><td><code>.gap-sm</code></td><td>0.5rem</td><td>8px</td><td><span class="spacing-swatch" style="width: 8px;"></span></td></tr>
+          <tr><td><code>.gap-md</code></td><td>1rem</td><td>16px</td><td><span class="spacing-swatch" style="width: 16px;"></span></td></tr>
+          <tr><td><code>.gap-lg</code></td><td>1.5rem</td><td>24px</td><td><span class="spacing-swatch" style="width: 24px;"></span></td></tr>
+          <tr><td><code>.gap-xl</code></td><td>2rem</td><td>32px</td><td><span class="spacing-swatch" style="width: 32px;"></span></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size: 1rem; margin-top: 1.5rem;">Padding (space inside an element)</h3>
+      <p style="color: var(--grit-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">Padding utilities add equal padding on all four sides. Use them on cards, sections, containers, or any element that needs internal breathing room.</p>
+
+      <table class="spacing-table">
+        <thead>
+          <tr><th>Class</th><th>Value</th><th>Pixels (at 16px base)</th><th>Visual</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>.pad-sm</code></td><td>0.5rem</td><td>8px</td><td><span class="spacing-swatch" style="width: 8px;"></span></td></tr>
+          <tr><td><code>.pad</code></td><td>1rem</td><td>16px</td><td><span class="spacing-swatch" style="width: 16px;"></span></td></tr>
+          <tr><td><code>.pad-lg</code></td><td>2rem</td><td>32px</td><td><span class="spacing-swatch" style="width: 32px;"></span></td></tr>
+          <tr><td><code>.pad-xl</code></td><td>3rem</td><td>48px</td><td><span class="spacing-swatch" style="width: 48px;"></span></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size: 1rem; margin-top: 1.5rem;">Margin</h3>
+      <p style="color: var(--grit-muted); font-size: 0.9rem; margin-bottom: 0.75rem;"><code>.m-auto</code> sets <code>margin: auto</code> — handy for centering a fixed-width element horizontally.</p>
+
+      <h3 style="font-size: 1rem; margin-top: 2rem;">Common patterns</h3>
+      <p style="color: var(--grit-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">Here are the spacing combos you'll reach for most often:</p>
     </section>
 
   </main>
@@ -843,18 +933,69 @@ const examples = {
 
   spacing: {
     examples: [{
-      code: `<!-- Gap (on flex/grid containers) -->
-<div class="row gap-xs">...</div>   <!-- 0.25rem -->
-<div class="row gap-sm">...</div>   <!-- 0.5rem -->
-<div class="row gap-md">...</div>   <!-- 1rem -->
-<div class="row gap-lg">...</div>   <!-- 1.5rem -->
-<div class="row gap-xl">...</div>   <!-- 2rem -->
-
-<!-- Padding -->
-<div class="pad-sm">...</div>       <!-- 0.5rem -->
-<div class="pad">...</div>          <!-- 1rem -->
-<div class="pad-lg">...</div>       <!-- 2rem -->
-<div class="pad-xl">...</div>       <!-- 3rem -->`
+      title: 'Form with tight gap',
+      html: `<div class="col gap-xs" style="max-width: 300px;">
+        <label style="font-weight: 500;">Email</label>
+        <input type="email" placeholder="jane@example.com">
+        <small class="text-muted">We'll never share your email.</small>
+      </div>`,
+      code: `<!-- Tight gap between label, input, and helper text -->
+<div class="col gap-xs">
+  <label>Email</label>
+  <input type="email" placeholder="jane@example.com">
+  <small class="text-muted">We'll never share your email.</small>
+</div>`
+    }, {
+      title: 'Button row with small gap',
+      html: `<div class="row gap-sm">
+        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-ghost">Cancel</button>
+      </div>`,
+      code: `<!-- Small gap between action buttons -->
+<div class="row gap-sm">
+  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-ghost">Cancel</button>
+</div>`
+    }, {
+      title: 'Card grid with large gap',
+      html: `<div class="grid grid-3 gap-lg">
+        <div class="card"><div class="card-body pad"><h4 class="card-title">Plan A</h4><p class="text-sm text-muted">Basic features</p></div></div>
+        <div class="card"><div class="card-body pad"><h4 class="card-title">Plan B</h4><p class="text-sm text-muted">Pro features</p></div></div>
+        <div class="card"><div class="card-body pad"><h4 class="card-title">Plan C</h4><p class="text-sm text-muted">Enterprise</p></div></div>
+      </div>`,
+      code: `<!-- Generous gap between grid cards -->
+<div class="grid grid-3 gap-lg">
+  <div class="card">
+    <div class="card-body pad">...</div>
+  </div>
+  <div class="card">
+    <div class="card-body pad">...</div>
+  </div>
+  <div class="card">
+    <div class="card-body pad">...</div>
+  </div>
+</div>`
+    }, {
+      title: 'Padding sizes compared',
+      html: `<div class="col gap-md">
+        <div class="pad-sm rounded" style="background: var(--grit-surface-2); border: 1px dashed var(--grit-border);">
+          <code>.pad-sm</code> — 0.5rem / 8px
+        </div>
+        <div class="pad rounded" style="background: var(--grit-surface-2); border: 1px dashed var(--grit-border);">
+          <code>.pad</code> — 1rem / 16px (default)
+        </div>
+        <div class="pad-lg rounded" style="background: var(--grit-surface-2); border: 1px dashed var(--grit-border);">
+          <code>.pad-lg</code> — 2rem / 32px
+        </div>
+        <div class="pad-xl rounded" style="background: var(--grit-surface-2); border: 1px dashed var(--grit-border);">
+          <code>.pad-xl</code> — 3rem / 48px
+        </div>
+      </div>`,
+      code: `<!-- Padding adds space inside the element -->
+<div class="pad-sm">Compact spacing</div>
+<div class="pad">Default spacing</div>
+<div class="pad-lg">Generous spacing</div>
+<div class="pad-xl">Spacious hero/section</div>`
     }]
   },
 }
@@ -881,6 +1022,65 @@ for (const [id, section] of Object.entries(examples)) {
     el.appendChild(ce)
   }
 }
+
+// ============================================================
+// Syntax highlighting — lightweight HTML/JS/CSS tokenizer
+// ============================================================
+function highlightHTML(code) {
+  // Escape any raw HTML first (code is already text-escaped from the template)
+  // Process in order: comments, then tags (with attrs), then leftover content
+  return code
+    // HTML comments
+    .replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="hl-cmt">$1</span>')
+    // Script tags and their content
+    .replace(/(&lt;)(script)([\s\S]*?&gt;)([\s\S]*?)(&lt;\/)(script)(&gt;)/gi, (m, o, tag, rest, body, co, ctag, ce) => {
+      return `${o}<span class="hl-tag">${tag}</span>${highlightAttrs(rest)}${highlightJS(body)}${co}<span class="hl-tag">${ctag}</span>${ce}`
+    })
+    // Opening tags with attributes
+    .replace(/(&lt;)(\/?)([a-zA-Z][a-zA-Z0-9-]*)((?:\s+[^&]*?)?)(\/?)(&gt;)/g, (m, open, slash, tag, attrs, selfClose, close) => {
+      return `${open}${slash}<span class="hl-tag">${tag}</span>${highlightAttrs(attrs)}${selfClose}${close}`
+    })
+}
+
+function highlightAttrs(str) {
+  if (!str) return ''
+  return str
+    // class="..." → highlight class name values specially
+    .replace(/(class)=(["'])(.*?)\2/g, '<span class="hl-attr">$1</span>=<span class="hl-str">$2<span class="hl-cls">$3</span>$2</span>')
+    // other-attr="value"
+    .replace(/([a-zA-Z_:@][a-zA-Z0-9_.:-]*)=(["'])(.*?)\2/g, '<span class="hl-attr">$1</span>=<span class="hl-str">$2$3$2</span>')
+    // boolean attrs (disabled, checked, etc)
+    .replace(/\s(disabled|checked|required|readonly|hidden|open)\b/g, ' <span class="hl-attr">$1</span>')
+}
+
+function highlightJS(code) {
+  if (!code || !code.trim()) return code
+  return code
+    .replace(/\b(const|let|var|function|return|if|else|for|while|new|this|class|import|export|from|of|in|async|await|true|false|null|undefined)\b/g, '<span class="hl-kw">$1</span>')
+    .replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="hl-num">$1</span>')
+    .replace(/(["'`])((?:(?!\1).)*?)\1/g, '<span class="hl-str">$1$2$1</span>')
+    .replace(/\/\/.*/g, '<span class="hl-cmt">$&</span>')
+    .replace(/(\.\w+)\(/g, '<span class="hl-fn">$1</span>(')
+}
+
+// Apply highlighting to all code blocks after render
+function highlightAllCode() {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('code-example').forEach(ce => {
+      const codeEl = ce.querySelector('pre code')
+      if (codeEl && !codeEl._highlighted) {
+        codeEl.innerHTML = highlightHTML(codeEl.innerHTML)
+        codeEl._highlighted = true
+      }
+    })
+  })
+}
+
+// Observe DOM for code-example renders, then highlight
+const hlObserver = new MutationObserver(highlightAllCode)
+hlObserver.observe(document.querySelector('.doc-main'), { childList: true, subtree: true })
+// Also run once after initial render
+setTimeout(highlightAllCode, 200)
 
 // Dark mode toggle
 document.getElementById('theme-toggle').addEventListener('change', function() {
