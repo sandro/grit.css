@@ -560,14 +560,14 @@ button {
   margin-right: auto;
 }
 
-.navbar a {
+.navbar a:not(.btn) {
   text-decoration: none;
   color: var(--grit-muted);
   transition: color var(--grit-transition);
   font-weight: 450;
 }
 
-.navbar a:hover {
+.navbar a:not(.btn):hover {
   color: var(--grit-text);
   text-decoration: none;
 }
