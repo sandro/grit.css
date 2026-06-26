@@ -457,6 +457,7 @@
     <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
   <div class="navbar-menu">
+    <a href="#navbar">Navbar</a>
     <a href="#typography">Typography</a>
     <a href="#buttons">Buttons</a>
     <a href="#cards">Components</a>
@@ -492,6 +493,96 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
   <div class="container text-center" style="padding: 5rem 1rem; position: relative; z-index: 1;">
     <h1>grit.css</h1>
     <p>A complete component library in one CSS file. No build step. No JavaScript. Just HTML.</p>
+  </div>
+</div>
+
+<!-- 00 — Navbar -->
+<div class="section-wrap">
+  <div class="container col gap-xl pad-lg">
+    <section id="navbar">
+      <p class="section-label">00 — Navbar</p>
+      <h2>Responsive Navbar</h2>
+      <p>A sticky navigation bar with a hamburger toggle for mobile. On wide screens, links display inline. On narrow screens, a ☰ button reveals a collapsible menu. The hamburger animates into an ✕ when open — pure CSS transitions, no library needed.</p>
+
+      <h3>Structure</h3>
+      <p class="text-sm text-muted" style="margin-bottom: 1rem;">The navbar has three parts: a <code>.brand</code> link, a <code>.navbar-toggle</code> button (the hamburger), and a <code>.navbar-menu</code> wrapper around the links. On mobile, the menu collapses and the toggle appears.</p>
+
+      <div class="card" style="overflow: hidden;">
+        <nav class="navbar" style="position: relative; top: auto; border-radius: 16px 16px 0 0;">
+          <a href="#" class="brand">MyApp</a>
+          <button class="navbar-toggle navbar-demo-toggle" aria-label="Menu" aria-expanded="false">
+            <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="navbar-menu">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+          </div>
+        </nav>
+        <div class="card-body" style="background: var(--grit-surface);">
+          <pre style="margin: 0; font-size: 0.8125rem; line-height: 1.6;"><code>&lt;nav class="navbar"&gt;
+  &lt;a href="#" class="brand"&gt;MyApp&lt;/a&gt;
+  &lt;button class="navbar-toggle" aria-label="Menu" aria-expanded="false"&gt;
+    &lt;svg viewBox="0 0 24 24"&gt;
+      &lt;line class="bar-top" x1="3" y1="6" x2="21" y2="6"/&gt;
+      &lt;line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/&gt;
+      &lt;line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;div class="navbar-menu"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;Features&lt;/a&gt;
+    &lt;a href="#"&gt;Pricing&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem;">JavaScript (required)</h3>
+      <p class="text-sm text-muted" style="margin-bottom: 1rem;">The CSS handles all the animation and layout. You just need this tiny script to toggle the <code>.open</code> class and update <code>aria-expanded</code>.</p>
+      <div class="card">
+        <div class="card-body" style="background: var(--grit-surface);">
+          <pre style="margin: 0; font-size: 0.8125rem; line-height: 1.6;"><code>document.querySelectorAll('.navbar-toggle').forEach(btn => {
+  const menu = btn.nextElementSibling;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  // Auto-close when a link is tapped
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+});</code></pre>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem;">Features</h3>
+      <div class="grid grid-3 gap-md">
+        <div class="card">
+          <div class="card-body text-center">
+            <p class="text-2xl" style="margin-bottom: 0.25rem;">☰ → ✕</p>
+            <p class="text-sm text-muted" style="margin: 0;">Animated hamburger icon morphs to close icon via CSS transforms</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body text-center">
+            <p class="text-2xl" style="margin-bottom: 0.25rem;">📱</p>
+            <p class="text-sm text-muted" style="margin: 0;">Collapses to vertical menu on screens ≤768px, inline on desktop</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body text-center">
+            <p class="text-2xl" style="margin-bottom: 0.25rem;">♿</p>
+            <p class="text-sm text-muted" style="margin: 0;">Uses <code>aria-expanded</code> and <code>aria-label</code> for screen readers</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
 
@@ -1288,6 +1379,15 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <script>
+  // Demo navbar toggle (for the embedded example)
+  document.querySelectorAll('.navbar-demo-toggle').forEach(btn => {
+    const menu = btn.nextElementSibling;
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+
   // Dark mode toggle
   document.querySelector('#theme-toggle').addEventListener('change', function() {
     document.documentElement.classList.toggle('dark', this.checked);
