@@ -96,6 +96,44 @@
 
     @media (max-width: 768px) {
       .sidebar { display: none; }
+
+      .doc-layout {
+        padding: 0 0.75rem;
+      }
+
+      .doc-main {
+        padding: 1.25rem 0;
+      }
+
+      .doc-section + .doc-section {
+        margin-top: 2rem;
+        padding-top: 2rem;
+      }
+
+      .doc-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .doc-section h3 {
+        font-size: 0.9375rem;
+      }
+
+      .spacing-table {
+        font-size: 0.8125rem;
+      }
+
+      .spacing-table th,
+      .spacing-table td {
+        padding: 0.375rem 0.5rem;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      pre {
+        font-size: 0.75rem !important;
+      }
     }
 
     /* Syntax highlighting */
@@ -433,7 +471,7 @@ class CodeExample extends CoupElement {
           </button>
         </div>
         ${this.showCode ? html`
-          <pre style="margin: 0; border: none; border-radius: 0; font-size: 0.8125rem; line-height: 1.6; padding: 1rem 1.25rem; background: var(--grit-surface);"><code>${source}</code></pre>
+          <pre style="margin: 0; border: none; border-radius: 0; font-size: 0.8125rem; line-height: 1.6; padding: 1rem 1.25rem; background: var(--grit-surface); overflow-x: auto; -webkit-overflow-scrolling: touch;"><code>${source}</code></pre>
         ` : nothing}
       </div>
     `

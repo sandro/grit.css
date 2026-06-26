@@ -159,6 +159,35 @@
       .color-palette-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .ks-hero h1 {
+        font-size: 2.25rem;
+      }
+      .ks-hero p {
+        font-size: 1rem;
+      }
+      .ks-hero .container {
+        padding: 3rem 1rem !important;
+      }
+
+      .section-wrap {
+        padding: 2.5rem 0;
+      }
+
+      .section-wrap .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      /* Prevent horizontal overflow */
+      body {
+        overflow-x: hidden;
+      }
+
+      /* Composition grids stack on mobile */
+      .grid.grid-3 {
+        grid-template-columns: 1fr;
+      }
     }
     .color-swatch-card {
       transition: transform 200ms ease, box-shadow 200ms ease;
@@ -807,6 +836,7 @@ console.log(greet("world"));</code></pre>
     <section id="tables">
       <p class="section-label">16 — Tables</p>
       <h2>Tables</h2>
+      <div class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -855,6 +885,7 @@ console.log(greet("world"));</code></pre>
           </tr>
         </tbody>
       </table>
+      </div>
     </section>
   </div>
 </div>

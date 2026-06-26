@@ -362,6 +362,26 @@
     .stat-icon {
       flex-shrink: 0;
     }
+
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .welcome-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .stat-card {
+        padding: 1rem !important;
+      }
+
+      .stat-card .text-2xl {
+        font-size: 1.25rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -475,6 +495,7 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
           <h3 class="card-title">Recent Orders</h3>
           <button class="btn btn-ghost btn-sm btn-view-all">View All →</button>
         </div>
+        <div class="table-responsive">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
@@ -530,6 +551,7 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
 

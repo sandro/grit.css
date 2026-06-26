@@ -764,6 +764,13 @@ dialog.modal[open] {
   display: flex;
   border-bottom: 2px solid var(--grit-border);
   gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tab {
@@ -781,6 +788,8 @@ dialog.modal[open] {
   border-right: none;
   font-family: inherit;
   font-size: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tab:hover {
@@ -912,6 +921,9 @@ dialog.modal[open] {
   font-size: 0.75rem;
   border-radius: var(--grit-radius-sm);
   white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--grit-transition);
@@ -1238,6 +1250,24 @@ dialog.modal[open] {
   .span-2,
   .span-3 {
     grid-column: span 1;
+  }
+
+  /* Smaller headings on mobile */
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+
+  /* Container less padding on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Table scroll wrapper auto-applied on mobile */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1rem;
+    padding: 0 1rem;
   }
 }
 
