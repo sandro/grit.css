@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grit.css — Documentation</title>
+  <link rel="stylesheet" href="../grit.css">
+  <style>
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.85);
+    }
+    .dark .navbar {
+      background: rgba(22, 22, 24, 0.85);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 4rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 5rem);
+      overflow-y: auto;
+      min-width: 200px;
+      padding: 1.5rem 0;
+    }
+    .sidebar a {
+      display: block;
+      padding: 0.3rem 1rem;
+      font-size: 0.875rem;
+      color: var(--grit-muted);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: all var(--grit-transition);
+    }
+    .sidebar a:hover {
+      color: var(--grit-text);
+      text-decoration: none;
+    }
+    .sidebar a.active {
+      color: var(--grit-primary);
+      border-left-color: var(--grit-primary);
+      font-weight: 500;
+    }
+    .sidebar .sidebar-heading {
+      padding: 0.5rem 1rem 0.25rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grit-muted);
+    }
+
+    .doc-section {
+      scroll-margin-top: 5rem;
+    }
+    .doc-section + .doc-section {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--grit-border);
+    }
+    .doc-section > h2 {
+      margin-bottom: 0.25rem;
+    }
+    .doc-section > .doc-desc {
+      color: var(--grit-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .theme-toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 450;
+      color: var(--grit-muted);
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    /* Main layout */
+    .doc-layout {
+      display: flex;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .doc-main {
+      flex: 1;
+      min-width: 0;
+      padding: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="kitchen-sink.html" class="brand">grit.css</a>
+  <a href="kitchen-sink.html">Kitchen Sink</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="landing.html">Landing</a>
+  <a href="docs.html" style="color: var(--grit-text); font-weight: 600;">Docs</a>
+  <div class="grow"></div>
+  <label class="theme-toggle-label">
+    <input type="checkbox" class="toggle" id="theme-toggle">
+    <span class="hide-mobile">Dark Mode</span>
+  </label>
+</nav>
+
+<div class="doc-layout">
+  <!-- Sidebar Nav -->
+  <nav class="sidebar hide-mobile">
+    <div class="sidebar-heading">Getting Started</div>
+    <a href="#installation">Installation</a>
+    <a href="#usage">Usage</a>
+    <a href="#dark-mode">Dark Mode</a>
+    <a href="#themes">Themes</a>
+    <div class="sidebar-heading">Components</div>
+    <a href="#buttons">Buttons</a>
+    <a href="#cards">Cards</a>
+    <a href="#badges">Badges</a>
+    <a href="#alerts">Alerts</a>
+    <a href="#tabs">Tabs</a>
+    <a href="#toggles">Toggles</a>
+    <a href="#dropdown">Dropdown</a>
+    <a href="#modal">Modal</a>
+    <a href="#progress">Progress</a>
+    <a href="#avatars">Avatars</a>
+    <a href="#tooltips">Tooltips</a>
+    <div class="sidebar-heading">Forms</div>
+    <a href="#inputs">Inputs</a>
+    <a href="#input-groups">Input Groups</a>
+    <div class="sidebar-heading">Layout</div>
+    <a href="#container">Container</a>
+    <a href="#grid">Grid</a>
+    <a href="#flex">Flex Utilities</a>
+    <a href="#spacing">Spacing</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="doc-main">
+
+    <!-- Installation -->
+    <section class="doc-section" id="installation">
+      <h2>Installation</h2>
+      <p class="doc-desc">Drop a single CSS file into your project. No build step, no JavaScript, no dependencies.</p>
+    </section>
+
+    <!-- Usage -->
+    <section class="doc-section" id="usage">
+      <h2>Usage</h2>
+      <p class="doc-desc">Link the stylesheet and write semantic HTML. Most elements look great with zero classes.</p>
+    </section>
+
+    <!-- Dark Mode -->
+    <section class="doc-section" id="dark-mode">
+      <h2>Dark Mode</h2>
+      <p class="doc-desc">Automatic via <code>prefers-color-scheme: dark</code>, or toggle manually with a <code>.dark</code> class on <code>&lt;html&gt;</code>.</p>
+    </section>
+
+    <!-- Themes -->
+    <section class="doc-section" id="themes">
+      <h2>Themes</h2>
+      <p class="doc-desc">Apply a theme class to any container to restyle everything inside it.</p>
+    </section>
+
+    <!-- Buttons -->
+    <section class="doc-section" id="buttons">
+      <h2>Buttons</h2>
+      <p class="doc-desc">Buttons come in color variants, outline/ghost styles, and multiple sizes. Combine classes freely.</p>
+    </section>
+
+    <!-- Cards -->
+    <section class="doc-section" id="cards">
+      <h2>Cards</h2>
+      <p class="doc-desc">Flexible content containers with optional image, body, title, and action areas.</p>
+    </section>
+
+    <!-- Badges -->
+    <section class="doc-section" id="badges">
+      <h2>Badges</h2>
+      <p class="doc-desc">Small status indicators in every color variant, with outline and size options.</p>
+    </section>
+
+    <!-- Alerts -->
+    <section class="doc-section" id="alerts">
+      <h2>Alerts</h2>
+      <p class="doc-desc">Contextual feedback messages with colored left borders.</p>
+    </section>
+
+    <!-- Tabs -->
+    <section class="doc-section" id="tabs">
+      <h2>Tabs</h2>
+      <p class="doc-desc">Navigation tabs with an active state indicator. Add <code>.tab-active</code> to the current tab.</p>
+    </section>
+
+    <!-- Toggles -->
+    <section class="doc-section" id="toggles">
+      <h2>Toggles</h2>
+      <p class="doc-desc">iOS-style toggle switches built on native checkboxes. Zero JavaScript required.</p>
+    </section>
+
+    <!-- Dropdown -->
+    <section class="doc-section" id="dropdown">
+      <h2>Dropdown</h2>
+      <p class="doc-desc">Dropdown menus using native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>. No JS needed.</p>
+    </section>
+
+    <!-- Modal -->
+    <section class="doc-section" id="modal">
+      <h2>Modal</h2>
+      <p class="doc-desc">Modal dialogs using the native <code>&lt;dialog&gt;</code> element with backdrop blur.</p>
+    </section>
+
+    <!-- Progress -->
+    <section class="doc-section" id="progress">
+      <h2>Progress</h2>
+      <p class="doc-desc">Simple progress bars with color variants for different states.</p>
+    </section>
+
+    <!-- Avatars -->
+    <section class="doc-section" id="avatars">
+      <h2>Avatars</h2>
+      <p class="doc-desc">Circular image avatars in four sizes: sm, default, lg, and xl.</p>
+    </section>
+
+    <!-- Tooltips -->
+    <section class="doc-section" id="tooltips">
+      <h2>Tooltips</h2>
+      <p class="doc-desc">Pure-CSS tooltips via <code>data-tooltip</code> attribute. No JavaScript.</p>
+    </section>
+
+    <!-- Inputs -->
+    <section class="doc-section" id="inputs">
+      <h2>Inputs</h2>
+      <p class="doc-desc">Text inputs, selects, textareas, and labels with focus ring styling.</p>
+    </section>
+
+    <!-- Input Groups -->
+    <section class="doc-section" id="input-groups">
+      <h2>Input Groups</h2>
+      <p class="doc-desc">Combine inputs with prefix/suffix text or icons.</p>
+    </section>
+
+    <!-- Container -->
+    <section class="doc-section" id="container">
+      <h2>Container</h2>
+      <p class="doc-desc">Centered max-width container (1200px) with horizontal padding.</p>
+    </section>
+
+    <!-- Grid -->
+    <section class="doc-section" id="grid">
+      <h2>Grid</h2>
+      <p class="doc-desc">CSS Grid utilities for 2, 3, 4, and auto-fit column layouts. Responsive by default.</p>
+    </section>
+
+    <!-- Flex -->
+    <section class="doc-section" id="flex">
+      <h2>Flex Utilities</h2>
+      <p class="doc-desc">Row, column, alignment, and distribution helpers for flexbox layouts.</p>
+    </section>
+
+    <!-- Spacing -->
+    <section class="doc-section" id="spacing">
+      <h2>Spacing</h2>
+      <p class="doc-desc">Gap and padding utilities in five sizes: xs, sm, md, lg, xl.</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- Load coup for interactive code examples -->
+<script type="module">
+import { CoupElement, html, nothing } from '../coup.bundle.js'
+
+// ============================================================
+// <code-example> — live preview + source with copy button
+// ============================================================
+class CodeExample extends CoupElement {
+  static tag = 'code-example'
+  static props = { source: String, previewHtml: String }
+  static state = { copied: false, showCode: true }
+
+  _copy() {
+    if (this.source) {
+      navigator.clipboard.writeText(this.source).then(() => {
+        this.copied = true
+        setTimeout(() => { this.copied = false }, 2000)
+      })
+    }
+  }
+
+  template() {
+    const hasPreview = this.previewHtml && this.previewHtml.trim()
+    const source = this.source || ''
+    return html`
+      <div style="border: 1px solid var(--grit-border); border-radius: var(--grit-radius-lg); overflow: hidden; margin-bottom: 1.5rem;">
+        ${hasPreview ? html`
+          <div style="padding: 1.5rem; background: var(--grit-bg);"></div>
+        ` : nothing}
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.375rem 0.75rem; background: var(--grit-surface); border-top: ${hasPreview ? '1px solid var(--grit-border)' : 'none'}; border-bottom: ${this.showCode ? '1px solid var(--grit-border)' : 'none'};">
+          <button class="btn btn-ghost btn-sm" @click=${() => { this.showCode = !this.showCode }}
+            style="font-size: 0.75rem; padding: 0.2rem 0.5rem;">
+            ${this.showCode ? '▾ Hide Code' : '▸ Show Code'}
+          </button>
+          <button class="btn btn-ghost btn-sm" @click=${() => this._copy()}
+            style="font-size: 0.75rem; padding: 0.2rem 0.5rem;">
+            ${this.copied ? '✓ Copied!' : 'Copy'}
+          </button>
+        </div>
+        ${this.showCode ? html`
+          <pre style="margin: 0; border: none; border-radius: 0; font-size: 0.8125rem; line-height: 1.6; padding: 1rem 1.25rem; background: var(--grit-surface);"><code>${source}</code></pre>
+        ` : nothing}
+      </div>
+    `
+  }
+
+  updated() {
+    // Inject preview HTML into the preview div (raw HTML, not escaped)
+    if (this.previewHtml) {
+      const previewDiv = this.querySelector('div > div:first-child')
+      if (previewDiv && !previewDiv._injected) {
+        previewDiv.innerHTML = this.previewHtml
+        previewDiv._injected = true
+      }
+    }
+  }
+}
+CodeExample.define()
+
+
+// ============================================================
+// Example data for each section
+// ============================================================
+
+const examples = {
+  installation: {
+    desc: null,
+    examples: [{
+      title: 'CDN / Download',
+      code: `<link rel="stylesheet" href="grit.css">`
+    }, {
+      title: 'npm',
+      code: `npm install grit-css`
+    }]
+  },
+
+  usage: {
+    desc: null,
+    examples: [{
+      code: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="grit.css">
+</head>
+<body>
+  <h1>Hello, grit.</h1>
+  <p>Semantic HTML looks great out of the box.</p>
+  <button class="btn btn-primary">Get Started</button>
+</body>
+</html>`
+    }]
+  },
+
+  'dark-mode': {
+    examples: [{
+      title: 'Automatic (system preference)',
+      code: `<!-- Works automatically via prefers-color-scheme -->
+<link rel="stylesheet" href="grit.css">`
+    }, {
+      title: 'Manual toggle',
+      code: `<!-- Add .dark class to <html> -->
+<html class="dark">
+
+<!-- Or toggle it with JS -->
+<script>
+  document.documentElement.classList.toggle('dark')
+<\/script>`,
+    }, {
+      title: 'Force light mode',
+      code: `<!-- Override system dark mode -->
+<html class="light">`
+    }]
+  },
+
+  themes: {
+    examples: [{
+      title: null,
+      html: `<div class="grid grid-3 gap-lg">
+        <div class="theme-midnight pad-lg rounded" style="border: 1px solid var(--grit-border);">
+          <h4 style="margin-bottom: 0.25rem;">Midnight</h4>
+          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Dark blue theme</p>
+          <div class="row gap-sm wrap">
+            <button class="btn btn-primary btn-sm">Button</button>
+            <span class="badge badge-primary">Badge</span>
+          </div>
+        </div>
+        <div class="theme-forest pad-lg rounded" style="border: 1px solid var(--grit-border);">
+          <h4 style="margin-bottom: 0.25rem;">Forest</h4>
+          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Natural green theme</p>
+          <div class="row gap-sm wrap">
+            <button class="btn btn-primary btn-sm">Button</button>
+            <span class="badge badge-primary">Badge</span>
+          </div>
+        </div>
+        <div class="theme-rose pad-lg rounded" style="border: 1px solid var(--grit-border);">
+          <h4 style="margin-bottom: 0.25rem;">Rose</h4>
+          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Warm pink theme</p>
+          <div class="row gap-sm wrap">
+            <button class="btn btn-primary btn-sm">Button</button>
+            <span class="badge badge-primary">Badge</span>
+          </div>
+        </div>
+      </div>`,
+      code: `<!-- Apply theme class to any container -->
+<div class="theme-midnight">
+  <button class="btn btn-primary">Themed</button>
+</div>
+
+<div class="theme-forest">...</div>
+<div class="theme-rose">...</div>`
+    }]
+  },
+
+  buttons: {
+    examples: [{
+      title: 'Color Variants',
+      html: `<div class="row wrap gap-sm">
+        <button class="btn">Default</button>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-accent">Accent</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-error">Error</button>
+        <button class="btn btn-info">Info</button>
+      </div>`,
+      code: `<button class="btn">Default</button>
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-accent">Accent</button>
+<button class="btn btn-success">Success</button>
+<button class="btn btn-warning">Warning</button>
+<button class="btn btn-error">Error</button>
+<button class="btn btn-info">Info</button>`
+    }, {
+      title: 'Styles & Sizes',
+      html: `<div class="row wrap gap-sm">
+        <button class="btn btn-outline btn-primary">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-primary btn-pill">Pill</button>
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+        <button class="btn btn-primary" disabled>Disabled</button>
+      </div>`,
+      code: `<button class="btn btn-outline btn-primary">Outline</button>
+<button class="btn btn-ghost">Ghost</button>
+<button class="btn btn-primary btn-pill">Pill</button>
+<button class="btn btn-primary btn-sm">Small</button>
+<button class="btn btn-primary btn-lg">Large</button>
+<button class="btn btn-primary" disabled>Disabled</button>`
+    }, {
+      title: 'Block Button',
+      html: `<button class="btn btn-primary btn-block">Full Width Block Button</button>`,
+      code: `<button class="btn btn-primary btn-block">Full Width</button>`
+    }]
+  },
+
+  cards: {
+    examples: [{
+      title: 'Basic Card',
+      html: `<div style="max-width: 360px;">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Weekly Report</h3>
+            <p>Revenue is up 12% this quarter. Customer satisfaction scores hit an all-time high.</p>
+            <div class="card-actions">
+              <button class="btn btn-sm">View Details</button>
+              <button class="btn btn-ghost btn-sm">Dismiss</button>
+            </div>
+          </div>
+        </div>
+      </div>`,
+      code: `<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">Weekly Report</h3>
+    <p>Revenue is up 12% this quarter.</p>
+    <div class="card-actions">
+      <button class="btn btn-sm">View Details</button>
+      <button class="btn btn-ghost btn-sm">Dismiss</button>
+    </div>
+  </div>
+</div>`
+    }, {
+      title: 'Card with Image',
+      html: `<div style="max-width: 360px;">
+        <div class="card">
+          <img src="https://picsum.photos/400/200?random=2" alt="Landscape">
+          <div class="card-body">
+            <h3 class="card-title">Mountain Retreat</h3>
+            <p>Escape to the mountains for stunning views.</p>
+            <div class="card-actions">
+              <button class="btn btn-primary btn-sm">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>`,
+      code: `<div class="card">
+  <img src="photo.jpg" alt="Landscape">
+  <div class="card-body">
+    <h3 class="card-title">Mountain Retreat</h3>
+    <p>Escape to the mountains.</p>
+    <div class="card-actions">
+      <button class="btn btn-primary btn-sm">Book Now</button>
+    </div>
+  </div>
+</div>`
+    }]
+  },
+
+  badges: {
+    examples: [{
+      html: `<div class="row wrap gap-sm">
+        <span class="badge">Default</span>
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-accent">Accent</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-error">Error</span>
+        <span class="badge badge-info">Info</span>
+      </div>`,
+      code: `<span class="badge">Default</span>
+<span class="badge badge-primary">Primary</span>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-error">Error</span>`
+    }, {
+      title: 'Outline & Sizes',
+      html: `<div class="row wrap gap-sm">
+        <span class="badge badge-outline badge-primary">Outline</span>
+        <span class="badge badge-outline badge-success">Success</span>
+        <span class="badge badge-primary badge-lg">Large</span>
+      </div>`,
+      code: `<span class="badge badge-outline badge-primary">Outline</span>
+<span class="badge badge-primary badge-lg">Large</span>`
+    }]
+  },
+
+  alerts: {
+    examples: [{
+      html: `<div class="col gap-sm">
+        <div class="alert alert-info">Your trial expires in 3 days.</div>
+        <div class="alert alert-success">Payment received — $49.00.</div>
+        <div class="alert alert-warning">API rate limit at 80%.</div>
+        <div class="alert alert-error">Failed to deploy build #347.</div>
+      </div>`,
+      code: `<div class="alert alert-info">Info message</div>
+<div class="alert alert-success">Success message</div>
+<div class="alert alert-warning">Warning message</div>
+<div class="alert alert-error">Error message</div>`
+    }]
+  },
+
+  tabs: {
+    examples: [{
+      html: `<div class="tabs">
+        <button class="tab tab-active">Overview</button>
+        <button class="tab">Analytics</button>
+        <button class="tab">Settings</button>
+        <button class="tab">Billing</button>
+      </div>`,
+      code: `<div class="tabs">
+  <button class="tab tab-active">Overview</button>
+  <button class="tab">Analytics</button>
+  <button class="tab">Settings</button>
+</div>`
+    }]
+  },
+
+  toggles: {
+    examples: [{
+      html: `<div class="col gap-sm">
+        <label class="row gap-sm">
+          <input type="checkbox" class="toggle" checked>
+          <span>Dark mode</span>
+        </label>
+        <label class="row gap-sm">
+          <input type="checkbox" class="toggle">
+          <span>Email notifications</span>
+        </label>
+      </div>`,
+      code: `<label class="row gap-sm">
+  <input type="checkbox" class="toggle" checked>
+  <span>Dark mode</span>
+</label>`
+    }]
+  },
+
+  dropdown: {
+    examples: [{
+      html: `<details class="dropdown">
+        <summary class="btn">Options ▾</summary>
+        <div class="dropdown-menu">
+          <a href="#">Edit Profile</a>
+          <a href="#">Account Settings</a>
+          <hr>
+          <a href="#">Sign Out</a>
+        </div>
+      </details>`,
+      code: `<details class="dropdown">
+  <summary class="btn">Options ▾</summary>
+  <div class="dropdown-menu">
+    <a href="#">Edit Profile</a>
+    <a href="#">Account Settings</a>
+    <hr>
+    <a href="#">Sign Out</a>
+  </div>
+</details>`
+    }]
+  },
+
+  modal: {
+    examples: [{
+      html: `<button class="btn btn-primary" onclick="this.parentElement.querySelector('dialog').showModal()">Open Modal</button>
+      <dialog class="modal">
+        <div class="modal-body">
+          <h3 class="modal-title">Delete Project?</h3>
+          <p>This will permanently delete "acme-app" and all associated data.</p>
+          <div class="modal-actions">
+            <button class="btn btn-ghost" onclick="this.closest('dialog').close()">Cancel</button>
+            <button class="btn btn-error" onclick="this.closest('dialog').close()">Delete</button>
+          </div>
+        </div>
+      </dialog>`,
+      code: `<button class="btn btn-primary"
+  onclick="document.getElementById('my-modal').showModal()">
+  Open Modal
+</button>
+
+<dialog class="modal" id="my-modal">
+  <div class="modal-body">
+    <h3 class="modal-title">Delete Project?</h3>
+    <p>This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost"
+        onclick="this.closest('dialog').close()">Cancel</button>
+      <button class="btn btn-error"
+        onclick="this.closest('dialog').close()">Delete</button>
+    </div>
+  </div>
+</dialog>`
+    }]
+  },
+
+  progress: {
+    examples: [{
+      html: `<div class="col gap-md" style="max-width: 400px;">
+        <div>
+          <small class="text-muted">Storage — 45%</small>
+          <div class="progress"><div class="progress-bar" style="width: 45%"></div></div>
+        </div>
+        <div>
+          <small class="text-success">Build — Complete</small>
+          <div class="progress"><div class="progress-bar progress-bar-success" style="width: 100%"></div></div>
+        </div>
+        <div>
+          <small class="text-warning">Memory — 72%</small>
+          <div class="progress"><div class="progress-bar progress-bar-warning" style="width: 72%"></div></div>
+        </div>
+        <div>
+          <small class="text-error">Disk — 91%</small>
+          <div class="progress"><div class="progress-bar progress-bar-error" style="width: 91%"></div></div>
+        </div>
+      </div>`,
+      code: `<div class="progress">
+  <div class="progress-bar" style="width: 45%"></div>
+</div>
+
+<!-- Color variants -->
+<div class="progress-bar progress-bar-success">
+<div class="progress-bar progress-bar-warning">
+<div class="progress-bar progress-bar-error">`
+    }]
+  },
+
+  avatars: {
+    examples: [{
+      html: `<div class="row gap-md">
+        <img src="https://i.pravatar.cc/24?u=x" alt="avatar" class="avatar avatar-sm">
+        <img src="https://i.pravatar.cc/40?u=y" alt="avatar" class="avatar">
+        <img src="https://i.pravatar.cc/56?u=z" alt="avatar" class="avatar avatar-lg">
+        <img src="https://i.pravatar.cc/80?u=w" alt="avatar" class="avatar avatar-xl">
+      </div>`,
+      code: `<img src="avatar.jpg" class="avatar avatar-sm">  <!-- 2rem -->
+<img src="avatar.jpg" class="avatar">             <!-- 2.5rem -->
+<img src="avatar.jpg" class="avatar avatar-lg">   <!-- 3.5rem -->
+<img src="avatar.jpg" class="avatar avatar-xl">   <!-- 5rem -->`
+    }]
+  },
+
+  tooltips: {
+    examples: [{
+      html: `<div class="row gap-lg">
+        <button class="btn" data-tooltip="Save your changes">Hover me</button>
+        <button class="btn btn-primary" data-tooltip="Deploy to production">Deploy</button>
+        <span data-tooltip="Pure CSS, no JS needed">Hover this text</span>
+      </div>`,
+      code: `<button class="btn" data-tooltip="Save your changes">
+  Hover me
+</button>`
+    }]
+  },
+
+  inputs: {
+    examples: [{
+      html: `<div class="col gap-md" style="max-width: 360px;">
+        <div class="col gap-xs">
+          <label>Email</label>
+          <input type="email" placeholder="jane@example.com">
+        </div>
+        <div class="col gap-xs">
+          <label>Role</label>
+          <select>
+            <option>Viewer</option>
+            <option>Editor</option>
+            <option>Admin</option>
+          </select>
+        </div>
+        <div class="col gap-xs">
+          <label>Bio</label>
+          <textarea rows="3" placeholder="Tell us about yourself..."></textarea>
+        </div>
+      </div>`,
+      code: `<div class="col gap-xs">
+  <label>Email</label>
+  <input type="email" placeholder="jane@example.com">
+</div>
+
+<div class="col gap-xs">
+  <label>Role</label>
+  <select>
+    <option>Viewer</option>
+    <option>Editor</option>
+  </select>
+</div>
+
+<div class="col gap-xs">
+  <label>Bio</label>
+  <textarea rows="3" placeholder="..."></textarea>
+</div>`
+    }]
+  },
+
+  'input-groups': {
+    examples: [{
+      html: `<div class="col gap-md" style="max-width: 360px;">
+        <div class="input-group">
+          <span class="input-group-text">@</span>
+          <input type="text" placeholder="username">
+        </div>
+        <div class="input-group">
+          <input type="text" placeholder="Search...">
+          <span class="input-group-text">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+        </div>
+      </div>`,
+      code: `<div class="input-group">
+  <span class="input-group-text">@</span>
+  <input type="text" placeholder="username">
+</div>`
+    }]
+  },
+
+  container: {
+    examples: [{
+      code: `<!-- Centered, max-width 1200px, with padding -->
+<div class="container">
+  <h1>Content goes here</h1>
+</div>`
+    }]
+  },
+
+  grid: {
+    examples: [{
+      title: 'Grid Columns',
+      html: `<div class="col gap-md">
+        <div class="grid grid-2 gap-sm">
+          <div style="background: var(--grit-primary); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">1</div>
+          <div style="background: var(--grit-primary); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">2</div>
+        </div>
+        <div class="grid grid-3 gap-sm">
+          <div style="background: var(--grit-secondary); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">1</div>
+          <div style="background: var(--grit-secondary); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">2</div>
+          <div style="background: var(--grit-secondary); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">3</div>
+        </div>
+        <div class="grid grid-4 gap-sm">
+          <div style="background: var(--grit-accent); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">1</div>
+          <div style="background: var(--grit-accent); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">2</div>
+          <div style="background: var(--grit-accent); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">3</div>
+          <div style="background: var(--grit-accent); color: white; padding: 0.75rem; border-radius: var(--grit-radius); text-align: center;">4</div>
+        </div>
+      </div>`,
+      code: `<div class="grid grid-2 gap-sm">...</div>
+<div class="grid grid-3 gap-sm">...</div>
+<div class="grid grid-4 gap-sm">...</div>
+<div class="grid grid-auto gap-sm">...</div>
+
+<!-- Responsive: collapses to 1 column on mobile -->
+<!-- Span columns -->
+<div class="span-2">I span 2 columns</div>
+<div class="span-full">I span all columns</div>`
+    }]
+  },
+
+  flex: {
+    examples: [{
+      html: `<div class="col gap-sm">
+        <div class="row between pad" style="background: var(--grit-surface-2); border-radius: var(--grit-radius);">
+          <span class="font-bold">Left</span>
+          <span class="font-bold">Center</span>
+          <span class="font-bold">Right</span>
+        </div>
+        <div class="row center pad" style="background: var(--grit-surface-2); border-radius: var(--grit-radius);">
+          <button class="btn btn-primary btn-sm">Centered</button>
+        </div>
+      </div>`,
+      code: `<div class="row between">...</div>  <!-- space-between -->
+<div class="row center">...</div>   <!-- center -->
+<div class="row end">...</div>      <!-- flex-end -->
+<div class="col gap-md">...</div>   <!-- column + gap -->
+<div class="row wrap">...</div>     <!-- flex-wrap -->
+<div class="grow">...</div>         <!-- flex: 1 -->`
+    }]
+  },
+
+  spacing: {
+    examples: [{
+      code: `<!-- Gap (on flex/grid containers) -->
+<div class="row gap-xs">...</div>   <!-- 0.25rem -->
+<div class="row gap-sm">...</div>   <!-- 0.5rem -->
+<div class="row gap-md">...</div>   <!-- 1rem -->
+<div class="row gap-lg">...</div>   <!-- 1.5rem -->
+<div class="row gap-xl">...</div>   <!-- 2rem -->
+
+<!-- Padding -->
+<div class="pad-sm">...</div>       <!-- 0.5rem -->
+<div class="pad">...</div>          <!-- 1rem -->
+<div class="pad-lg">...</div>       <!-- 2rem -->
+<div class="pad-xl">...</div>       <!-- 3rem -->`
+    }]
+  },
+}
+
+// Render all examples into their sections
+for (const [id, section] of Object.entries(examples)) {
+  const el = document.getElementById(id)
+  if (!el) continue
+
+  for (const ex of section.examples) {
+    if (ex.title) {
+      const h3 = document.createElement('h3')
+      h3.textContent = ex.title
+      h3.style.fontSize = '1rem'
+      h3.style.marginTop = '1.5rem'
+      h3.style.marginBottom = '0.75rem'
+      el.appendChild(h3)
+    }
+
+    const ce = document.createElement('code-example')
+    // Set props BEFORE appending to DOM
+    ce.source = ex.code || ''
+    ce.previewHtml = ex.html || ''
+    el.appendChild(ce)
+  }
+}
+
+// Dark mode toggle
+document.getElementById('theme-toggle').addEventListener('change', function() {
+  document.documentElement.classList.toggle('dark', this.checked)
+})
+
+// Active sidebar link tracking
+const observer = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'))
+      const link = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`)
+      if (link) link.classList.add('active')
+    }
+  }
+}, { rootMargin: '-80px 0px -60% 0px' })
+
+document.querySelectorAll('.doc-section').forEach(s => observer.observe(s))
+</script>
+
+</body>
+</html>
