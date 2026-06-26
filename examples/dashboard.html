@@ -371,15 +371,36 @@
 
 <nav class="navbar">
   <a href="#" class="brand">Acme Admin</a>
-  <a href="#" class="nav-active">Dashboard</a>
-  <a href="#">Users</a>
-  <a href="#">Settings</a>
-  <div class="grow"></div>
-  <div class="row gap-sm center">
-    <span class="hide-mobile">Diana Reeves</span>
-    <img src="https://i.pravatar.cc/32?u=diana" alt="Avatar" class="avatar avatar-sm">
+  <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="navbar-menu">
+    <a href="#" class="nav-active">Dashboard</a>
+    <a href="#">Users</a>
+    <a href="#">Settings</a>
+    <div class="grow hide-mobile"></div>
+    <div class="row gap-sm center">
+      <span>Diana Reeves</span>
+      <img src="https://i.pravatar.cc/32?u=diana" alt="Avatar" class="avatar avatar-sm">
+    </div>
   </div>
 </nav>
+
+<script>
+document.querySelectorAll('.navbar-toggle').forEach(btn => {
+  const menu = btn.nextElementSibling;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+</script>
 
 <div class="container col gap-lg pad-lg">
 

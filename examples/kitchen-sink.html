@@ -424,16 +424,39 @@
 
 <nav class="navbar">
   <a href="#" class="brand">grit.css</a>
-  <a href="#typography" class="hide-mobile">Typography</a>
-  <a href="#buttons" class="hide-mobile">Buttons</a>
-  <a href="#cards" class="hide-mobile">Components</a>
-  <a href="#themes" class="hide-mobile">Themes</a>
-  <a href="#forms" class="hide-mobile">Forms</a>
-  <label class="theme-toggle-label">
-    <input type="checkbox" class="toggle" id="theme-toggle">
-    <span class="hide-mobile">Dark Mode</span>
-  </label>
+  <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="navbar-menu">
+    <a href="#typography">Typography</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#cards">Components</a>
+    <a href="#themes">Themes</a>
+    <a href="#forms">Forms</a>
+    <label class="theme-toggle-label">
+      <input type="checkbox" class="toggle" id="theme-toggle">
+      <span>Dark Mode</span>
+    </label>
+  </div>
 </nav>
+
+<script>
+// Navbar toggle — vanilla JS, copy this snippet for any grit.css navbar
+document.querySelectorAll('.navbar-toggle').forEach(btn => {
+  const menu = btn.nextElementSibling;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  // Auto-close menu when a link is tapped
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+</script>
 
 <!-- Hero -->
 <div class="ks-hero">

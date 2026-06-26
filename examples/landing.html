@@ -480,12 +480,33 @@
 
 <nav class="navbar">
   <a href="#" class="brand">Pulse</a>
-  <a href="#features">Features</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#about">About</a>
-  <div class="grow"></div>
-  <a href="#" class="btn btn-primary btn-sm">Get Started</a>
+  <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="navbar-menu">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <div class="grow hide-mobile"></div>
+    <a href="#" class="btn btn-primary btn-sm">Get Started</a>
+  </div>
 </nav>
+
+<script>
+document.querySelectorAll('.navbar-toggle').forEach(btn => {
+  const menu = btn.nextElementSibling;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+</script>
 
 <!-- Hero -->
 <div class="hero">
