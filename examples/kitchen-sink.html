@@ -6,35 +6,124 @@
   <title>grit.css — Kitchen Sink</title>
   <link rel="stylesheet" href="../grit.css">
   <style>
-    .navbar {
+    html { scroll-behavior: smooth; }
+
+    /* === Gradient accent line at top === */
+    body::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
       position: sticky;
       top: 0;
+      z-index: 101;
+    }
+
+    /* === Navbar === */
+    .navbar {
+      position: sticky;
+      top: 3px;
       z-index: 100;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
       background: rgba(255, 255, 255, 0.85);
     }
     .dark .navbar {
       background: rgba(22, 22, 24, 0.85);
     }
 
+    /* === Hero === */
+    .ks-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .ks-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(240, 147, 251, 0.35);
+      border-radius: 50%;
+      top: -120px;
+      right: -80px;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .ks-hero::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(102, 126, 234, 0.4);
+      border-radius: 50%;
+      bottom: -100px;
+      left: -60px;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .ks-hero h1 {
+      font-size: 3.5rem;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .ks-hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* === Section Wrap === */
     .section-wrap {
-      padding: 3rem 0;
+      padding: 4rem 0;
     }
     .section-wrap.surface {
       background: var(--grit-surface);
     }
+    .section-wrap.tint-purple {
+      background: linear-gradient(135deg, rgba(102,126,234,0.04), rgba(118,75,162,0.03));
+    }
+    .section-wrap.tint-warm {
+      background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(249,115,22,0.03));
+    }
+    .section-wrap.tint-green {
+      background: linear-gradient(135deg, rgba(22,163,74,0.04), rgba(6,182,212,0.03));
+    }
+    .section-wrap.themes-bg {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #e2e8f0;
+    }
+    .section-wrap.themes-bg h2,
+    .section-wrap.themes-bg h3,
+    .section-wrap.themes-bg h4 {
+      color: #f1f5f9;
+    }
     .section-wrap + .section-wrap {
       border-top: 1px solid var(--grit-border);
     }
-
-    .section-label {
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.25rem;
-      font-size: 0.875rem;
-      color: var(--grit-muted);
+    .section-wrap.themes-bg + .section-wrap,
+    .section-wrap + .section-wrap.themes-bg {
+      border-top: none;
     }
 
+    /* === Section Label — Gradient Pill === */
+    .section-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* === Color Swatches — Enhanced === */
     .swatch {
       height: 80px;
       border-radius: var(--grit-radius-lg);
@@ -55,11 +144,39 @@
       font-family: var(--grit-font-mono);
     }
 
+    /* Color palette swatches */
+    .color-palette-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      border: 1px solid var(--grit-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      background: var(--grit-bg);
+      box-shadow: var(--grit-shadow-sm);
+    }
+    @media (max-width: 768px) {
+      .color-palette-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .color-swatch-card {
+      transition: transform 200ms ease, box-shadow 200ms ease;
+      cursor: default;
+    }
+    .color-swatch-card:hover {
+      transform: scale(1.05);
+    }
+    .color-swatch-card:hover .color-swatch {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
     .color-swatch {
       width: 100%;
-      height: 56px;
-      border-radius: var(--grit-radius);
+      height: 72px;
+      border-radius: 12px;
       border: 1px solid var(--grit-border);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: box-shadow 200ms ease;
     }
     .color-swatch-name {
       font-size: 0.75rem;
@@ -74,6 +191,7 @@
       opacity: 0.7;
     }
 
+    /* === Theme toggle label === */
     .theme-toggle-label {
       display: flex;
       align-items: center;
@@ -85,6 +203,37 @@
       margin-bottom: 0;
     }
 
+    /* === Cards — Enhanced === */
+    .card {
+      border-radius: 16px !important;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    .card-img-overlay {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px 16px 0 0;
+    }
+    .card-img-overlay img {
+      display: block;
+      width: 100%;
+    }
+    .card-img-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(102,126,234,0.3) 100%);
+      pointer-events: none;
+    }
+
+    /* === Notifications — Gradient top border === */
+    .notification-card {
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+    }
     .notification-item {
       display: flex;
       align-items: flex-start;
@@ -114,6 +263,161 @@
       font-size: 0.75rem;
       color: var(--grit-muted);
     }
+
+    /* === Team avatars — colored ring borders === */
+    .avatar-ring {
+      box-shadow: 0 0 0 2px #667eea;
+    }
+    .avatar-ring-green {
+      box-shadow: 0 0 0 2px #16a34a;
+    }
+    .avatar-ring-purple {
+      box-shadow: 0 0 0 2px #764ba2;
+    }
+    .avatar-ring-orange {
+      box-shadow: 0 0 0 2px #f59e0b;
+    }
+
+    /* === Theme Cards — Immersive === */
+    .theme-card {
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--grit-border);
+      position: relative;
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .theme-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .theme-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(102,126,234,0.5), rgba(240,147,251,0.5));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 300ms ease;
+    }
+    .theme-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Midnight star pattern */
+    .theme-card-midnight {
+      background-image: radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                         radial-gradient(1px 1px at 75% 20%, rgba(255,255,255,0.2) 0%, transparent 100%),
+                         radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,0.25) 0%, transparent 100%),
+                         radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+                         radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.15) 0%, transparent 100%),
+                         radial-gradient(1px 1px at 60% 90%, rgba(255,255,255,0.2) 0%, transparent 100%);
+    }
+
+    /* === Progress Bars — Gradient Fills === */
+    .progress {
+      height: 0.625rem !important;
+    }
+    .progress-gradient-blue .progress-bar {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6) !important;
+      box-shadow: 0 0 8px rgba(102,126,234,0.4);
+    }
+    .progress-gradient-green .progress-bar {
+      background: linear-gradient(90deg, #16a34a, #06b6d4) !important;
+      box-shadow: 0 0 8px rgba(22,163,74,0.4);
+    }
+    .progress-gradient-amber .progress-bar {
+      background: linear-gradient(90deg, #f59e0b, #f97316) !important;
+      box-shadow: 0 0 8px rgba(245,158,11,0.4);
+    }
+    .progress-gradient-red .progress-bar {
+      background: linear-gradient(90deg, #ef4444, #f97316) !important;
+      box-shadow: 0 0 8px rgba(239,68,68,0.4);
+    }
+
+    /* === Forms — Gradient focus glow === */
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(102,126,234,0.3), 0 0 0 1px rgba(118,75,162,0.2);
+    }
+    fieldset {
+      border: 2px solid transparent;
+      border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
+      border-radius: 0;
+      padding: 1rem 1.25rem;
+    }
+
+    /* === Table — Header gradient === */
+    .table thead {
+      background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.06));
+    }
+    .table tbody tr {
+      transition: all 200ms ease;
+    }
+    .table tbody tr:hover {
+      border-left: 3px solid #667eea;
+    }
+
+    /* === Chips — Hover effect === */
+    .chip {
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .chip:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* === Skeleton — Gradient shimmer === */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .skeleton {
+      animation: shimmer 1.5s ease-in-out infinite !important;
+      background: linear-gradient(90deg,
+        var(--grit-surface-2) 25%,
+        var(--grit-surface) 37%,
+        var(--grit-surface-2) 63%
+      ) !important;
+      background-size: 200% 100% !important;
+    }
+
+    /* === Alert icons === */
+    .alert svg {
+      flex-shrink: 0;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+      position: relative;
+      top: -1px;
+    }
+
+    /* === Gradient Button === */
+    .btn-gradient {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .btn-gradient:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(102,126,234,0.4);
+    }
+
+    /* === All transitions smoothed === */
+    .badge, .btn, .alert, .tab, a {
+      transition: all 200ms ease;
+    }
+
+    /* === Dark mode overrides === */
+    .dark .color-palette-grid {
+      background: var(--grit-surface);
+    }
   </style>
 </head>
 <body>
@@ -131,8 +435,16 @@
   </label>
 </nav>
 
+<!-- Hero -->
+<div class="ks-hero">
+  <div class="container text-center" style="padding: 5rem 1rem; position: relative; z-index: 1;">
+    <h1>grit.css</h1>
+    <p>A complete component library in one CSS file. No build step. No JavaScript. Just HTML.</p>
+  </div>
+</div>
+
 <!-- 01 — Typography -->
-<div class="section-wrap">
+<div class="section-wrap tint-purple">
   <div class="container col gap-xl pad-lg">
     <section id="typography">
       <p class="section-label">01 — Typography</p>
@@ -171,6 +483,7 @@ console.log(greet("world"));</code></pre>
         <button class="btn btn-warning">Warning</button>
         <button class="btn btn-error">Error</button>
         <button class="btn btn-info">Info</button>
+        <button class="btn btn-gradient">Gradient</button>
       </div>
       <h3>Styles</h3>
       <div class="row wrap gap-sm">
@@ -188,14 +501,16 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 03 — Cards -->
-<div class="section-wrap">
+<div class="section-wrap tint-purple">
   <div class="container col gap-xl pad-lg">
     <section id="cards">
       <p class="section-label">03 — Cards</p>
       <h2>Cards</h2>
       <div class="grid grid-3 gap-lg">
         <div class="card">
-          <img src="https://picsum.photos/400/200?random=1" alt="Mountain landscape">
+          <div class="card-img-overlay">
+            <img src="https://picsum.photos/400/200?random=1" alt="Mountain landscape">
+          </div>
           <div class="card-body">
             <h3 class="card-title">Mountain Retreat</h3>
             <p>Escape to the mountains for a weekend of hiking, fresh air, and stunning views.</p>
@@ -251,16 +566,16 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 05 — Alerts -->
-<div class="section-wrap">
+<div class="section-wrap tint-green">
   <div class="container col gap-xl pad-lg">
     <section id="alerts">
       <p class="section-label">05 — Alerts</p>
       <h2>Alerts</h2>
       <div class="col gap-sm">
-        <div class="alert alert-info">Your trial expires in 3 days. Upgrade to keep your data.</div>
-        <div class="alert alert-success">Payment received — $49.00 charged to Visa ending 4242.</div>
-        <div class="alert alert-warning">API rate limit at 80%. Consider upgrading your plan.</div>
-        <div class="alert alert-error">Failed to deploy build #347. Check logs for details.</div>
+        <div class="alert alert-info"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Your trial expires in 3 days. Upgrade to keep your data.</div>
+        <div class="alert alert-success"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Payment received — $49.00 charged to Visa ending 4242.</div>
+        <div class="alert alert-warning"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>API rate limit at 80%. Consider upgrading your plan.</div>
+        <div class="alert alert-error"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Failed to deploy build #347. Check logs for details.</div>
       </div>
     </section>
   </div>
@@ -302,7 +617,7 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 08 — Avatars -->
-<div class="section-wrap">
+<div class="section-wrap tint-purple">
   <div class="container col gap-xl pad-lg">
     <section id="avatars">
       <p class="section-label">08 — Avatars</p>
@@ -338,7 +653,7 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 10 — Tooltips -->
-<div class="section-wrap">
+<div class="section-wrap tint-warm">
   <div class="container col gap-xl pad-lg">
     <section id="tooltips">
       <p class="section-label">10 — Tooltips</p>
@@ -361,25 +676,25 @@ console.log(greet("world"));</code></pre>
       <div class="col gap-md">
         <div>
           <small class="text-muted">Storage — 45%</small>
-          <div class="progress">
+          <div class="progress progress-gradient-blue">
             <div class="progress-bar" style="width: 45%"></div>
           </div>
         </div>
         <div>
           <small class="text-success">Build — Complete</small>
-          <div class="progress">
+          <div class="progress progress-gradient-green">
             <div class="progress-bar progress-bar-success" style="width: 100%"></div>
           </div>
         </div>
         <div>
           <small class="text-warning">Memory — 72%</small>
-          <div class="progress">
+          <div class="progress progress-gradient-amber">
             <div class="progress-bar progress-bar-warning" style="width: 72%"></div>
           </div>
         </div>
         <div>
           <small class="text-error">Disk — 91%</small>
-          <div class="progress">
+          <div class="progress progress-gradient-red">
             <div class="progress-bar progress-bar-error" style="width: 91%"></div>
           </div>
         </div>
@@ -389,7 +704,7 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 12 — Modal -->
-<div class="section-wrap">
+<div class="section-wrap tint-purple">
   <div class="container col gap-xl pad-lg">
     <section id="modal">
       <p class="section-label">12 — Modal</p>
@@ -423,7 +738,7 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 14 — Skeleton -->
-<div class="section-wrap">
+<div class="section-wrap tint-warm">
   <div class="container col gap-xl pad-lg">
     <section id="skeleton">
       <p class="section-label">14 — Skeleton Loading</p>
@@ -464,7 +779,7 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 16 — Tables -->
-<div class="section-wrap">
+<div class="section-wrap tint-green">
   <div class="container col gap-xl pad-lg">
     <section id="tables">
       <p class="section-label">16 — Tables</p>
@@ -527,63 +842,63 @@ console.log(greet("world"));</code></pre>
     <section id="colors">
       <p class="section-label">17 — Color Palette</p>
       <h2>Color Palette</h2>
-      <div class="grid grid-4 gap-md">
-        <div>
+      <div class="color-palette-grid">
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-primary)"></div>
           <p class="color-swatch-name">--grit-primary</p>
           <p class="color-swatch-value">#2563eb</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-secondary)"></div>
           <p class="color-swatch-name">--grit-secondary</p>
           <p class="color-swatch-value">#7c3aed</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-accent)"></div>
           <p class="color-swatch-name">--grit-accent</p>
           <p class="color-swatch-value">#06b6d4</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-neutral)"></div>
           <p class="color-swatch-name">--grit-neutral</p>
           <p class="color-swatch-value">#1f2937</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-success)"></div>
           <p class="color-swatch-name">--grit-success</p>
           <p class="color-swatch-value">#16a34a</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-warning)"></div>
           <p class="color-swatch-name">--grit-warning</p>
           <p class="color-swatch-value">#eab308</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-error)"></div>
           <p class="color-swatch-name">--grit-error</p>
           <p class="color-swatch-value">#dc2626</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-info)"></div>
           <p class="color-swatch-name">--grit-info</p>
           <p class="color-swatch-value">#0ea5e9</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-bg); border: 2px solid var(--grit-border)"></div>
           <p class="color-swatch-name">--grit-bg</p>
           <p class="color-swatch-value">#ffffff</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-surface)"></div>
           <p class="color-swatch-name">--grit-surface</p>
           <p class="color-swatch-value">#f9fafb</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-surface-2)"></div>
           <p class="color-swatch-name">--grit-surface-2</p>
           <p class="color-swatch-value">#f3f4f6</p>
         </div>
-        <div>
+        <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-muted)"></div>
           <p class="color-swatch-name">--grit-muted</p>
           <p class="color-swatch-value">#6b7280</p>
@@ -594,37 +909,67 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 18 — Themes -->
-<div class="section-wrap">
+<div class="section-wrap themes-bg">
   <div class="container col gap-xl pad-lg">
     <section id="themes">
       <p class="section-label">18 — Themes</p>
       <h2>Themes</h2>
       <div class="grid grid-3 gap-lg">
-        <div class="theme-midnight pad-lg rounded" style="border: 1px solid var(--grit-border);">
+        <div class="theme-midnight theme-card theme-card-midnight">
           <h4 style="margin-bottom: 0.25rem;">Midnight</h4>
           <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Dark blue theme</p>
-          <div class="row gap-sm wrap">
-            <button class="btn btn-primary btn-sm">Button</button>
-            <span class="badge badge-primary">Badge</span>
-            <span class="badge badge-accent">Accent</span>
+          <div class="col gap-md">
+            <div class="row gap-sm wrap">
+              <button class="btn btn-primary btn-sm">Button</button>
+              <span class="badge badge-primary">Badge</span>
+              <span class="badge badge-accent">Accent</span>
+            </div>
+            <div class="progress progress-gradient-blue" style="height: 0.5rem !important;">
+              <div class="progress-bar" style="width: 65%"></div>
+            </div>
+            <div class="alert alert-info" style="padding: 0.5rem 0.75rem; font-size: 0.8rem; margin: 0;">Deploy in progress</div>
+            <label class="row gap-sm" style="font-size: 0.8rem;">
+              <input type="checkbox" class="toggle" checked>
+              <span>Auto-deploy</span>
+            </label>
           </div>
         </div>
-        <div class="theme-forest pad-lg rounded" style="border: 1px solid var(--grit-border);">
+        <div class="theme-forest theme-card">
           <h4 style="margin-bottom: 0.25rem;">Forest</h4>
           <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Natural green theme</p>
-          <div class="row gap-sm wrap">
-            <button class="btn btn-primary btn-sm">Button</button>
-            <span class="badge badge-primary">Badge</span>
-            <span class="badge badge-success">Success</span>
+          <div class="col gap-md">
+            <div class="row gap-sm wrap">
+              <button class="btn btn-primary btn-sm">Button</button>
+              <span class="badge badge-primary">Badge</span>
+              <span class="badge badge-success">Success</span>
+            </div>
+            <div class="progress progress-gradient-green" style="height: 0.5rem !important;">
+              <div class="progress-bar progress-bar-success" style="width: 80%"></div>
+            </div>
+            <div class="alert alert-success" style="padding: 0.5rem 0.75rem; font-size: 0.8rem; margin: 0;">Tests passed</div>
+            <label class="row gap-sm" style="font-size: 0.8rem;">
+              <input type="checkbox" class="toggle" checked>
+              <span>Monitoring</span>
+            </label>
           </div>
         </div>
-        <div class="theme-rose pad-lg rounded" style="border: 1px solid var(--grit-border);">
+        <div class="theme-rose theme-card">
           <h4 style="margin-bottom: 0.25rem;">Rose</h4>
           <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Warm pink theme</p>
-          <div class="row gap-sm wrap">
-            <button class="btn btn-primary btn-sm">Button</button>
-            <span class="badge badge-primary">Badge</span>
-            <span class="badge badge-error">Error</span>
+          <div class="col gap-md">
+            <div class="row gap-sm wrap">
+              <button class="btn btn-primary btn-sm">Button</button>
+              <span class="badge badge-primary">Badge</span>
+              <span class="badge badge-error">Error</span>
+            </div>
+            <div class="progress progress-gradient-red" style="height: 0.5rem !important;">
+              <div class="progress-bar progress-bar-error" style="width: 45%"></div>
+            </div>
+            <div class="alert alert-warning" style="padding: 0.5rem 0.75rem; font-size: 0.8rem; margin: 0;">Review needed</div>
+            <label class="row gap-sm" style="font-size: 0.8rem;">
+              <input type="checkbox" class="toggle">
+              <span>Notifications</span>
+            </label>
           </div>
         </div>
       </div>
@@ -633,13 +978,13 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 19 — Composition -->
-<div class="section-wrap surface">
+<div class="section-wrap tint-warm">
   <div class="container col gap-xl pad-lg">
     <section id="composition">
       <p class="section-label">19 — Composition</p>
       <h2>Composition</h2>
       <div class="grid grid-2 gap-lg">
-        <div class="card">
+        <div class="card notification-card">
           <div class="card-body">
             <div class="row between" style="margin-bottom: 1rem;">
               <h3 class="card-title" style="margin-bottom: 0;">Notifications</h3>
@@ -675,12 +1020,12 @@ console.log(greet("world"));</code></pre>
           <div class="card-body">
             <div class="row between" style="margin-bottom: 1rem;">
               <h3 class="card-title" style="margin-bottom: 0;">Team Members</h3>
-              <button class="btn btn-primary btn-sm">Invite</button>
+              <button class="btn btn-gradient btn-sm">Invite</button>
             </div>
             <div class="col gap-sm">
               <div class="row between">
                 <div class="row gap-sm">
-                  <img src="https://i.pravatar.cc/32?u=e" alt="avatar" class="avatar avatar-sm">
+                  <img src="https://i.pravatar.cc/32?u=e" alt="avatar" class="avatar avatar-sm avatar-ring">
                   <div>
                     <p class="text-sm font-bold" style="margin: 0;">Alex Rivera</p>
                     <p class="text-sm text-muted" style="margin: 0;">Engineering</p>
@@ -690,7 +1035,7 @@ console.log(greet("world"));</code></pre>
               </div>
               <div class="row between">
                 <div class="row gap-sm">
-                  <img src="https://i.pravatar.cc/32?u=f" alt="avatar" class="avatar avatar-sm">
+                  <img src="https://i.pravatar.cc/32?u=f" alt="avatar" class="avatar avatar-sm avatar-ring-purple">
                   <div>
                     <p class="text-sm font-bold" style="margin: 0;">Maya Johnson</p>
                     <p class="text-sm text-muted" style="margin: 0;">Design</p>
@@ -700,7 +1045,7 @@ console.log(greet("world"));</code></pre>
               </div>
               <div class="row between">
                 <div class="row gap-sm">
-                  <img src="https://i.pravatar.cc/32?u=g" alt="avatar" class="avatar avatar-sm">
+                  <img src="https://i.pravatar.cc/32?u=g" alt="avatar" class="avatar avatar-sm avatar-ring-orange">
                   <div>
                     <p class="text-sm font-bold" style="margin: 0;">Sam Park</p>
                     <p class="text-sm text-muted" style="margin: 0;">Marketing</p>
@@ -775,7 +1120,7 @@ console.log(greet("world"));</code></pre>
             </fieldset>
             <div class="row gap-sm end">
               <button type="button" class="btn btn-ghost">Cancel</button>
-              <button type="submit" class="btn btn-primary">Create Account</button>
+              <button type="submit" class="btn btn-gradient">Create Account</button>
             </div>
           </form>
         </div>
@@ -844,7 +1189,7 @@ console.log(greet("world"));</code></pre>
 </div>
 
 <!-- 22 — Utilities -->
-<div class="section-wrap">
+<div class="section-wrap tint-purple">
   <div class="container col gap-xl pad-lg">
     <section id="utilities">
       <p class="section-label">22 — Utilities</p>
