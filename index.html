@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grit.css — One file. Zero JavaScript. Beautiful defaults.</title>
+  <link rel="stylesheet" href="grit.css">
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 7rem 1rem 5rem;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(240,147,251,0.4) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(102,126,234,0.5) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.04em;
+      color: #fff;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      color: rgba(255,255,255,0.88);
+      font-size: 1.2rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    .hero .hero-actions {
+      position: relative;
+      z-index: 1;
+    }
+    .hero .btn {
+      font-size: 1.05rem;
+      padding: 0.85rem 2rem;
+    }
+    .hero .btn-light {
+      background: #fff;
+      color: #667eea;
+      font-weight: 600;
+    }
+    .hero .btn-light:hover {
+      background: #f0edff;
+    }
+    .hero .btn-ghost-light {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .hero .btn-ghost-light:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ─── Install snippet ─── */
+    .install-snippet {
+      background: rgba(0,0,0,0.2);
+      border-radius: var(--grit-radius);
+      padding: 0.75rem 1.25rem;
+      font-family: var(--grit-font-mono);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      display: inline-block;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -0.01em;
+    }
+    .install-snippet .muted { color: rgba(255,255,255,0.5); }
+
+    /* ─── Stats bar ─── */
+    .stats-bar {
+      background: var(--grit-surface);
+      border-bottom: 1px solid var(--grit-border);
+      padding: 1.5rem 1rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--grit-text);
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--grit-muted);
+      margin-top: 0.15rem;
+    }
+
+    /* ─── Sections ─── */
+    .section { padding: 5rem 1rem; }
+    .section-alt { background: var(--grit-surface); }
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--grit-primary);
+      margin-bottom: 0.5rem;
+    }
+    .section h2 {
+      font-size: 2.25rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .section .lead {
+      font-size: 1.1rem;
+      color: var(--grit-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ─── Feature cards ─── */
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+      color: #667eea;
+    }
+    .feature-card {
+      padding: 1.75rem;
+    }
+    .feature-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--grit-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ─── Example cards ─── */
+    .example-card {
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .example-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    .example-preview {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .example-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .example-gradient {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .eg-kitchen { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .eg-docs { background: linear-gradient(135deg, #0ea5e9, #2563eb); }
+    .eg-landing { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .eg-dashboard { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+    .example-card .card-body h3 { margin-bottom: 0.25rem; }
+    .example-card .card-body p {
+      font-size: 0.9rem;
+      color: var(--grit-muted);
+      margin: 0;
+    }
+    .example-card .card-body a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .example-card .card-body a:hover { color: var(--grit-primary); }
+
+    /* ─── Code block ─── */
+    .code-block {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: var(--grit-radius);
+      padding: 1.5rem;
+      font-family: var(--grit-font-mono);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+    .code-block .tag { color: #89b4fa; }
+    .code-block .attr { color: #f9e2af; }
+    .code-block .str { color: #a6e3a1; }
+    .code-block .comment { color: #6c7086; }
+
+    /* ─── Component showcase ─── */
+    .component-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      padding: 5rem 1rem;
+      text-align: center;
+      color: #fff;
+    }
+    .cta h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .cta p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ─── Footer ─── */
+    .site-footer {
+      padding: 3rem 1rem;
+      border-top: 1px solid var(--grit-border);
+      color: var(--grit-muted);
+      font-size: 0.9rem;
+    }
+    .site-footer a {
+      color: var(--grit-muted);
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      color: var(--grit-text);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.75rem; }
+      .hero p { font-size: 1.05rem; }
+      .section h2 { font-size: 1.75rem; }
+      .cta h2 { font-size: 2rem; }
+      .stat-value { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="#" class="brand">grit.css</a>
+  <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="navbar-menu">
+    <a href="#features">Features</a>
+    <a href="#components">Components</a>
+    <a href="#examples">Examples</a>
+    <a href="examples/docs.html">Docs</a>
+    <div class="grow"></div>
+    <a href="https://github.com" class="btn btn-primary btn-sm">GitHub</a>
+  </div>
+</nav>
+
+<script>
+document.querySelectorAll('.navbar-toggle').forEach(btn => {
+  const menu = btn.nextElementSibling;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+</script>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>One CSS file.<br>Zero JavaScript.</h1>
+  <p>Beautiful defaults, real components, and dark mode — all in 8KB. Drop it in and your HTML looks good immediately.</p>
+  <div class="install-snippet">
+    <span class="muted">&lt;link rel="stylesheet" href="</span>grit.css<span class="muted">"&gt;</span>
+  </div>
+  <div class="hero-actions row gap-sm center">
+    <a href="examples/docs.html" class="btn btn-light btn-pill">Read the Docs</a>
+    <a href="examples/kitchen-sink.html" class="btn btn-ghost-light btn-pill">Kitchen Sink →</a>
+  </div>
+</section>
+
+<!-- Stats bar -->
+<div class="stats-bar">
+  <div class="container row between wrap gap-lg">
+    <div class="stat-item grow">
+      <div class="stat-value">8KB</div>
+      <div class="stat-label">Minified + gzipped</div>
+    </div>
+    <div class="stat-item grow">
+      <div class="stat-value">0</div>
+      <div class="stat-label">JavaScript required</div>
+    </div>
+    <div class="stat-item grow">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Build steps</div>
+    </div>
+    <div class="stat-item grow">
+      <div class="stat-value">30+</div>
+      <div class="stat-label">Components</div>
+    </div>
+  </div>
+</div>
+
+<!-- Features -->
+<section id="features" class="section">
+  <div class="container col gap-xl">
+    <div class="text-center">
+      <p class="section-label">Why grit.css</p>
+      <h2>Everything you need. Nothing you don't.</h2>
+      <p class="lead" style="margin: 0 auto;">CSS frameworks got complicated. grit.css is one file you drop in. Your HTML looks good immediately. Add a class when you need a component. Write CSS when you need something custom.</p>
+    </div>
+    <div class="grid grid-3 gap-lg">
+      <div class="card feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>Beautiful Defaults</h3>
+        <p>Semantic HTML looks good out of the box. Buttons, inputs, tables, blockquotes — all styled without adding a single class.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">🧩</div>
+        <h3>Real Components</h3>
+        <p>Cards, modals, dropdowns, tabs, toggles, alerts, badges, tooltips, progress bars, avatars, skeletons — one class each.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">📐</div>
+        <h3>Flexible Layout</h3>
+        <p>Row, col, grid, container, wrap, grow, center, between. A handful of layout classes that cover 95% of what you need.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>Theming Built In</h3>
+        <p>Override CSS custom properties and everything updates. Dark mode is automatic via prefers-color-scheme, or toggle it with a class.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">🪶</div>
+        <h3>Featherweight</h3>
+        <p>~8KB gzipped. No JavaScript runtime. No build step. No config files. One link tag and you're done.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">🔧</div>
+        <h3>Your CSS, Not Ours</h3>
+        <p>When you need something custom, you write CSS — because you know CSS. grit gives you a starting point, not a straitjacket.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start -->
+<section class="section section-alt">
+  <div class="container col gap-xl">
+    <div class="text-center">
+      <p class="section-label">Quick Start</p>
+      <h2>Add one line. Start building.</h2>
+    </div>
+    <div class="grid grid-2 gap-xl" style="align-items: start;">
+      <div class="col gap-lg">
+        <div>
+          <h3>1. Link it</h3>
+          <div class="code-block"><span class="comment">&lt;!-- From a CDN --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"https://unpkg.com/grit-css/grit.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or drop the file in your project --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"grit.css"</span><span class="tag">&gt;</span></div>
+        </div>
+        <div>
+          <h3>2. Write HTML</h3>
+          <div class="code-block"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="str">"btn btn-primary"</span><span class="tag">&gt;</span>Click me<span class="tag">&lt;/button&gt;</span>
+
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"card"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"card-body"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;h3&gt;</span>It just works.<span class="tag">&lt;/h3&gt;</span>
+    <span class="tag">&lt;p&gt;</span>No config needed.<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></div>
+        </div>
+      </div>
+      <div class="col gap-md">
+        <h3>3. See the result</h3>
+        <div class="card">
+          <div class="card-body col gap-md">
+            <div class="row gap-sm wrap">
+              <button class="btn btn-primary">Primary</button>
+              <button class="btn btn-secondary">Secondary</button>
+              <button class="btn btn-outline">Outline</button>
+              <button class="btn btn-ghost">Ghost</button>
+            </div>
+            <div class="alert alert-success">✓ Changes saved successfully.</div>
+            <div class="row gap-sm wrap">
+              <span class="badge badge-primary">New</span>
+              <span class="badge badge-secondary">Draft</span>
+              <span class="badge badge-accent">Featured</span>
+              <span class="badge badge-success">Active</span>
+              <span class="badge badge-warning">Pending</span>
+              <span class="badge badge-error">Declined</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" style="width: 72%;"></div>
+            </div>
+            <div class="row gap-sm">
+              <input placeholder="Email address" style="flex: 1;">
+              <button class="btn btn-primary">Subscribe</button>
+            </div>
+            <label class="row gap-sm" style="align-items: center;">
+              <input type="checkbox" class="toggle">
+              <span>Dark mode</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Component Showcase -->
+<section id="components" class="section">
+  <div class="container col gap-xl">
+    <div class="text-center">
+      <p class="section-label">Components</p>
+      <h2>30+ components. One class each.</h2>
+      <p class="lead" style="margin: 0 auto;">Buttons, cards, modals, dropdowns, tabs, toggles, tooltips, alerts, badges, progress bars, avatars, skeletons, navbars, tables, forms — and more.</p>
+    </div>
+    <div class="grid grid-2 gap-lg">
+      <!-- Buttons -->
+      <div class="card">
+        <div class="card-body col gap-sm">
+          <h4>Buttons</h4>
+          <div class="component-row">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-accent">Accent</button>
+            <button class="btn btn-outline">Outline</button>
+            <button class="btn btn-ghost">Ghost</button>
+          </div>
+          <div class="component-row">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+            <button class="btn btn-primary btn-pill">Pill</button>
+          </div>
+        </div>
+      </div>
+      <!-- Alerts -->
+      <div class="card">
+        <div class="card-body col gap-sm">
+          <h4>Alerts</h4>
+          <div class="alert alert-info">ℹ️ A new version is available.</div>
+          <div class="alert alert-success">✅ Your changes have been saved.</div>
+          <div class="alert alert-warning">⚠️ Your trial expires in 3 days.</div>
+          <div class="alert alert-error">❌ Something went wrong. Try again.</div>
+        </div>
+      </div>
+      <!-- Cards -->
+      <div class="card">
+        <div class="card-body col gap-sm">
+          <h4>Cards & Badges</h4>
+          <div class="row gap-sm wrap">
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-secondary">Secondary</span>
+            <span class="badge badge-accent">Accent</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-error">Error</span>
+          </div>
+          <div class="row gap-sm wrap">
+            <span class="chip">React</span>
+            <span class="chip">Vue</span>
+            <span class="chip">Svelte</span>
+            <span class="chip">Vanilla JS</span>
+          </div>
+        </div>
+      </div>
+      <!-- Form elements -->
+      <div class="card">
+        <div class="card-body col gap-sm">
+          <h4>Form Elements</h4>
+          <input placeholder="Text input">
+          <select>
+            <option>Select an option</option>
+            <option>Option A</option>
+            <option>Option B</option>
+          </select>
+          <div class="row gap-md" style="align-items: center;">
+            <label class="row gap-sm" style="align-items: center;">
+              <input type="checkbox" class="toggle" checked>
+              <span>Toggle</span>
+            </label>
+            <label class="row gap-sm" style="align-items: center;">
+              <input type="checkbox">
+              <span>Checkbox</span>
+            </label>
+            <label class="row gap-sm" style="align-items: center;">
+              <input type="radio" name="demo">
+              <span>Radio</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="examples/kitchen-sink.html" class="btn btn-primary btn-lg btn-pill">See all components →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Examples -->
+<section id="examples" class="section section-alt">
+  <div class="container col gap-xl">
+    <div class="text-center">
+      <p class="section-label">Examples</p>
+      <h2>Built with grit.css</h2>
+      <p class="lead" style="margin: 0 auto;">Full-page examples showing what you can build with a single CSS file and plain HTML.</p>
+    </div>
+    <div class="grid grid-2 gap-lg">
+      <a href="examples/kitchen-sink.html" class="card example-card" style="text-decoration: none; color: inherit;">
+        <div class="example-preview">
+          <div class="example-gradient eg-kitchen">🧪</div>
+        </div>
+        <div class="card-body">
+          <h3>Kitchen Sink</h3>
+          <p>Every component in grit.css on one page. Buttons, cards, forms, modals, tables, and more.</p>
+        </div>
+      </a>
+      <a href="examples/docs.html" class="card example-card" style="text-decoration: none; color: inherit;">
+        <div class="example-preview">
+          <div class="example-gradient eg-docs">📖</div>
+        </div>
+        <div class="card-body">
+          <h3>Documentation</h3>
+          <p>Full API reference with copy-paste code examples for every component, layout class, and theme.</p>
+        </div>
+      </a>
+      <a href="examples/landing.html" class="card example-card" style="text-decoration: none; color: inherit;">
+        <div class="example-preview">
+          <div class="example-gradient eg-landing">🚀</div>
+        </div>
+        <div class="card-body">
+          <h3>Landing Page</h3>
+          <p>A polished SaaS landing page with hero, features, pricing, testimonials, and CTA sections.</p>
+        </div>
+      </a>
+      <a href="examples/dashboard.html" class="card example-card" style="text-decoration: none; color: inherit;">
+        <div class="example-preview">
+          <div class="example-gradient eg-dashboard">📊</div>
+        </div>
+        <div class="card-body">
+          <h3>Dashboard</h3>
+          <p>An admin dashboard with sidebar navigation, stat cards, tables, and charts layout.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Theming -->
+<section class="section">
+  <div class="container col gap-xl">
+    <div class="text-center">
+      <p class="section-label">Theming</p>
+      <h2>Dark mode included. Custom themes easy.</h2>
+    </div>
+    <div class="grid grid-2 gap-xl" style="align-items: start;">
+      <div class="col gap-md">
+        <p style="color: var(--grit-muted); line-height: 1.7;">grit.css respects <code>prefers-color-scheme: dark</code> automatically. No JavaScript toggle needed. Want manual control? Add <code>.dark</code> or <code>.light</code> to the body.</p>
+        <p style="color: var(--grit-muted); line-height: 1.7;">Override any CSS custom property and the entire framework updates. Change <code>--grit-primary</code> and every button, link, and accent color follows.</p>
+        <div class="code-block"><span class="comment">/* Override the primary color */</span>
+<span class="tag">:root</span> {
+  <span class="attr">--grit-primary</span>: <span class="str">#e11d48</span>;
+  <span class="attr">--grit-radius</span>: <span class="str">0</span>;
+}
+
+<span class="comment">/* Or use a built-in theme */</span>
+<span class="tag">&lt;body</span> <span class="attr">class</span>=<span class="str">"theme-midnight"</span><span class="tag">&gt;</span></div>
+      </div>
+      <div class="col gap-md">
+        <h4>Built-in themes</h4>
+        <div class="grid grid-2 gap-sm">
+          <div class="card" style="padding: 1rem; text-align: center;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #2563eb; margin: 0 auto 0.5rem;"></div>
+            <strong style="font-size: 0.85rem;">Default</strong>
+          </div>
+          <div class="card" style="padding: 1rem; text-align: center;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #38bdf8; margin: 0 auto 0.5rem;"></div>
+            <strong style="font-size: 0.85rem;">Midnight</strong>
+          </div>
+          <div class="card" style="padding: 1rem; text-align: center;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #16a34a; margin: 0 auto 0.5rem;"></div>
+            <strong style="font-size: 0.85rem;">Forest</strong>
+          </div>
+          <div class="card" style="padding: 1rem; text-align: center;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #e11d48; margin: 0 auto 0.5rem;"></div>
+            <strong style="font-size: 0.85rem;">Rose</strong>
+          </div>
+          <div class="card" style="padding: 1rem; text-align: center;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #ea580c; margin: 0 auto 0.5rem;"></div>
+            <strong style="font-size: 0.85rem;">Sunset</strong>
+          </div>
+          <div class="card" style="padding: 1rem; text-align: center;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; margin: 0 auto 0.5rem;"></div>
+            <strong style="font-size: 0.85rem;">Lavender</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Start building with grit.css</h2>
+  <p>One file. 8KB. Zero JavaScript. Zero build step. Beautiful defaults. Real components. Your CSS.</p>
+  <div class="row gap-sm center">
+    <a href="examples/docs.html" class="btn btn-light btn-lg btn-pill">Get Started</a>
+    <a href="examples/kitchen-sink.html" class="btn btn-ghost-light btn-lg btn-pill">View Components</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container row between wrap gap-md">
+    <div>
+      <strong>grit.css</strong> — MIT License
+    </div>
+    <div class="row gap-lg">
+      <a href="examples/docs.html">Docs</a>
+      <a href="examples/kitchen-sink.html">Components</a>
+      <a href="examples/landing.html">Landing</a>
+      <a href="examples/dashboard.html">Dashboard</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
