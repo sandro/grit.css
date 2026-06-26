@@ -5,12 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acme Admin — Dashboard</title>
   <link rel="stylesheet" href="../grit.css">
+  <style>
+    body {
+      background-color: var(--grit-surface);
+    }
+
+    .nav-active {
+      color: var(--grit-text) !important;
+      font-weight: 600;
+      border-bottom: 2px solid var(--grit-primary);
+    }
+
+    .progress {
+      height: 0.625rem;
+    }
+
+    .activity-item {
+      padding: 0.5rem;
+      border-radius: var(--grit-radius);
+      transition: background-color var(--grit-transition);
+    }
+
+    .activity-item:hover {
+      background-color: var(--grit-surface-2);
+    }
+
+    .stat-icon {
+      color: var(--grit-muted);
+      flex-shrink: 0;
+    }
+  </style>
 </head>
 <body>
 
 <nav class="navbar">
   <a href="#" class="brand">Acme Admin</a>
-  <a href="#">Dashboard</a>
+  <a href="#" class="nav-active">Dashboard</a>
   <a href="#">Users</a>
   <a href="#">Settings</a>
   <div class="grow"></div>
@@ -22,38 +52,59 @@
 
 <div class="container col gap-lg pad-lg">
 
+  <!-- Welcome Header -->
+  <div class="row between center">
+    <div>
+      <h2 style="margin-bottom: 0;">Welcome back, Diana</h2>
+      <p class="text-muted">Here's what's happening with your store today.</p>
+    </div>
+    <button class="btn btn-primary">+ New Order</button>
+  </div>
+
   <!-- Stats Row -->
   <div class="grid grid-4 gap-lg">
-    <div class="card">
+    <div class="card" style="border-left: 4px solid var(--grit-primary)">
       <div class="card-body">
-        <p class="text-muted text-sm">Total Users</p>
+        <div class="row gap-sm center">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <p class="text-muted text-sm">Total Users</p>
+        </div>
         <div class="row between center">
           <span class="text-2xl font-bold">12,847</span>
           <span class="badge badge-success">+12%</span>
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" style="border-left: 4px solid var(--grit-success)">
       <div class="card-body">
-        <p class="text-muted text-sm">Revenue</p>
+        <div class="row gap-sm center">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <p class="text-muted text-sm">Revenue</p>
+        </div>
         <div class="row between center">
           <span class="text-2xl font-bold">$48,290</span>
           <span class="badge badge-success">+8%</span>
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" style="border-left: 4px solid var(--grit-warning)">
       <div class="card-body">
-        <p class="text-muted text-sm">Orders</p>
+        <div class="row gap-sm center">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <p class="text-muted text-sm">Orders</p>
+        </div>
         <div class="row between center">
           <span class="text-2xl font-bold">1,423</span>
           <span class="badge badge-error">-3%</span>
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" style="border-left: 4px solid var(--grit-accent)">
       <div class="card-body">
-        <p class="text-muted text-sm">Conversion</p>
+        <div class="row gap-sm center">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <p class="text-muted text-sm">Conversion</p>
+        </div>
         <div class="row between center">
           <span class="text-2xl font-bold">3.2%</span>
           <span class="badge badge-warning">-0.4%</span>
@@ -146,37 +197,62 @@
       <div class="card">
         <div class="card-body col gap-md">
           <h3 class="card-title">Activity</h3>
-          <div class="col gap-sm">
-            <div class="row gap-sm">
+          <div class="col">
+            <div class="row gap-sm activity-item">
               <img src="https://i.pravatar.cc/24?u=sarah" alt="" class="avatar avatar-sm">
               <div>
                 <p class="text-sm"><strong>Sarah Chen</strong> placed order #ORD-7291</p>
                 <p class="text-sm text-muted">2 hours ago</p>
               </div>
             </div>
-            <div class="divider"></div>
-            <div class="row gap-sm">
+            <div class="row gap-sm activity-item">
               <img src="https://i.pravatar.cc/24?u=marcus" alt="" class="avatar avatar-sm">
               <div>
                 <p class="text-sm"><strong>Marcus Johnson</strong> updated his profile</p>
                 <p class="text-sm text-muted">4 hours ago</p>
               </div>
             </div>
-            <div class="divider"></div>
-            <div class="row gap-sm">
+            <div class="row gap-sm activity-item">
               <img src="https://i.pravatar.cc/24?u=emily" alt="" class="avatar avatar-sm">
               <div>
                 <p class="text-sm"><strong>Emily Rodriguez</strong> submitted a refund request</p>
                 <p class="text-sm text-muted">6 hours ago</p>
               </div>
             </div>
-            <div class="divider"></div>
-            <div class="row gap-sm">
+            <div class="row gap-sm activity-item">
               <img src="https://i.pravatar.cc/24?u=james" alt="" class="avatar avatar-sm">
               <div>
                 <p class="text-sm"><strong>James Kim</strong> signed up</p>
                 <p class="text-sm text-muted">Yesterday</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming (Skeleton Loading) -->
+      <div class="card">
+        <div class="card-body col gap-md">
+          <h3 class="card-title">Upcoming</h3>
+          <div class="row gap-sm center">
+            <div class="skeleton skeleton-avatar"></div>
+            <div class="col gap-xs" style="flex: 1">
+              <div class="skeleton skeleton-title"></div>
+              <div class="skeleton skeleton-text"></div>
+            </div>
+          </div>
+          <div class="row gap-sm center">
+            <div class="skeleton skeleton-avatar"></div>
+            <div class="col gap-xs" style="flex: 1">
+              <div class="skeleton skeleton-title"></div>
+              <div class="skeleton skeleton-text"></div>
+            </div>
+          </div>
+          <div class="row gap-sm center">
+            <div class="skeleton skeleton-avatar"></div>
+            <div class="col gap-xs" style="flex: 1">
+              <div class="skeleton skeleton-title"></div>
+              <div class="skeleton skeleton-text"></div>
             </div>
           </div>
         </div>
@@ -194,7 +270,8 @@
           <div class="grid grid-2 gap-md">
             <div class="col gap-xs">
               <label for="new-first">First Name</label>
-              <input type="text" id="new-first" placeholder="Jane">
+              <input type="text" id="new-first" value="Jane" style="border-color: var(--grit-success)">
+              <small style="color: var(--grit-success)">Looks good!</small>
             </div>
             <div class="col gap-xs">
               <label for="new-last">Last Name</label>
@@ -203,7 +280,8 @@
           </div>
           <div class="col gap-xs">
             <label for="new-email">Email</label>
-            <input type="email" id="new-email" placeholder="jane@acme.com">
+            <input type="email" id="new-email" placeholder="jane@acme.com" style="border-color: var(--grit-error)">
+            <small style="color: var(--grit-error)">This email is already in use</small>
           </div>
           <div class="col gap-xs">
             <label for="new-role">Role</label>
@@ -265,7 +343,10 @@
             <div class="progress-bar progress-bar-success" style="width: 52%"></div>
           </div>
         </div>
-        <div class="alert alert-warning text-sm">Disk space running low. Consider archiving old data.</div>
+        <div class="alert alert-warning text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.375rem; flex-shrink: 0;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Disk space running low. Consider archiving old data.
+        </div>
       </div>
     </div>
   </div>
