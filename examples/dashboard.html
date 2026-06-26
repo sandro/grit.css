@@ -6,37 +6,369 @@
   <title>Acme Admin — Dashboard</title>
   <link rel="stylesheet" href="../grit.css">
   <style>
+    /* === 10. Page Background — subtle gradient wash === */
     body {
-      background-color: var(--grit-surface);
+      background: linear-gradient(180deg, rgba(102,126,234,0.04) 0%, var(--grit-surface) 30%, var(--grit-surface) 100%);
+      min-height: 100vh;
+    }
+
+    /* === 1. Navbar — Gradient Accent Strip === */
+    .gradient-strip {
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      position: sticky;
+      top: 0;
+      z-index: 101;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 3px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.85) !important;
+      z-index: 100;
+      border-bottom: 1px solid rgba(229,231,235,0.6);
+    }
+
+    .navbar .brand {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
     }
 
     .nav-active {
       color: var(--grit-text) !important;
       font-weight: 600;
-      border-bottom: 2px solid var(--grit-primary);
+      border-bottom: 2px solid #667eea;
     }
 
-    .progress {
-      height: 0.625rem;
+    /* === 2. Welcome Section — Hero Treatment === */
+    .welcome-section {
+      background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.06));
+      border-radius: var(--grit-radius-xl, 16px);
+      padding: 2rem;
+      margin: 0 -0.5rem;
     }
 
+    .welcome-section h2 {
+      font-size: 2.25rem !important;
+      font-weight: 800;
+      margin-bottom: 0;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1a1a1a 60%, #667eea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-gradient-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2) !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 4px 14px rgba(102,126,234,0.35);
+      transition: all 200ms ease;
+    }
+
+    .btn-gradient-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(102,126,234,0.45);
+    }
+
+    /* === 11. General Polish — All cards === */
+    .card {
+      border-radius: var(--grit-radius-xl, 16px) !important;
+      box-shadow: var(--grit-shadow, 0 1px 3px rgba(0,0,0,0.1));
+      transition: all 200ms ease;
+      border: 1px solid rgba(229,231,235,0.5);
+      overflow: hidden;
+    }
+
+    /* === 3. Stat Cards — Color Explosion === */
+    .stat-card {
+      border-left: none !important;
+      position: relative;
+      padding-top: 4px;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: var(--grit-radius-xl, 16px) var(--grit-radius-xl, 16px) 0 0;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Card 1: Users — purple gradient */
+    .stat-card-users::before {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+    .stat-card-users {
+      box-shadow: 0 4px 24px rgba(102,126,234,0.1);
+    }
+    .stat-card-users:hover {
+      box-shadow: 0 8px 32px rgba(102,126,234,0.18);
+    }
+    .stat-card-users .stat-icon {
+      color: #667eea;
+    }
+    .stat-card-users .stat-value {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Card 2: Revenue — green-cyan gradient */
+    .stat-card-revenue::before {
+      background: linear-gradient(135deg, #16a34a, #06b6d4);
+    }
+    .stat-card-revenue {
+      box-shadow: 0 4px 24px rgba(22,163,74,0.1);
+    }
+    .stat-card-revenue:hover {
+      box-shadow: 0 8px 32px rgba(22,163,74,0.18);
+    }
+    .stat-card-revenue .stat-icon {
+      color: #16a34a;
+    }
+    .stat-card-revenue .stat-value {
+      background: linear-gradient(135deg, #16a34a, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Card 3: Orders — amber-orange gradient */
+    .stat-card-orders::before {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+    }
+    .stat-card-orders {
+      box-shadow: 0 4px 24px rgba(245,158,11,0.1);
+    }
+    .stat-card-orders:hover {
+      box-shadow: 0 8px 32px rgba(245,158,11,0.18);
+    }
+    .stat-card-orders .stat-icon {
+      color: #f59e0b;
+    }
+    .stat-card-orders .stat-value {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Card 4: Conversion — cyan-blue gradient */
+    .stat-card-conversion::before {
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    }
+    .stat-card-conversion {
+      box-shadow: 0 4px 24px rgba(6,182,212,0.1);
+    }
+    .stat-card-conversion:hover {
+      box-shadow: 0 8px 32px rgba(6,182,212,0.18);
+    }
+    .stat-card-conversion .stat-icon {
+      color: #06b6d4;
+    }
+    .stat-card-conversion .stat-value {
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-value {
+      font-size: 2rem !important;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-card .card-body {
+      padding: 1.5rem;
+    }
+
+    /* === 4. Orders Table — Polish === */
+    .table thead {
+      background: linear-gradient(135deg, rgba(102,126,234,0.06), rgba(118,75,162,0.04));
+    }
+
+    .table thead th {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--grit-muted);
+    }
+
+    .badge {
+      border-radius: 9999px !important;
+      padding: 0.25rem 0.75rem !important;
+      font-weight: 600;
+    }
+
+    .btn-view-all {
+      transition: all 200ms ease;
+    }
+
+    .btn-view-all:hover {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* === 5. Quick Actions — Gradient === */
+    .quick-actions-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-actions-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    }
+
+    .btn-outline-gradient {
+      transition: all 200ms ease;
+    }
+
+    .btn-outline-gradient:hover {
+      background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.08)) !important;
+      border-color: #667eea !important;
+      color: #667eea !important;
+    }
+
+    /* === 6. Activity Feed — Richer === */
     .activity-item {
-      padding: 0.5rem;
-      border-radius: var(--grit-radius);
-      transition: background-color var(--grit-transition);
+      padding: 0.75rem;
+      border-radius: var(--grit-radius-lg, 12px);
+      transition: all 200ms ease;
+      position: relative;
+      border-left: 2px solid transparent;
     }
 
     .activity-item:hover {
-      background-color: var(--grit-surface-2);
+      background-color: rgba(102,126,234,0.04);
+      border-left-color: transparent;
+      border-image: linear-gradient(180deg, #667eea, #764ba2) 1;
+    }
+
+    .activity-item .avatar {
+      box-shadow: 0 0 0 2px rgba(102,126,234,0.2);
+    }
+
+    .activity-item:nth-child(1) .avatar { box-shadow: 0 0 0 2px rgba(22,163,74,0.3); }
+    .activity-item:nth-child(2) .avatar { box-shadow: 0 0 0 2px rgba(59,130,246,0.3); }
+    .activity-item:nth-child(3) .avatar { box-shadow: 0 0 0 2px rgba(245,158,11,0.3); }
+    .activity-item:nth-child(4) .avatar { box-shadow: 0 0 0 2px rgba(118,75,162,0.3); }
+
+    /* === 7. Skeleton Card — Shimmer === */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .skeleton,
+    .skeleton-avatar,
+    .skeleton-title,
+    .skeleton-text {
+      background: linear-gradient(90deg, var(--grit-surface-2) 25%, var(--grit-surface) 50%, var(--grit-surface-2) 75%) !important;
+      background-size: 200% 100% !important;
+      animation: shimmer 1.8s ease-in-out infinite !important;
+      border-radius: var(--grit-radius, 8px);
+    }
+
+    .skeleton-avatar {
+      border-radius: 50% !important;
+    }
+
+    /* === 8. Form Section — Validation Glows === */
+    input[style*="border-color: var(--grit-success)"] {
+      box-shadow: 0 0 0 3px rgba(22,163,74,0.12);
+    }
+
+    input[style*="border-color: var(--grit-error)"] {
+      box-shadow: 0 0 0 3px rgba(220,38,38,0.12);
+    }
+
+    /* Form inputs general styling */
+    input, select {
+      border-radius: var(--grit-radius-lg, 10px) !important;
+      transition: all 200ms ease;
+    }
+
+    input:focus, select:focus {
+      box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+      border-color: #667eea !important;
+    }
+
+    /* === 9. System Metrics — Gradient Progress Bars === */
+    .progress {
+      height: 0.75rem;
+      border-radius: 9999px !important;
+      overflow: hidden;
+      background: var(--grit-surface-2);
+    }
+
+    .progress-cpu .progress-bar {
+      background: linear-gradient(90deg, #667eea, #764ba2) !important;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(102,126,234,0.3);
+    }
+
+    .progress-memory .progress-bar {
+      background: linear-gradient(90deg, #f59e0b, #f97316) !important;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(245,158,11,0.3);
+    }
+
+    .progress-disk .progress-bar {
+      background: linear-gradient(90deg, #ef4444, #dc2626) !important;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(239,68,68,0.3);
+    }
+
+    .progress-bandwidth .progress-bar {
+      background: linear-gradient(90deg, #16a34a, #06b6d4) !important;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(22,163,74,0.3);
+    }
+
+    /* === 11. Alert — More rounded === */
+    .alert {
+      border-radius: var(--grit-radius-lg, 12px) !important;
+    }
+
+    /* === Card titles === */
+    .card-title {
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .stat-icon {
-      color: var(--grit-muted);
       flex-shrink: 0;
     }
   </style>
 </head>
 <body>
+
+<!-- Gradient strip at very top -->
+<div class="gradient-strip"></div>
 
 <nav class="navbar">
   <a href="#" class="brand">Acme Admin</a>
@@ -53,60 +385,60 @@
 <div class="container col gap-lg pad-lg">
 
   <!-- Welcome Header -->
-  <div class="row between center">
+  <div class="welcome-section row between center">
     <div>
-      <h2 style="margin-bottom: 0;">Welcome back, Diana</h2>
+      <h2>Welcome back, Diana</h2>
       <p class="text-muted">Here's what's happening with your store today.</p>
     </div>
-    <button class="btn btn-primary">+ New Order</button>
+    <button class="btn btn-gradient-primary">+ New Order</button>
   </div>
 
   <!-- Stats Row -->
   <div class="grid grid-4 gap-lg">
-    <div class="card" style="border-left: 4px solid var(--grit-primary)">
+    <div class="card stat-card stat-card-users">
       <div class="card-body">
         <div class="row gap-sm center">
           <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           <p class="text-muted text-sm">Total Users</p>
         </div>
         <div class="row between center">
-          <span class="text-2xl font-bold">12,847</span>
+          <span class="stat-value">12,847</span>
           <span class="badge badge-success">+12%</span>
         </div>
       </div>
     </div>
-    <div class="card" style="border-left: 4px solid var(--grit-success)">
+    <div class="card stat-card stat-card-revenue">
       <div class="card-body">
         <div class="row gap-sm center">
           <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           <p class="text-muted text-sm">Revenue</p>
         </div>
         <div class="row between center">
-          <span class="text-2xl font-bold">$48,290</span>
+          <span class="stat-value">$48,290</span>
           <span class="badge badge-success">+8%</span>
         </div>
       </div>
     </div>
-    <div class="card" style="border-left: 4px solid var(--grit-warning)">
+    <div class="card stat-card stat-card-orders">
       <div class="card-body">
         <div class="row gap-sm center">
           <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <p class="text-muted text-sm">Orders</p>
         </div>
         <div class="row between center">
-          <span class="text-2xl font-bold">1,423</span>
+          <span class="stat-value">1,423</span>
           <span class="badge badge-error">-3%</span>
         </div>
       </div>
     </div>
-    <div class="card" style="border-left: 4px solid var(--grit-accent)">
+    <div class="card stat-card stat-card-conversion">
       <div class="card-body">
         <div class="row gap-sm center">
           <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           <p class="text-muted text-sm">Conversion</p>
         </div>
         <div class="row between center">
-          <span class="text-2xl font-bold">3.2%</span>
+          <span class="stat-value">3.2%</span>
           <span class="badge badge-warning">-0.4%</span>
         </div>
       </div>
@@ -121,7 +453,7 @@
       <div class="card-body">
         <div class="row between center">
           <h3 class="card-title">Recent Orders</h3>
-          <button class="btn btn-ghost btn-sm">View All →</button>
+          <button class="btn btn-ghost btn-sm btn-view-all">View All →</button>
         </div>
         <table class="table table-striped table-hover">
           <thead>
@@ -184,11 +516,11 @@
     <!-- Right Sidebar -->
     <div class="col gap-lg">
       <!-- Quick Actions -->
-      <div class="card">
+      <div class="card quick-actions-card">
         <div class="card-body col gap-sm">
           <h3 class="card-title">Quick Actions</h3>
-          <button class="btn btn-primary btn-block">+ New Order</button>
-          <button class="btn btn-outline btn-block">Add Product</button>
+          <button class="btn btn-gradient-primary btn-block">+ New Order</button>
+          <button class="btn btn-outline btn-outline-gradient btn-block">Add Product</button>
           <button class="btn btn-ghost btn-block">Generate Report</button>
         </div>
       </div>
@@ -297,7 +629,7 @@
           </label>
           <div class="row end gap-sm">
             <button type="button" class="btn btn-ghost">Cancel</button>
-            <button type="submit" class="btn btn-primary">Add User</button>
+            <button type="submit" class="btn btn-gradient-primary">Add User</button>
           </div>
         </form>
       </div>
@@ -312,7 +644,7 @@
             <span class="text-sm">CPU Usage</span>
             <span class="text-sm font-bold">34%</span>
           </div>
-          <div class="progress">
+          <div class="progress progress-cpu">
             <div class="progress-bar" style="width: 34%"></div>
           </div>
         </div>
@@ -321,7 +653,7 @@
             <span class="text-sm">Memory</span>
             <span class="text-sm font-bold">68%</span>
           </div>
-          <div class="progress">
+          <div class="progress progress-memory">
             <div class="progress-bar progress-bar-warning" style="width: 68%"></div>
           </div>
         </div>
@@ -330,7 +662,7 @@
             <span class="text-sm">Disk Space</span>
             <span class="text-sm font-bold">89%</span>
           </div>
-          <div class="progress">
+          <div class="progress progress-disk">
             <div class="progress-bar progress-bar-error" style="width: 89%"></div>
           </div>
         </div>
@@ -339,7 +671,7 @@
             <span class="text-sm">Bandwidth</span>
             <span class="text-sm font-bold">52%</span>
           </div>
-          <div class="progress">
+          <div class="progress progress-bandwidth">
             <div class="progress-bar progress-bar-success" style="width: 52%"></div>
           </div>
         </div>
