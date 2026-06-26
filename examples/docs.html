@@ -262,25 +262,31 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
     <!-- Installation -->
     <section class="doc-section" id="installation">
       <h2>Installation</h2>
-      <p class="doc-desc">Drop a single CSS file into your project. No build step, no JavaScript, no dependencies. grit.css weighs in under 10KB gzipped and has zero external dependencies — just download <code>grit.css</code> and link it in your <code>&lt;head&gt;</code>.</p>
+      <p class="doc-desc">Drop one CSS file into your project and you're done — that's it, seriously! No complicated build tools, no terminal commands, no package managers required. Just download <code>grit.css</code> (or link to it from a CDN) and add a single <code>&lt;link&gt;</code> tag to your HTML. It's like buying a coloring book that comes with the crayons already inside.</p>
     </section>
 
     <!-- Usage -->
     <section class="doc-section" id="usage">
       <h2>Usage</h2>
-      <p class="doc-desc">Link the stylesheet and start writing semantic HTML. Headings, paragraphs, links, inputs, and buttons all look polished out of the box — no classes needed. When you want more control, layer on utility classes like <code>.btn-primary</code>, <code>.card</code>, or <code>.row gap-md</code>. Everything composes: you can mix and match without conflicts.</p>
+      <p class="doc-desc">Once you've linked the stylesheet, just write normal HTML and everything will look polished right away. Most standard HTML elements — headings, paragraphs, buttons, inputs, tables — get styled automatically without you adding any CSS classes at all. Think of it like a magic paintbrush: you draw the shapes (HTML), and grit.css colors them in beautifully for you.</p>
     </section>
 
     <!-- Dark Mode -->
     <section class="doc-section" id="dark-mode">
       <h2>Dark Mode</h2>
-      <p class="doc-desc">grit.css supports dark mode in two ways. By default, it reads your system preference via <code>prefers-color-scheme: dark</code> — no extra work required. If you want manual control (e.g., a toggle button), add a <code>.dark</code> class to <code>&lt;html&gt;</code>. You can also force light mode with <code>.light</code> to override a dark system preference. All components, colors, shadows, and borders adapt automatically.</p>
+      <p class="doc-desc">grit.css has built-in dark mode that works automatically! If your computer or phone is set to dark mode, the page will follow along — no setup needed. But if you want to add a manual toggle (like a light switch for your website), just add or remove the <code>.dark</code> class on the <code>&lt;html&gt;</code> element. You can also force light mode with a <code>.light</code> class if you want to override the system setting.</p>
     </section>
 
     <!-- Themes -->
     <section class="doc-section" id="themes">
       <h2>Themes</h2>
-      <p class="doc-desc">Themes restyle everything inside a container by overriding grit's CSS custom properties. Apply <code>.theme-midnight</code>, <code>.theme-forest</code>, or <code>.theme-rose</code> to any element and all child components — buttons, badges, cards, alerts — pick up the new colors automatically. You can nest themes, scope them to a single card, or apply them to the whole page.</p>
+      <p class="doc-desc">Themes let you re-skin any part of your page by adding a single class to a container. Everything inside that container — buttons, badges, progress bars, you name it — will automatically adopt the theme's color palette. It's like putting on tinted sunglasses: everything you see through them changes color, but the world underneath stays the same. grit.css ships with three built-in themes: <code>theme-midnight</code> (deep blue), <code>theme-forest</code> (earthy green), and <code>theme-rose</code> (warm pink).</p>
+    </section>
+
+    <!-- Navbar -->
+    <section class="doc-section" id="navbar">
+      <h2>Navbar</h2>
+      <p class="doc-desc">The navigation bar that sits at the top of your page. It's like the menu at a restaurant — it tells people where they can go. On big screens it shows all the links in a row, and on phones it shrinks down to a little hamburger button (☰) that opens a dropdown menu when you tap it. It uses the <code>.navbar</code> class on a <code>&lt;nav&gt;</code> element, a <code>.brand</code> link for your site name, a <code>.navbar-toggle</code> button for the hamburger icon, and a <code>.navbar-menu</code> wrapper around all the links. The hamburger animation (three lines morphing into an X) is handled entirely by CSS — the only JavaScript you need is a tiny snippet that toggles the <code>.open</code> class on the menu and flips <code>aria-expanded</code> on the button.</p>
     </section>
 
     <!-- Navbar -->
@@ -292,103 +298,103 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
     <!-- Buttons -->
     <section class="doc-section" id="buttons">
       <h2>Buttons</h2>
-      <p class="doc-desc">Start with the base <code>.btn</code> class, then add a color variant (<code>.btn-primary</code>, <code>.btn-error</code>, etc.) and optional style modifiers. Use <code>.btn-outline</code> for bordered buttons, <code>.btn-ghost</code> for minimal text-only buttons, and <code>.btn-pill</code> for fully rounded edges. Size modifiers <code>.btn-sm</code> and <code>.btn-lg</code> adjust padding and font size. Add <code>.btn-block</code> for full-width. All buttons support <code>disabled</code> natively.</p>
+      <p class="doc-desc">Buttons are the clickable things on your page. grit.css gives you a rainbow of color variants (primary, success, error, etc.), different visual styles (solid, outline, ghost), and size options (small, large, pill-shaped). Mix and match classes freely — just start with <code>.btn</code> and stack on whatever you want. You can also make them full-width with <code>.btn-block</code> or dim them out with the <code>disabled</code> attribute.</p>
     </section>
 
     <!-- Cards -->
     <section class="doc-section" id="cards">
       <h2>Cards</h2>
-      <p class="doc-desc">Cards are flexible content containers with a subtle border, rounded corners, and an optional shadow on hover. Wrap content in <code>.card-body</code> for padding. Use <code>.card-title</code> for headings and <code>.card-actions</code> for a button row at the bottom. Cards can also hold a top image — just place an <code>&lt;img&gt;</code> before the body and it will fill the card width with rounded top corners.</p>
+      <p class="doc-desc">Cards are like little containers with a border and some padding — imagine index cards on a desk. They're perfect for grouping related content together, like a blog post preview or a product listing. You can add images on top, a title, some text, and action buttons at the bottom. The <code>.card</code> class is the wrapper, <code>.card-body</code> adds the padding, <code>.card-title</code> styles the heading, and <code>.card-actions</code> lines up the buttons at the bottom.</p>
     </section>
 
     <!-- Badges -->
     <section class="doc-section" id="badges">
       <h2>Badges</h2>
-      <p class="doc-desc">Small inline status indicators. Apply a color variant (<code>.badge-primary</code>, <code>.badge-success</code>, <code>.badge-error</code>, etc.) for filled badges, or add <code>.badge-outline</code> for a bordered style. Use <code>.badge-lg</code> for a slightly larger size. Badges work great inside headings, table cells, or next to avatars.</p>
+      <p class="doc-desc">Badges are those tiny little labels you see next to things — like the red circle on your phone's app icons that says you have 3 new messages. They come in every color variant, can be solid or outline, and have a larger <code>.badge-lg</code> size if you need them to stand out more. Use them to show statuses, counts, or categories.</p>
     </section>
 
     <!-- Alerts -->
     <section class="doc-section" id="alerts">
       <h2>Alerts</h2>
-      <p class="doc-desc">Contextual feedback messages with a tinted background and colored left border. Use <code>.alert-info</code> for informational, <code>.alert-success</code> for confirmations, <code>.alert-warning</code> for cautions, and <code>.alert-error</code> for failures. Alerts are block-level and take the full width of their container — perfect for form validation messages, system notifications, or status banners.</p>
+      <p class="doc-desc">Alerts are colored boxes that grab your attention — they're how your page says "hey, look at this!" to your users. Each alert type has a different color and a thick left border: <code>alert-info</code> (blue, for general info), <code>alert-success</code> (green, for good news), <code>alert-warning</code> (yellow, for caution), and <code>alert-error</code> (red, for problems). Just put your message text inside the div and you're done.</p>
     </section>
 
     <!-- Tabs -->
     <section class="doc-section" id="tabs">
       <h2>Tabs</h2>
-      <p class="doc-desc">A horizontal tab bar built with <code>.tabs</code> as the container and <code>.tab</code> on each item. Mark the current tab with <code>.tab-active</code> — it gets an underline and bolder color. Tabs are styled buttons by default, so they work with <code>onclick</code> handlers or as part of a router. The active indicator is a 2px bottom border that transitions smoothly.</p>
+      <p class="doc-desc">Tabs work like the tabs on a filing cabinet — click one and it becomes the "active" tab that stands out from the rest. Wrap your tab buttons in a <code>.tabs</code> container, and add <code>.tab-active</code> to whichever one is currently selected. The active tab gets a colored underline so you can clearly see where you are. Switching tabs is up to you (a few lines of JavaScript), but the styling is all CSS.</p>
     </section>
 
     <!-- Toggles -->
     <section class="doc-section" id="toggles">
       <h2>Toggles</h2>
-      <p class="doc-desc">iOS-style toggle switches built on native <code>&lt;input type="checkbox"&gt;</code> elements — just add the <code>.toggle</code> class. No JavaScript required; the switch state is backed by the real checkbox. The knob slides with a smooth transition and the track changes color when checked. Pair with a <code>&lt;label&gt;</code> for an accessible, clickable label.</p>
+      <p class="doc-desc">Toggle switches are those satisfying little on/off sliders you see on phones — slide right for on, slide left for off. In grit.css, they're built on regular <code>&lt;input type="checkbox"&gt;</code> elements, so they work natively without any JavaScript at all. Just add the <code>.toggle</code> class to a checkbox and it transforms from a boring square checkbox into a sleek rounded switch. Wrap it in a <code>&lt;label&gt;</code> with some text to describe what it controls.</p>
     </section>
 
     <!-- Dropdown -->
     <section class="doc-section" id="dropdown">
       <h2>Dropdown</h2>
-      <p class="doc-desc">Dropdown menus powered by the native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> elements — zero JavaScript. Wrap links inside <code>.dropdown-menu</code> and they'll appear on click with a smooth fade. Use <code>&lt;hr&gt;</code> for dividers between menu groups. The menu auto-positions below the trigger and closes when you click outside.</p>
+      <p class="doc-desc">Dropdowns are menus that pop open when you click a button — like a little drawer that slides out. The coolest part? They use the native HTML <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements, so they work without a single line of JavaScript. The browser handles the open/close logic for you. Add <code>.dropdown</code> to the details element, style the trigger with <code>.btn</code>, and put your menu links inside a <code>.dropdown-menu</code> div.</p>
     </section>
 
     <!-- Modal -->
     <section class="doc-section" id="modal">
       <h2>Modal</h2>
-      <p class="doc-desc">Modal dialogs built on the native <code>&lt;dialog&gt;</code> element. Open with <code>el.showModal()</code> and close with <code>el.close()</code> — just two lines of JS, no library needed. The modal centers on screen with a blurred backdrop. Structure content with <code>.modal-body</code>, <code>.modal-title</code>, and <code>.modal-actions</code>. Pressing Escape closes it automatically.</p>
+      <p class="doc-desc">Modals are those pop-up windows that appear on top of everything else and dim the background — like when an app asks "Are you sure you want to delete this?" They use the native HTML <code>&lt;dialog&gt;</code> element, so the browser handles accessibility and focus trapping for you. Open one with JavaScript (<code>element.showModal()</code>) and close it with <code>element.close()</code>. grit.css adds a nice backdrop blur, centered positioning, and smooth styling automatically.</p>
     </section>
 
     <!-- Progress -->
     <section class="doc-section" id="progress">
       <h2>Progress</h2>
-      <p class="doc-desc">Lightweight progress bars with a track-and-fill pattern. The outer <code>.progress</code> div provides the gray track, and the inner <code>.progress-bar</code> fills to whatever <code>width</code> you set inline. Color variants — <code>.progress-bar-success</code>, <code>.progress-bar-warning</code>, <code>.progress-bar-error</code> — change the fill color. Great for upload indicators, storage meters, or step-completion visuals.</p>
+      <p class="doc-desc">Progress bars show how far along something is — like a loading bar in a video game. They're just a <code>.progress</code> container with a <code>.progress-bar</code> inside, and you control the fill width with an inline <code>style="width: 45%"</code>. You can color them with variants like <code>.progress-bar-success</code> (green), <code>.progress-bar-warning</code> (yellow), and <code>.progress-bar-error</code> (red) to show different states.</p>
     </section>
 
     <!-- Avatars -->
     <section class="doc-section" id="avatars">
       <h2>Avatars</h2>
-      <p class="doc-desc">Circular image thumbnails in four sizes. The base <code>.avatar</code> class gives you a 2.5rem circle. Add <code>.avatar-sm</code> (2rem), <code>.avatar-lg</code> (3.5rem), or <code>.avatar-xl</code> (5rem) for different scales. Images are <code>object-fit: cover</code>, so they crop gracefully. Stack avatars in a <code>.row gap-sm</code> for a team member bar.</p>
+      <p class="doc-desc">Avatars are circular profile pictures — the little round images you see next to usernames in chat apps or social media. Apply the <code>.avatar</code> class to an <code>&lt;img&gt;</code> tag and it'll be clipped into a perfect circle. They come in four sizes: <code>.avatar-sm</code> (small, 2rem), default (2.5rem), <code>.avatar-lg</code> (large, 3.5rem), and <code>.avatar-xl</code> (extra large, 5rem).</p>
     </section>
 
     <!-- Tooltips -->
     <section class="doc-section" id="tooltips">
       <h2>Tooltips</h2>
-      <p class="doc-desc">Pure-CSS tooltips — add a <code>data-tooltip="Your text"</code> attribute to any element and a tooltip appears on hover. No JavaScript, no initialization. The tooltip fades in above the element with a subtle arrow. Works on buttons, links, spans, or any inline/block element. Keep tooltip text short (one line) for best results.</p>
+      <p class="doc-desc">Tooltips are the little text bubbles that appear when you hover over something — like a sticky note that pops up to explain what a button does. They're 100% pure CSS, no JavaScript whatsoever. Just add a <code>data-tooltip="Your message here"</code> attribute to any element and the tooltip appears on hover. They work on buttons, links, plain text — anything!</p>
     </section>
 
     <!-- Inputs -->
     <section class="doc-section" id="inputs">
       <h2>Inputs</h2>
-      <p class="doc-desc">Text inputs, selects, and textareas are styled globally — no classes needed. Every input gets consistent padding, border radius, and a colored focus ring that matches <code>--grit-primary</code>. Pair each input with a <code>&lt;label&gt;</code> for accessibility and wrap the pair in a <code>.col gap-xs</code> for standard form spacing. Inputs stretch to fill their container width by default.</p>
+      <p class="doc-desc">These are your standard form fields — text inputs, dropdown selects, and multi-line textareas. grit.css styles them all consistently with nice borders, proper spacing, and a satisfying focus ring (that glowing outline when you click into a field). Just use regular HTML form elements and they'll look great. Wrap each one in a <code>.col.gap-xs</code> div with a <code>&lt;label&gt;</code> above it for the cleanest layout.</p>
     </section>
 
     <!-- Input Groups -->
     <section class="doc-section" id="input-groups">
       <h2>Input Groups</h2>
-      <p class="doc-desc">Visually attach a prefix or suffix to an input. Wrap an <code>&lt;input&gt;</code> and a <code>.input-group-text</code> span inside <code>.input-group</code> — the addon and input merge into a single bordered row. Use this for currency symbols, "@" username prefixes, search icons, or domain suffixes. The addon inherits the surface background so it's visually distinct from the input area.</p>
+      <p class="doc-desc">Input groups let you attach extra stuff to the sides of an input field — like an "@" symbol before a username input, or a search icon at the end. Wrap the input and the addon in an <code>.input-group</code> div, and use <code>.input-group-text</code> for the addon element. They'll visually merge together into one seamless unit, like puzzle pieces snapping together.</p>
     </section>
 
     <!-- Container -->
     <section class="doc-section" id="container">
       <h2>Container</h2>
-      <p class="doc-desc">The <code>.container</code> class centers content and caps it at a max-width of 1200px with horizontal padding on each side. Use it as the outermost wrapper for your page content. It works at every viewport width — on mobile it's full-width with padding, on desktop it creates comfortable reading margins. Nest grids, rows, and sections inside it.</p>
+      <p class="doc-desc">The container is like guardrails for your content — it centers everything on the page and caps the width at 1200px so your text doesn't stretch all the way across a giant monitor (which would make it really hard to read). It also adds a little horizontal padding on the sides so nothing bumps right up against the edge of the screen. Just wrap your content in a <code>&lt;div class="container"&gt;</code> and you're set.</p>
     </section>
 
     <!-- Grid -->
     <section class="doc-section" id="grid">
       <h2>Grid</h2>
-      <p class="doc-desc">CSS Grid utilities for common column layouts. Start with <code>.grid</code>, then add <code>.grid-2</code>, <code>.grid-3</code>, or <code>.grid-4</code> for fixed-column layouts. Use <code>.grid-auto</code> for a responsive auto-fit grid that wraps items into rows at 250px minimum width. All grid layouts collapse to a single column on mobile. Use <code>.span-2</code>, <code>.span-3</code>, or <code>.span-full</code> on children to span multiple columns.</p>
+      <p class="doc-desc">The grid system lets you arrange things in columns — like a spreadsheet or a photo gallery. Use <code>.grid-2</code>, <code>.grid-3</code>, or <code>.grid-4</code> for fixed column counts, or <code>.grid-auto</code> for a responsive layout that figures out the best number of columns automatically. On mobile, columns stack vertically so nothing gets squished. You can also use <code>.span-2</code> or <code>.span-full</code> to make an item stretch across multiple columns.</p>
     </section>
 
     <!-- Flex -->
     <section class="doc-section" id="flex">
       <h2>Flex Utilities</h2>
-      <p class="doc-desc">Flexbox helpers for common layout patterns. <code>.row</code> creates a horizontal flex container (items centered vertically); <code>.col</code> creates a vertical stack. Both accept gap utilities. Use <code>.between</code> for space-between, <code>.center</code> for centering both axes, <code>.end</code> for flex-end, and <code>.wrap</code> for wrapping. <code>.grow</code> makes a child fill available space. Combine freely: <code>.row between wrap gap-md</code> is a common pattern.</p>
+      <p class="doc-desc">Flex utilities are helper classes for arranging things in a line — horizontally with <code>.row</code> or vertically with <code>.col</code>. Think of them as instructions for how to line up your toys on a shelf. <code>.row.between</code> pushes items to the edges with space between them, <code>.row.center</code> groups everything in the middle, <code>.wrap</code> lets items flow onto the next line when they run out of room, and <code>.grow</code> makes an item stretch to fill any leftover space.</p>
     </section>
 
     <!-- Spacing -->
     <section class="doc-section" id="spacing">
       <h2>Spacing</h2>
-      <p class="doc-desc">Control the space between and inside elements with gap and padding utilities. Gap classes set the <code>--gap</code> custom property, which is picked up by <code>.row</code>, <code>.col</code>, and <code>.grid</code> containers. Padding classes add uniform padding on all sides. Both use a consistent size scale so your layouts feel cohesive.</p>
+      <p class="doc-desc">Spacing utilities control the gaps and padding in your layout. Gap classes (<code>.gap-xs</code> through <code>.gap-xl</code>) set the space between items in a flex or grid container — like adjusting how far apart the books sit on a shelf. Padding classes (<code>.pad-sm</code> through <code>.pad-xl</code>) add breathing room inside an element — like the margins on a piece of paper so the text doesn't start right at the edge.</p>
 
       <h3 style="font-size: 1rem; margin-top: 1.5rem;">Gap (space between children)</h3>
       <p style="color: var(--grit-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">Add a gap class to any flex or grid container. Gap only affects the space <em>between</em> children — it doesn't add space on the outer edges. If no gap class is set, <code>.row</code>, <code>.col</code>, and <code>.grid</code> default to <code>0.75rem</code>.</p>
@@ -433,7 +439,10 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
 
 <!-- Load coup for interactive code examples -->
 <script type="module">
-import { CoupElement, html, nothing } from '../coup.bundle.js'
+// === Inlined coup.bundle.js (avoids CORS issues when opening from file://) ===
+var q=globalThis,Q=n=>n,j=q.trustedTypes,Y=j?j.createPolicy("lit-html",{createHTML:n=>n}):void 0,W="$lit$",A=`lit$${Math.random().toFixed(9).slice(2)}$`,z="?"+A,mt=`<${z}>`,b=document,w=()=>b.createComment(""),N=n=>n===null||typeof n!="object"&&typeof n!="function",F=Array.isArray,st=n=>F(n)||typeof n?.[Symbol.iterator]=="function",V=`[ 	
+\f\r]`,T=/<(?:(!--|/[^a-zA-Z])|(/?[a-zA-Z][^>\s]*)|(/?$))/g,Z=/-->/g,J=/>/g,y=RegExp(`>|${V}(?:([^\\s"'>=/]+)(${V}*=${V}*(?:[^ 	
+\f\r"'\`<>=]|("|')|))|$)`,"g"),X=/'/g,tt=/"/g,it=/^(?:script|style|textarea|title)$/i,K=n=>(t,...s)=>({_$litType$:n,strings:t,values:s}),yt=K(1),vt=K(2),Ht=K(3),C=Symbol.for("lit-noChange"),_=Symbol.for("lit-nothing"),et=new WeakMap,v=b.createTreeWalker(b,129);function nt(n,t){if(!F(n)||!n.hasOwnProperty("raw"))throw Error("invalid template strings array");return Y!==void 0?Y.createHTML(t):t}var rt=(n,t)=>{let s=n.length-1,i=[],e,r=t===2?"<svg>":t===3?"<math>":"",o=T;for(let a=0;a<s;a++){let h=n[a],c,p,l=-1,u=0;for(;u<h.length&&(o.lastIndex=u,p=o.exec(h),p!==null);)u=o.lastIndex,o===T?p[1]==="!--"?o=Z:p[1]!==void 0?o=J:p[2]!==void 0?(it.test(p[2])&&(e=RegExp("</"+p[2],"g")),o=y):p[3]!==void 0&&(o=y):o===y?p[0]===">"?(o=e??T,l=-1):p[1]===void 0?l=-2:(l=o.lastIndex-p[2].length,c=p[1],o=p[3]===void 0?y:p[3]==='"'?tt:X):o===tt||o===X?o=y:o===Z||o===J?o=T:(o=y,e=void 0);let d=o===y&&n[a+1].startsWith("/>")?" ":"";r+=o===T?h+mt:l>=0?(i.push(c),h.slice(0,l)+W+h.slice(l)+A+d):h+A+(l===-2?a:d)}return[nt(n,r+(n[s]||"<?>")+( t===2?"</svg>":t===3?"</math>":"")),i]},O=class n{constructor({strings:t,_$litType$:s},i){let e;this.parts=[];let r=0,o=0,a=t.length-1,h=this.parts,[c,p]=rt(t,s);if(this.el=n.createElement(c,i),v.currentNode=this.el.content,s===2||s===3){let l=this.el.content.firstChild;l.replaceWith(...l.childNodes)}for(;(e=v.nextNode())!==null&&h.length<a;){if(e.nodeType===1){if(e.hasAttributes())for(let l of e.getAttributeNames())if(l.endsWith(W)){let u=p[o++],d=e.getAttribute(l).split(A),f=/([.?@])?(.*)/.exec(u);h.push({type:1,index:r,name:f[2],strings:d,ctor:f[1]==="."?S:f[1]==="?"?R:f[1]==="@"?k:P}),e.removeAttribute(l)}else l.startsWith(A)&&(h.push({type:6,index:r}),e.removeAttribute(l));if(it.test(e.tagName)){let l=e.textContent.split(A),u=l.length-1;if(u>0){e.textContent=j?j.emptyScript:"";for(let d=0;d<u;d++)e.append(l[d],w()),v.nextNode(),h.push({type:2,index:++r});e.append(l[u],w())}}}else if(e.nodeType===8)if(e.data===z)h.push({type:2,index:r});else{let l=-1;for(;(l=e.data.indexOf(A,l+1))!==-1;)h.push({type:7,index:r}),l+=A.length-1}r++}}static createElement(t,s){let i=b.createElement("template");return i.innerHTML=t,i}};function x(n,t,s=n,i){if(t===C)return t;let e=i!==void 0?s._$Co?.[i]:s._$Cl,r=N(t)?void 0:t._$litDirective$;return e?.constructor!==r&&(e?._$AO?.(!1),r===void 0?e=void 0:(e=new r(n),e._$AT(n,s,i)),i!==void 0?(s._$Co??=[])[i]=e:s._$Cl=e),e!==void 0&&(t=x(n,e._$AS(n,t.values),e,i)),t}var M=class{constructor(t,s){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=s}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){let{el:{content:s},parts:i}=this._$AD,e=(t?.creationScope??b).importNode(s,!0);v.currentNode=e;let r=v.nextNode(),o=0,a=0,h=i[0];for(;h!==void 0;){if(o===h.index){let c;h.type===2?c=new H(r,r.nextSibling,this,t):h.type===1?c=new h.ctor(r,h.name,h.strings,this,t):h.type===6&&(c=new B(r,this,t)),this._$AV.push(c),h=i[++a]}o!==h?.index&&(r=v.nextNode(),o++)}return v.currentNode=b,e}p(t){let s=0;for(let i of this._$AV)i!==void 0&&(i.strings!==void 0?(i._$AI(t,i,s),s+=i.strings.length-2):i._$AI(t[s])),s++}},H=class n{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(t,s,i,e){this.type=2,this._$AH=_,this._$AN=void 0,this._$AA=t,this._$AB=s,this._$AM=i,this.options=e,this._$Cv=e?.isConnected??!0}get parentNode(){let t=this._$AA.parentNode,s=this._$AM;return s!==void 0&&t?.nodeType===11&&(t=s.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,s=this){t=x(this,t,s),N(t)?t===_||t==null||t===""?(this._$AH!==_&&this._$AR(),this._$AH=_):t!==this._$AH&&t!==C&&this._(t):t._$litType$!==void 0?this.$(t):t.nodeType!==void 0?this.T(t):st(t)?this.k(t):this._(t)}O(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}T(t){this._$AH!==t&&(this._$AR(),this._$AH=this.O(t))}_(t){this._$AH!==_&&N(this._$AH)?this._$AA.nextSibling.data=t:this.T(b.createTextNode(t)),this._$AH=t}$(t){let{values:s,_$litType$:i}=t,e=typeof i=="number"?this._$AC(t):(i.el===void 0&&(i.el=O.createElement(nt(i.h,i.h[0]),this.options)),i);if(this._$AH?._$AD===e)this._$AH.p(s);else{let r=new M(e,this),o=r.u(this.options);r.p(s),this.T(o),this._$AH=r}}_$AC(t){let s=et.get(t.strings);return s===void 0&&et.set(t.strings,s=new O(t)),s}k(t){F(this._$AH)||(this._$AH=[],this._$AR());let s=this._$AH,i,e=0;for(let r of t)e===s.length?s.push(i=new n(this.O(w()),this.O(w()),this,this.options)):i=s[e],i._$AI(r),e++;e<s.length&&(this._$AR(i&&i._$AB.nextSibling,e),s.length=e)}_$AR(t=this._$AA.nextSibling,s){for(this._$AP?.(!1,!0,s);t!==this._$AB;){let i=Q(t).nextSibling;Q(t).remove(),t=i}}setConnected(t){this._$AM===void 0&&(this._$Cv=t,this._$AP?.(t))}},P=class{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,s,i,e,r){this.type=1,this._$AH=_,this._$AN=void 0,this.element=t,this.name=s,this._$AM=e,this.options=r,i.length>2||i[0]!==""||i[1]!==""?(this._$AH=Array(i.length-1).fill(new String),this.strings=i):this._$AH=_}_$AI(t,s=this,i,e){let r=this.strings,o=!1;if(r===void 0)t=x(this,t,s,0),o=!N(t)||t!==this._$AH&&t!==C,o&&(this._$AH=t);else{let a=t,h,c;for(t=r[0],h=0;h<r.length-1;h++)c=x(this,a[i+h],s,h),c===C&&(c=this._$AH[h]),o||=!N(c)||c!==this._$AH[h],c===_?t=_:t!==_&&(t+=(c??"")+r[h+1]),this._$AH[h]=c}o&&!e&&this.j(t)}j(t){t===_?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}},S=class extends P{constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===_?void 0:t}},R=class extends P{constructor(){super(...arguments),this.type=4}j(t){this.element.toggleAttribute(this.name,!!t&&t!==_)}},k=class extends P{constructor(t,s,i,e,r){super(t,s,i,e,r),this.type=5}_$AI(t,s=this){if((t=x(this,t,s,0)??_)===C)return;let i=this._$AH,e=t===_&&i!==_||t.capture!==i.capture||t.once!==i.once||t.passive!==i.passive,r=t!==_&&(i===_||e);e&&this.element.removeEventListener(this.name,this,i),r&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){typeof this._$AH=="function"?this._$AH.call(this.options?.host??this.element,t):this._$AH.handleEvent(t)}},B=class{constructor(t,s,i){this.element=t,this.type=6,this._$AN=void 0,this._$AM=s,this.options=i}get _$AU(){return this._$AM._$AU}_$AI(t){x(this,t)}},ot={M:W,P:A,A:z,C:1,L:rt,R:M,D:st,V:x,I:H,H:P,N:R,U:k,B:S,F:B},bt=q.litHtmlPolyfillSupport;bt?.(O,H),(q.litHtmlVersions??=[]).push("3.3.3");var ht=(n,t,s)=>{let i=s?.renderBefore??t,e=i._$litPart$;if(e===void 0){let r=s?.renderBefore??null;i._$litPart$=e=new H(t.insertBefore(w(),r),r,void 0,s??{})}return e._$AI(n),e};function at(n,t){if(n===t)return!0;if(n==null||t==null||typeof n!="object"||typeof t!="object")return!1;let s=Array.isArray(n),i=Array.isArray(t);if(s!==i)return!1;if(s){if(n.length!==t.length)return!1;for(let a=0;a<n.length;a++)if(n[a]!==t[a])return!1;return!0}let e=Object.getPrototypeOf(n);if(e!==Object.prototype&&e!==null||Object.getPrototypeOf(t)!==e)return!1;let r=Object.keys(n),o=Object.keys(t);if(r.length!==o.length)return!1;for(let a of r)if(n[a]!==t[a])return!1;return!0}var $=!1;function I(n,t,...s){$&&console.warn(`[coup] <${n}> ${t}`,...s)}var lt=new Set(["template","render","connected","disconnected","firstUpdated","updated","propsChanged","stateChanged","storeChanged","emit","$","$$"]),ct=class{constructor(t={}){this._state=t,this._listeners=new Set}get state(){return this._state}set(t){let s=typeof t=="function"?t(this._state):t;this._state={...this._state,...s},this._listeners.forEach(i=>i(this._state))}subscribe(t){return this._listeners.add(t),()=>this._listeners.delete(t)}},dt=class n extends HTMLElement{_props={};_propChanges=null;_propChangePending=!1;_renderPending=!1;_rendering=!1;_connected=!1;static set debug(t){$=t}static get debug(){return $}constructor(){super(),this._setupProps(),this._setupState()}_stateProxy(){this._stateProxied=!0;let t=this.constructor.tag,s=!1,i=!1,e=this.render.bind(this);this.render=()=>{i=!0,s=!1,e()};let r={set(o,a,h){return o[a]=h,s=!0,i=!1,queueMicrotask(()=>{s&&!i&&I(t,`state.${a} changed but render() was not called. UI is stale.`)}),!0}};this.state=new Proxy(this.state,r)}static define(){let t=this.tag;if(!t)throw new Error(`${this.name} must have a static 'tag' property`);customElements.get(t)||customElements.define(t,this)}static get observedAttributes(){return this.attrs?Object.keys(this.attrs):[]}attributeChangedCallback(t,s,i){let e=this.constructor.attrs;if(!e||!(t in e))return;let r=e[t],o;r===Boolean?o=i!==null:r===Number?o=i===null?void 0:Number(i):o=i===null?void 0:i,this._props.hasOwnProperty(t)?this[t]=o:(this._attrs=this._attrs||{},this._attrs[t]!==o&&(this._attrs[t]=o,this._scheduleRender()))}_setupProps(){let t=this.constructor.props;if(!t)return;let s=Array.isArray(t)?t.map(i=>[i,String]):Object.entries(t);for(let[i,e]of s)$&&lt.has(i)&&I(this.constructor.tag,`prop "${i}" shadows a CoupElement method \u2014 pick a different name`),this._props[i]=void 0,Object.defineProperty(this,i,{get(){return this._props[i]},set(r){let o=this._props[i];if(!at(o,r)){if($&&r!==null&&typeof r=="object"){let a=Object.getPrototypeOf(r);(Array.isArray(r)||a===Object.prototype||a===null)&&Object.freeze(r)}this._props[i]=r,$&&(this._lastPropChange=i),this._scheduleRender(),this._connected&&this.propsChanged&&(this._propChanges||(this._propChanges={}),this._propChanges[i]={old:o,new:r},this._propChangePending||(this._propChangePending=!0,queueMicrotask(()=>{let a=this._propChanges;this._propChanges=null,this._propChangePending=!1,this.propsChanged(a)})))}},enumerable:!0,configurable:!0})}_setupState(){let t=this.constructor.state;if(!t)return;let s=Array.isArray(t)?t.map(e=>[e,void 0]):Object.entries(t),i=e=>e===String||e===Number||e===Boolean||e===Object||e===Array;this._state_vals={};for(let[e,r]of s){if($&&lt.has(e)&&I(this.constructor.tag,`state "${e}" shadows a CoupElement method \u2014 pick a different name`),this._props.hasOwnProperty(e))throw new Error(`${this.constructor.name}: "${e}" declared in both static props and static state`);let o=i(r)?void 0:r;this._state_vals[e]=Array.isArray(o)?[...o]:o!==null&&typeof o=="object"?{...o}:o,Object.defineProperty(this,e,{get(){return this._state_vals[e]},set(a){let h=this._state_vals[e];if(!at(h,a)){if($&&a!==null&&typeof a=="object"){let c=Object.getPrototypeOf(a);(Array.isArray(a)||c===Object.prototype||c===null)&&Object.freeze(a)}this._state_vals[e]=a,$&&(this._lastStateChange=e),this._scheduleRender(),this._connected&&this.stateChanged!==n.prototype.stateChanged&&(this._stateChanges||(this._stateChanges={}),this._stateChanges[e]={old:h,new:a},this._stateChangePending||(this._stateChangePending=!0,queueMicrotask(()=>{let c=this._stateChanges;this._stateChanges=null,this._stateChangePending=!1,this.stateChanged(c)})))}},enumerable:!0,configurable:!0})}}_scheduleRender(){this._connected&&(this._renderPending||(this._renderPending=!0,queueMicrotask(()=>{this._renderPending&&(this._renderPending=!1,this._connected&&this._applyRender())})))}_applyRender(){if(this._rendering)return;if(this._rendering=!0,this._renderPending=!1,$){let s=this._lastStateChange||this._lastPropChange||"manual";console.debug(`[coup] <${this.constructor.tag}> render (${s})`),this._lastStateChange=null,this._lastPropChange=null}let t=!1;try{let s=this.template();$&&s===void 0&&I(this.constructor.tag,"template() returned undefined. Did you forget to return html`...`?"),ht(s,this),t=!0}catch(s){console.error(`[coup] <${this.constructor.tag}> template() error:`,s)}finally{this._rendering=!1}t&&(this._firstUpdated||(this._firstUpdated=!0,this.firstUpdated()),this.updated())}template(){return _}render(){this._connected&&this._applyRender()}$(t){return this.querySelector(t)}$$(t){return this.querySelectorAll(t)}connectedCallback(){if(this._connected=!0,$&&this.state&&!this._stateProxied&&this._stateProxy(),this._unbindEvents(),this._bindEvents(),this._bindSubscriptions(),this._scheduleRender(),this.connected(),this.propsChanged&&!this._hasConnected){this._hasConnected=!0;let t=this.constructor.props;if(t){let s={},i=!1,e=Array.isArray(t)?t:Object.keys(t);for(let r of e)this._props[r]!==void 0&&(s[r]={old:void 0,new:this._props[r]},i=!0);i&&queueMicrotask(()=>this.propsChanged(s))}}else this._hasConnected=!0}disconnectedCallback(){this._connected=!1,this._unbindEvents(),this._unbindSubscriptions(),this.disconnected()}connected(){}disconnected(){}firstUpdated(){}updated(){}stateChanged(t){}_bindSubscriptions(){let t=this.constructor.subscribe;t&&(this._subs=t.map(s=>s.subscribe(i=>{this.storeChanged?this.storeChanged(s,i):this._scheduleRender()})))}_unbindSubscriptions(){this._subs&&(this._subs.forEach(t=>t()),this._subs=null)}_bindEvents(){let t=this.constructor.events;if(t){this._eventHandlers=this._eventHandlers||{};for(let[s,i]of Object.entries(t)){if(typeof this[i]!="function")throw new Error(`${this.constructor.name}: static events references '${i}' but no such method exists`);if(this._eventHandlers[s])continue;let e=this[i].bind(this);this._eventHandlers[s]=e,window.addEventListener(s,e)}}}_unbindEvents(){if(this._eventHandlers){for(let[t,s]of Object.entries(this._eventHandlers))window.removeEventListener(t,s);this._eventHandlers={}}}emit(t,s=null){window.dispatchEvent(new CustomEvent(t,{detail:s}))}};var ut={ATTRIBUTE:1,CHILD:2,PROPERTY:3,BOOLEAN_ATTRIBUTE:4,EVENT:5,ELEMENT:6},_t=n=>(...t)=>({_$litDirective$:n,values:t}),U=class{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,s,i){this._$Ct=t,this._$AM=s,this._$Ci=i}_$AS(t,s){return this.update(t,s)}update(t,s){return this.render(...s)}};var{I:Ct}=ot,pt=n=>n;var ft=()=>document.createComment(""),E=(n,t,s)=>{let i=n._$AA.parentNode,e=t===void 0?n._$AB:t._$AA;if(s===void 0){let r=i.insertBefore(ft(),e),o=i.insertBefore(ft(),e);s=new Ct(r,o,n,n.options)}else{let r=s._$AB.nextSibling,o=s._$AM,a=o!==n;if(a){let h;s._$AQ?.(n),s._$AM=n,s._$AP!==void 0&&(h=n._$AU)!==o._$AU&&s._$AP(h)}if(r!==e||a){let h=s._$AA;for(;h!==r;){let c=pt(h).nextSibling;pt(i).insertBefore(h,e),h=c}}}return s},m=(n,t,s=n)=>(n._$AI(t,s),n),xt={},$t=(n,t=xt)=>n._$AH=t,gt=n=>n._$AH,D=n=>{n._$AR(),n._$AA.remove()};var At=(n,t,s)=>{let i=new Map;for(let e=t;e<=s;e++)i.set(n[e],e);return i},Pt=_t(class extends U{constructor(n){if(super(n),n.type!==ut.CHILD)throw Error("repeat() can only be used in text expressions")}dt(n,t,s){let i;s===void 0?s=t:t!==void 0&&(i=t);let e=[],r=[],o=0;for(let a of n)e[o]=i?i(a,o):o,r[o]=s(a,o),o++;return{values:r,keys:e}}render(n,t,s){return this.dt(n,t,s).values}update(n,[t,s,i]){let e=gt(n),{values:r,keys:o}=this.dt(t,s,i);if(!Array.isArray(e))return this.ut=o,r;let a=this.ut??=[],h=[],c,p,l=0,u=e.length-1,d=0,f=r.length-1;for(;l<=u&&d<=f;)if(e[l]===null)l++;else if(e[u]===null)u--;else if(a[l]===o[d])h[d]=m(e[l],r[d]),l++,d++;else if(a[u]===o[f])h[f]=m(e[u],r[f]),u--,f--;else if(a[l]===o[f])h[f]=m(e[l],r[f]),E(n,h[f+1],e[l]),l++,f--;else if(a[u]===o[d])h[d]=m(e[u],r[d]),E(n,e[l],e[u]),u--,d++;else if(c===void 0&&(c=At(o,d,f),p=At(a,l,u)),c.has(a[l]))if(c.has(a[u])){let g=p.get(o[d]),L=g!==void 0?e[g]:null;if(L===null){let G=E(n,e[l]);m(G,r[d]),h[d]=G}else h[d]=m(L,r[d]),E(n,e[l],L),e[g]=null;d++}else D(e[u]),u--;else D(e[l]),l++;for(;d<=f;){let g=E(n,h[f+1]);m(g,r[d]),h[d++]=g}for(;l<=u;){let g=e[l++];g!==null&&D(g)}return this.ut=o,$t(n,h),C}});var html=yt,nothing=_,CoupElement=dt,Store=ct,svg=vt,repeat=Pt;
 
 // ============================================================
 // <code-example> — live preview + source with copy button
@@ -581,6 +590,57 @@ const examples = {
 
 <div class="theme-forest">...</div>
 <div class="theme-rose">...</div>`
+    }]
+  },
+
+  navbar: {
+    examples: [{
+      title: 'Responsive Navbar with Hamburger',
+      html: `<nav class="navbar" style="position: relative; top: auto;">
+        <a href="#" class="brand">MyApp</a>
+        <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="navbar-menu">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+      </nav>`,
+      code: `<!-- The HTML — just a nav with three parts -->
+<nav class="navbar">
+  <a href="#" class="brand">MyApp</a>
+  <button class="navbar-toggle" aria-label="Menu"
+    aria-expanded="false">
+    <svg viewBox="0 0 24 24">
+      <line class="bar-top" x1="3" y1="6" x2="21" y2="6"/>
+      <line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/>
+      <line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+  <div class="navbar-menu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<!-- The JS — just toggles a class -->
+<script>
+document.querySelectorAll('.navbar-toggle').forEach(btn => {
+  const menu = btn.nextElementSibling;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+<\/script>`
     }]
   },
 
