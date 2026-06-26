@@ -1,8 +1,8 @@
 # grit.css
 
-8KB of CSS. One `<link>` tag. Zero JavaScript. Zero build step.
+**[Live Demo →](https://sandro.github.io/grit.css/)**
 
-Beautiful defaults. Real components. Your CSS.
+One CSS file. Zero JavaScript. Beautiful defaults and 30+ components in 8KB.
 
 ## The Problem
 
@@ -138,6 +138,12 @@ Or just drop the file in your project:
 ## Philosophy
 
 grit.css gives you a starting point, not a straitjacket. When you need something custom, you write CSS — because you know CSS. One file. 8KB. That's grit.
+
+## Links
+
+- **[Live Demo](https://sandro.github.io/grit.css/)** — Homepage with interactive examples
+- **[Kitchen Sink](https://sandro.github.io/grit.css/examples/kitchen-sink.html)** — Every component on one page
+- **[Documentation](https://sandro.github.io/grit.css/examples/docs.html)** — Full API reference with code examples
 
 ---
 
