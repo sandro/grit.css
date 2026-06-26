@@ -758,6 +758,99 @@ dialog.modal[open] {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
+/* === Checkbox === */
+
+input[type="checkbox"]:not(.toggle) {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  padding: 0;
+  margin: 0;
+  border: 1.5px solid var(--grit-muted);
+  border-radius: 3px;
+  background: var(--grit-bg);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  vertical-align: middle;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+input[type="checkbox"]:not(.toggle):hover {
+  border-color: var(--grit-primary);
+}
+
+input[type="checkbox"]:not(.toggle):checked {
+  background: var(--grit-primary);
+  border-color: var(--grit-primary);
+}
+
+input[type="checkbox"]:not(.toggle):checked::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+input[type="checkbox"]:not(.toggle):focus-visible {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+/* === Radio === */
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  padding: 0;
+  margin: 0;
+  border: 1.5px solid var(--grit-muted);
+  border-radius: 50%;
+  background: var(--grit-bg);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  vertical-align: middle;
+  transition: border-color 0.15s ease;
+}
+
+input[type="radio"]:hover {
+  border-color: var(--grit-primary);
+}
+
+input[type="radio"]:checked {
+  border-color: var(--grit-primary);
+}
+
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--grit-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="radio"]:focus-visible {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
 /* === Tabs === */
 
 .tabs {
