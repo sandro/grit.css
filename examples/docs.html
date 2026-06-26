@@ -156,16 +156,36 @@
 
 <nav class="navbar">
   <a href="kitchen-sink.html" class="brand">grit.css</a>
-  <a href="kitchen-sink.html">Kitchen Sink</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="landing.html">Landing</a>
-  <a href="docs.html" style="color: var(--grit-text); font-weight: 600;">Docs</a>
-  <div class="grow"></div>
-  <label class="theme-toggle-label">
-    <input type="checkbox" class="toggle" id="theme-toggle">
-    <span class="hide-mobile">Dark Mode</span>
-  </label>
+  <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="navbar-menu">
+    <a href="kitchen-sink.html">Kitchen Sink</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="landing.html">Landing</a>
+    <a href="docs.html" style="color: var(--grit-text); font-weight: 600;">Docs</a>
+    <label class="theme-toggle-label">
+      <input type="checkbox" class="toggle" id="theme-toggle">
+      <span>Dark Mode</span>
+    </label>
+  </div>
 </nav>
+
+<script>
+document.querySelectorAll('.navbar-toggle').forEach(btn => {
+  const menu = btn.nextElementSibling;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+</script>
 
 <div class="doc-layout">
   <!-- Sidebar Nav -->
@@ -176,6 +196,7 @@
     <a href="#dark-mode">Dark Mode</a>
     <a href="#themes">Themes</a>
     <div class="sidebar-heading">Components</div>
+    <a href="#navbar">Navbar</a>
     <a href="#buttons">Buttons</a>
     <a href="#cards">Cards</a>
     <a href="#badges">Badges</a>
@@ -222,6 +243,12 @@
     <section class="doc-section" id="themes">
       <h2>Themes</h2>
       <p class="doc-desc">Themes restyle everything inside a container by overriding grit's CSS custom properties. Apply <code>.theme-midnight</code>, <code>.theme-forest</code>, or <code>.theme-rose</code> to any element and all child components — buttons, badges, cards, alerts — pick up the new colors automatically. You can nest themes, scope them to a single card, or apply them to the whole page.</p>
+    </section>
+
+    <!-- Navbar -->
+    <section class="doc-section" id="navbar">
+      <h2>Navbar</h2>
+      <p class="doc-desc">The navigation bar that sits at the top of your page. It's like the menu at a restaurant — it tells people where they can go. On big screens it shows all the links in a row, and on phones it shrinks down to a little hamburger button (☰) that opens a dropdown menu when you tap it. It uses the <code>.navbar</code> class on a <code>&lt;nav&gt;</code> element, a <code>.brand</code> link for your site name, a <code>.navbar-toggle</code> button for the hamburger icon, and a <code>.navbar-menu</code> wrapper around all the links. The hamburger animation (three lines morphing into an X) is handled entirely by CSS — the only JavaScript you need is a tiny snippet that toggles the <code>.open</code> class on the menu and flips <code>aria-expanded</code> on the button.</p>
     </section>
 
     <!-- Buttons -->
