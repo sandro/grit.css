@@ -441,13 +441,13 @@ import { CoupElement, html, nothing } from '../coup.bundle.js'
 class CodeExample extends CoupElement {
   static tag = 'code-example'
   static props = { source: String, previewHtml: String }
-  static state = { copied: false, showCode: true }
+  state = { copied: false, showCode: true }
 
   _copy() {
     if (this.source) {
       navigator.clipboard.writeText(this.source).then(() => {
-        this.copied = true
-        setTimeout(() => { this.copied = false }, 2000)
+        this.state.copied = true; this.render()
+        setTimeout(() => { this.state.copied = false; this.render() }, 2000)
       })
     }
   }
@@ -460,17 +460,17 @@ class CodeExample extends CoupElement {
         ${hasPreview ? html`
           <div style="padding: 1.5rem; background: var(--grit-bg);"></div>
         ` : nothing}
-        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.375rem 0.75rem; background: var(--grit-surface); border-top: ${hasPreview ? '1px solid var(--grit-border)' : 'none'}; border-bottom: ${this.showCode ? '1px solid var(--grit-border)' : 'none'};">
-          <button class="btn btn-ghost btn-sm" @click=${() => { this.showCode = !this.showCode }}
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.375rem 0.75rem; background: var(--grit-surface); border-top: ${hasPreview ? '1px solid var(--grit-border)' : 'none'}; border-bottom: ${this.state.showCode ? '1px solid var(--grit-border)' : 'none'};">
+          <button class="btn btn-ghost btn-sm" @click=${() => { this.state.showCode = !this.state.showCode; this.render() }}
             style="font-size: 0.75rem; padding: 0.2rem 0.5rem;">
-            ${this.showCode ? '▾ Hide Code' : '▸ Show Code'}
+            ${this.state.showCode ? '▾ Hide Code' : '▸ Show Code'}
           </button>
           <button class="btn btn-ghost btn-sm" @click=${() => this._copy()}
             style="font-size: 0.75rem; padding: 0.2rem 0.5rem;">
-            ${this.copied ? '✓ Copied!' : 'Copy'}
+            ${this.state.copied ? '✓ Copied!' : 'Copy'}
           </button>
         </div>
-        ${this.showCode ? html`
+        ${this.state.showCode ? html`
           <pre style="margin: 0; border: none; border-radius: 0; font-size: 0.8125rem; line-height: 1.6; padding: 1rem 1.25rem; background: var(--grit-surface); overflow-x: auto; -webkit-overflow-scrolling: touch;"><code>${source}</code></pre>
         ` : nothing}
       </div>
