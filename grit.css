@@ -1093,10 +1093,11 @@ input[type="radio"]:focus-visible {
 .skeleton-avatar {
   --sk-base: #cacdd2;
   --sk-shine: #e4e6e9;
-  background: var(--sk-base);
+  background-color: var(--sk-base);
   background-image: linear-gradient(90deg, var(--sk-base) 25%, var(--sk-shine) 50%, var(--sk-base) 75%);
   background-size: 300% 100%;
-  animation: grit-shimmer 1.8s linear infinite;
+  background-repeat: no-repeat;
+  animation: grit-shimmer 1.5s linear infinite;
 }
 
 .skeleton {
@@ -1123,7 +1124,7 @@ input[type="radio"]:focus-visible {
 }
 
 @keyframes grit-shimmer {
-  0% { background-position: 100% 0; }
+  0% { background-position: 200% 0; }
   100% { background-position: -100% 0; }
 }
 
