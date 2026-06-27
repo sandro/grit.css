@@ -451,7 +451,7 @@
 </head>
 <body>
 
-<nav class="navbar">
+<nav class="navbar navbar-sticky">
   <a href="#" class="brand">grit.css</a>
   <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
     <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -898,11 +898,148 @@ console.log(greet("world"));</code></pre>
   </div>
 </div>
 
-<!-- 16 — Tables -->
+<!-- 16 — Breadcrumb -->
+<div class="section-wrap tint-green">
+  <div class="container col gap-xl pad-lg">
+    <section id="breadcrumb">
+      <p class="section-label">16 — Breadcrumb</p>
+      <h2>Breadcrumb</h2>
+      <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Electronics</a></li>
+        <li>Headphones</li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<!-- 17 — Pagination -->
+<div class="section-wrap surface">
+  <div class="container col gap-xl pad-lg">
+    <section id="pagination">
+      <p class="section-label">17 — Pagination</p>
+      <h2>Pagination</h2>
+      <ul class="pagination">
+        <li class="disabled"><a href="#">← Prev</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li class="active"><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">Next →</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<!-- 18 — Toast -->
+<div class="section-wrap">
+  <div class="container col gap-xl pad-lg">
+    <section id="toast">
+      <p class="section-label">18 — Toast Notifications</p>
+      <h2>Toast Notifications</h2>
+      <div class="row gap-sm wrap">
+        <button class="btn btn-primary btn-sm" onclick="gritToast('Changes saved successfully.', 'success')">Success Toast</button>
+        <button class="btn btn-sm" onclick="gritToast('Something went wrong.', 'error')">Error Toast</button>
+        <button class="btn btn-sm" onclick="gritToast('Your trial expires in 3 days.', 'warning')">Warning Toast</button>
+        <button class="btn btn-sm" onclick="gritToast('A new version is available.', 'info')">Info Toast</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- 19 — Accordion -->
+<div class="section-wrap surface">
+  <div class="container col gap-xl pad-lg">
+    <section id="accordion">
+      <p class="section-label">19 — Accordion</p>
+      <h2>Accordion</h2>
+      <div class="accordion">
+        <details>
+          <summary>What is grit.css?</summary>
+          <div class="accordion-body">One CSS file with beautiful defaults and 30+ components. No JavaScript. No build step. 8KB gzipped.</div>
+        </details>
+        <details>
+          <summary>Do I need a build tool?</summary>
+          <div class="accordion-body">No. Just add a <code>&lt;link&gt;</code> tag to your HTML and start writing. That's it.</div>
+        </details>
+        <details open>
+          <summary>Can I customize the theme?</summary>
+          <div class="accordion-body">Yes. Override any CSS custom property like <code>--grit-primary</code> and the entire framework updates. Dark mode works automatically via <code>prefers-color-scheme</code>.</div>
+        </details>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- 20 — List Group -->
+<div class="section-wrap">
+  <div class="container col gap-xl pad-lg">
+    <section id="list-group">
+      <p class="section-label">20 — List Group</p>
+      <h2>List Group</h2>
+      <div class="grid-2 gap-lg">
+        <div>
+          <h3>Static</h3>
+          <ul class="list-group">
+            <li>Inbox <span class="badge badge-primary" style="float:right;">12</span></li>
+            <li class="active">Starred</li>
+            <li>Drafts</li>
+            <li>Sent</li>
+            <li>Trash</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Linked</h3>
+          <div class="list-group">
+            <a href="#">Dashboard</a>
+            <a href="#">Settings</a>
+            <a href="#">Profile</a>
+            <a href="#">Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- 21 — Spinner -->
+<div class="section-wrap surface">
+  <div class="container col gap-xl pad-lg">
+    <section id="spinner">
+      <p class="section-label">21 — Spinner</p>
+      <h2>Spinner</h2>
+      <div class="row gap-lg" style="align-items: center;">
+        <div class="spinner-sm spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner-lg spinner"></div>
+        <button class="btn btn-primary" disabled><span class="spinner-sm spinner" style="border-top-color: #fff;"></span> Loading…</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- 22 — Stack -->
+<div class="section-wrap">
+  <div class="container col gap-xl pad-lg">
+    <section id="stack">
+      <p class="section-label">22 — Stack</p>
+      <h2>Stack (responsive row → col)</h2>
+      <div class="stack gap-md">
+        <div class="card"><div class="card-body"><h3 class="card-title">Left</h3><p>Row on desktop, column on mobile.</p></div></div>
+        <div class="card"><div class="card-body"><h3 class="card-title">Center</h3><p>Resize the browser to see.</p></div></div>
+        <div class="card"><div class="card-body"><h3 class="card-title">Right</h3><p>Uses <code>.stack</code> class.</p></div></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- 23 — Tables -->
 <div class="section-wrap tint-green">
   <div class="container col gap-xl pad-lg">
     <section id="tables">
-      <p class="section-label">16 — Tables</p>
+      <p class="section-label">23 — Tables</p>
       <h2>Tables</h2>
       <div class="table-responsive">
       <table class="table table-striped table-hover">
@@ -958,11 +1095,11 @@ console.log(greet("world"));</code></pre>
   </div>
 </div>
 
-<!-- 17 — Color Swatches -->
+<!-- 24 — Color Swatches -->
 <div class="section-wrap surface">
   <div class="container col gap-xl pad-lg">
     <section id="colors">
-      <p class="section-label">17 — Color Palette</p>
+      <p class="section-label">24 — Color Palette</p>
       <h2>Color Palette</h2>
       <div class="color-palette-grid">
         <div class="color-swatch-card">
@@ -1034,7 +1171,7 @@ console.log(greet("world"));</code></pre>
 <div class="section-wrap themes-bg">
   <div class="container col gap-xl pad-lg">
     <section id="themes">
-      <p class="section-label">18 — Themes</p>
+      <p class="section-label">25 — Themes</p>
       <h2>Themes</h2>
       <div class="grid grid-3 gap-lg">
         <div class="theme-midnight theme-card theme-card-midnight">
@@ -1103,7 +1240,7 @@ console.log(greet("world"));</code></pre>
 <div class="section-wrap tint-warm">
   <div class="container col gap-xl pad-lg">
     <section id="composition">
-      <p class="section-label">19 — Composition</p>
+      <p class="section-label">26 — Composition</p>
       <h2>Composition</h2>
       <div class="grid grid-2 gap-lg">
         <div class="card notification-card">
@@ -1187,7 +1324,7 @@ console.log(greet("world"));</code></pre>
 <div class="section-wrap">
   <div class="container col gap-xl pad-lg">
     <section id="forms">
-      <p class="section-label">20 — Forms</p>
+      <p class="section-label">27 — Forms</p>
       <h2>Forms</h2>
       <div class="card">
         <div class="card-body">
@@ -1255,7 +1392,7 @@ console.log(greet("world"));</code></pre>
 <div class="section-wrap surface">
   <div class="container col gap-xl pad-lg">
     <section id="layout">
-      <p class="section-label">21 — Layout</p>
+      <p class="section-label">28 — Layout</p>
       <h2>Layout</h2>
 
       <h3>Grid — 2 Columns</h3>
@@ -1314,7 +1451,7 @@ console.log(greet("world"));</code></pre>
 <div class="section-wrap tint-purple">
   <div class="container col gap-xl pad-lg">
     <section id="utilities">
-      <p class="section-label">22 — Utilities</p>
+      <p class="section-label">29 — Utilities</p>
       <h2>Utilities</h2>
 
       <h3>Text Sizes</h3>
@@ -1369,6 +1506,17 @@ console.log(greet("world"));</code></pre>
   document.querySelector('#theme-toggle').addEventListener('change', function() {
     document.documentElement.classList.toggle('dark', this.checked);
   });
+
+  // Toast helper — vanilla JS, copy this snippet for toast notifications
+  function gritToast(msg, type = 'info', duration = 3000) {
+    let c = document.querySelector('.toast-container');
+    if (!c) { c = document.createElement('div'); c.className = 'toast-container'; document.body.appendChild(c); }
+    const t = document.createElement('div');
+    t.className = 'toast toast-' + type;
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => { t.classList.add('toast-out'); t.addEventListener('animationend', () => t.remove()); }, duration);
+  }
 
   // Functional tabs
   document.querySelectorAll('.tabs').forEach(tabs => {
