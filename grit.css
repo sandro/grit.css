@@ -1091,10 +1091,12 @@ input[type="radio"]:focus-visible {
 .skeleton-text,
 .skeleton-title,
 .skeleton-avatar {
-  background: var(--grit-border);
-  background-image: linear-gradient(90deg, var(--grit-border) 0%, var(--grit-surface-2) 40%, var(--grit-border) 80%);
-  background-size: 200% 100%;
-  animation: grit-shimmer 1.5s ease-in-out infinite;
+  --sk-base: #cacdd2;
+  --sk-shine: #e4e6e9;
+  background: var(--sk-base);
+  background-image: linear-gradient(90deg, var(--sk-base) 25%, var(--sk-shine) 50%, var(--sk-base) 75%);
+  background-size: 300% 100%;
+  animation: grit-shimmer 1.8s ease-in-out infinite;
 }
 
 .skeleton {
@@ -1121,8 +1123,8 @@ input[type="radio"]:focus-visible {
 }
 
 @keyframes grit-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
 
 /* === Chip === */
@@ -1771,6 +1773,11 @@ input[type="radio"]:focus-visible {
     --grit-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     --grit-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
+
+  .skeleton, .skeleton-text, .skeleton-title, .skeleton-avatar {
+    --sk-base: #333338;
+    --sk-shine: #44444a;
+  }
 }
 
 .dark {
@@ -1785,6 +1792,11 @@ input[type="radio"]:focus-visible {
   --grit-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
   background-color: var(--grit-bg);
   color: var(--grit-text);
+}
+
+.dark .skeleton, .dark .skeleton-text, .dark .skeleton-title, .dark .skeleton-avatar {
+  --sk-base: #333338;
+  --sk-shine: #44444a;
 }
 
 .light {

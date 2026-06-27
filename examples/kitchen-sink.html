@@ -402,21 +402,6 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    /* === Skeleton — Gradient shimmer === */
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    .skeleton {
-      animation: shimmer 1.5s ease-in-out infinite !important;
-      background: linear-gradient(90deg,
-        var(--grit-surface-2) 25%,
-        var(--grit-surface) 37%,
-        var(--grit-surface-2) 63%
-      ) !important;
-      background-size: 200% 100% !important;
-    }
-
     /* === Alert icons === */
     .alert svg {
       flex-shrink: 0;
