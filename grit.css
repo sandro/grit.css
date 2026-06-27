@@ -1633,6 +1633,74 @@ input[type="radio"]:focus-visible {
   }
 }
 
+/* === Prose === */
+
+.prose {
+  max-width: 65ch;
+  line-height: 1.75;
+}
+
+.prose h1, .prose h2, .prose h3,
+.prose h4, .prose h5, .prose h6 {
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose h1:first-child, .prose h2:first-child,
+.prose h3:first-child, .prose h4:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.75em;
+}
+
+.prose li {
+  margin-bottom: 0.375em;
+}
+
+.prose li > ul, .prose li > ol {
+  margin-top: 0.375em;
+  margin-bottom: 0;
+}
+
+.prose blockquote {
+  margin: 1.5em 0;
+  padding: 0.75em 1.25em;
+}
+
+.prose pre {
+  margin: 1.5em 0;
+}
+
+.prose code {
+  font-size: 0.875em;
+}
+
+.prose img {
+  margin: 1.5em 0;
+  border-radius: var(--grit-radius);
+}
+
+.prose hr {
+  margin: 2em 0;
+}
+
+.prose a {
+  color: var(--grit-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--grit-text);
+}
+
 /* === Utility Classes === */
 
 .text-sm { font-size: 0.875rem; }
