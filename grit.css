@@ -1087,40 +1087,42 @@ input[type="radio"]:focus-visible {
 
 /* === Skeleton === */
 
+.skeleton,
+.skeleton-text,
+.skeleton-title,
+.skeleton-avatar {
+  background: var(--grit-border);
+  background-image: linear-gradient(90deg, var(--grit-border) 0%, var(--grit-surface-2) 40%, var(--grit-border) 80%);
+  background-size: 200% 100%;
+  animation: grit-shimmer 1.5s ease-in-out infinite;
+}
+
 .skeleton {
-  background: var(--grit-surface-2);
   border-radius: var(--grit-radius);
-  animation: grit-pulse 2s ease-in-out infinite;
 }
 
 .skeleton-text {
   height: 1em;
   margin-bottom: 0.5rem;
-  background: var(--grit-surface-2);
   border-radius: var(--grit-radius);
-  animation: grit-pulse 2s ease-in-out infinite;
 }
 
 .skeleton-title {
   height: 1.5em;
   width: 60%;
   margin-bottom: 0.75rem;
-  background: var(--grit-surface-2);
   border-radius: var(--grit-radius);
-  animation: grit-pulse 2s ease-in-out infinite;
 }
 
 .skeleton-avatar {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--grit-radius-full);
-  background: var(--grit-surface-2);
-  animation: grit-pulse 2s ease-in-out infinite;
 }
 
-@keyframes grit-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+@keyframes grit-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* === Chip === */
