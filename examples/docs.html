@@ -246,12 +246,25 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
     <a href="#progress">Progress</a>
     <a href="#avatars">Avatars</a>
     <a href="#tooltips">Tooltips</a>
+    <a href="#accordion">Accordion</a>
+    <a href="#tables">Tables</a>
+    <a href="#breadcrumb">Breadcrumb</a>
+    <a href="#pagination">Pagination</a>
+    <a href="#list-group">List Group</a>
+    <a href="#chips">Chips</a>
+    <a href="#divider">Divider</a>
+    <a href="#skeleton">Skeleton</a>
+    <a href="#spinner">Spinner</a>
+    <a href="#toast">Toast</a>
+    <a href="#prose">Prose</a>
     <div class="sidebar-heading">Forms</div>
     <a href="#inputs">Inputs</a>
     <a href="#input-groups">Input Groups</a>
+    <a href="#fieldset">Fieldset</a>
     <div class="sidebar-heading">Layout</div>
     <a href="#container">Container</a>
     <a href="#grid">Grid</a>
+    <a href="#stack">Stack</a>
     <a href="#flex">Flex Utilities</a>
     <a href="#spacing">Spacing</a>
   </nav>
@@ -355,6 +368,72 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
       <p class="doc-desc">Pure-CSS tooltips — add a <code>data-tooltip="Your text"</code> attribute to any element and a tooltip appears on hover. No JavaScript, no initialization. The tooltip fades in above the element with a subtle arrow. Works on buttons, links, spans, or any inline/block element. Keep tooltip text short (one line) for best results.</p>
     </section>
 
+    <!-- Accordion -->
+    <section class="doc-section" id="accordion">
+      <h2>Accordion</h2>
+      <p class="doc-desc">Expandable content sections built on native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> — zero JavaScript. Wrap multiple <code>&lt;details&gt;</code> elements in an <code>.accordion</code> container. Each item gets a clickable header with a rotating chevron indicator. Use the <code>open</code> attribute to expand an item by default. Content goes inside <code>.accordion-body</code>.</p>
+    </section>
+
+    <!-- Tables -->
+    <section class="doc-section" id="tables">
+      <h2>Tables</h2>
+      <p class="doc-desc">Clean, readable data tables. The base <code>.table</code> class adds consistent padding and borders. Add <code>.table-striped</code> for alternating row backgrounds, <code>.table-hover</code> for hover highlights, and <code>.table-bordered</code> for cell borders. Wrap in <code>.table-responsive</code> for horizontal scrolling on narrow screens.</p>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="doc-section" id="breadcrumb">
+      <h2>Breadcrumb</h2>
+      <p class="doc-desc">Navigation trail showing the current page's location in the hierarchy. Use a <code>&lt;nav&gt;</code> with a <code>.breadcrumb</code> <code>&lt;ul&gt;</code>. Items are separated by <code>/</code> dividers automatically via CSS. The last item is styled as muted text (current page), while earlier items are links.</p>
+    </section>
+
+    <!-- Pagination -->
+    <section class="doc-section" id="pagination">
+      <h2>Pagination</h2>
+      <p class="doc-desc">Page navigation for multi-page content. Use a <code>.pagination</code> <code>&lt;nav&gt;</code> with links or spans inside. Mark the current page with <code>.active</code> and unavailable pages with <code>.disabled</code>. The active page gets a filled primary-color background.</p>
+    </section>
+
+    <!-- List Group -->
+    <section class="doc-section" id="list-group">
+      <h2>List Group</h2>
+      <p class="doc-desc">A vertical list of items with borders, perfect for settings menus, notifications, or simple navigation. Use a <code>&lt;ul&gt;</code> or <code>&lt;div&gt;</code> with the <code>.list-group</code> class. Items can be plain <code>&lt;li&gt;</code> elements or <code>&lt;a&gt;</code> links (which get hover highlights). Mark the current item with <code>.active</code>.</p>
+    </section>
+
+    <!-- Chips -->
+    <section class="doc-section" id="chips">
+      <h2>Chips</h2>
+      <p class="doc-desc">Compact pill-shaped labels for tags, filters, or selections. Apply the <code>.chip</code> class to a <code>&lt;span&gt;</code>. Chips are smaller and more rounded than badges — use them when you need inline tag-like elements that feel tappable.</p>
+    </section>
+
+    <!-- Divider -->
+    <section class="doc-section" id="divider">
+      <h2>Divider</h2>
+      <p class="doc-desc">A horizontal rule with an optional centered text label. Use a <code>&lt;div class="divider"&gt;</code> with text content, or leave it empty for a plain line. The text appears centered between two lines — great for "or" separators in forms or section breaks.</p>
+    </section>
+
+    <!-- Skeleton -->
+    <section class="doc-section" id="skeleton">
+      <h2>Skeleton</h2>
+      <p class="doc-desc">Loading placeholder shapes that shimmer while content loads. Use <code>.skeleton-text</code> for text lines, <code>.skeleton-title</code> for headings, and <code>.skeleton-avatar</code> for circular placeholders. The shimmer animation runs automatically. Combine multiple skeleton elements to approximate your content layout.</p>
+    </section>
+
+    <!-- Spinner -->
+    <section class="doc-section" id="spinner">
+      <h2>Spinner</h2>
+      <p class="doc-desc">Animated loading indicators. The base <code>.spinner</code> class creates a spinning circle. Size variants <code>.spinner-sm</code> and <code>.spinner-lg</code> scale it up or down. The spinner uses <code>currentColor</code> so it inherits whatever text color its parent has.</p>
+    </section>
+
+    <!-- Toast -->
+    <section class="doc-section" id="toast">
+      <h2>Toast</h2>
+      <p class="doc-desc">Brief notification messages that appear in the corner of the screen. Place a <code>.toast-container</code> (fixed to the viewport corner), then add <code>.toast</code> elements inside it. Color variants — <code>.toast-success</code>, <code>.toast-error</code>, <code>.toast-warning</code>, <code>.toast-info</code> — add a colored left border. Add <code>.toast-out</code> to animate dismissal. Requires a small JS snippet to manage show/hide timing.</p>
+    </section>
+
+    <!-- Prose -->
+    <section class="doc-section" id="prose">
+      <h2>Prose</h2>
+      <p class="doc-desc">Typographic styling for long-form content like blog posts, articles, or documentation. Wrap your content in a <code>.prose</code> container and headings, paragraphs, lists, blockquotes, code blocks, and links all get comfortable reading styles with proper spacing and line heights. No extra classes needed on the inner elements.</p>
+    </section>
+
     <!-- Inputs -->
     <section class="doc-section" id="inputs">
       <h2>Inputs</h2>
@@ -367,6 +446,12 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
       <p class="doc-desc">Visually attach a prefix or suffix to an input. Wrap an <code>&lt;input&gt;</code> and a <code>.input-group-text</code> span inside <code>.input-group</code> — the addon and input merge into a single bordered row. Use this for currency symbols, "@" username prefixes, search icons, or domain suffixes. The addon inherits the surface background so it's visually distinct from the input area.</p>
     </section>
 
+    <!-- Fieldset -->
+    <section class="doc-section" id="fieldset">
+      <h2>Fieldset</h2>
+      <p class="doc-desc">Group related form controls with a labeled border. The native <code>&lt;fieldset&gt;</code> element gets clean styling with a subtle border and rounded corners. Use a <code>&lt;legend&gt;</code> for the group title. The <code>.fieldset</code> class is optional — grit styles the native elements directly.</p>
+    </section>
+
     <!-- Container -->
     <section class="doc-section" id="container">
       <h2>Container</h2>
@@ -377,6 +462,12 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
     <section class="doc-section" id="grid">
       <h2>Grid</h2>
       <p class="doc-desc">CSS Grid utilities for common column layouts. Start with <code>.grid</code>, then add <code>.grid-2</code>, <code>.grid-3</code>, or <code>.grid-4</code> for fixed-column layouts. Use <code>.grid-auto</code> for a responsive auto-fit grid that wraps items into rows at 250px minimum width. All grid layouts collapse to a single column on mobile. Use <code>.span-2</code>, <code>.span-3</code>, or <code>.span-full</code> on children to span multiple columns.</p>
+    </section>
+
+    <!-- Stack -->
+    <section class="doc-section" id="stack">
+      <h2>Stack</h2>
+      <p class="doc-desc">A vertical layout helper that adds consistent spacing between child elements using the lobotomized owl selector (<code>* + *</code>). Apply <code>.stack</code> to a container and every direct child after the first gets a top margin. On mobile, the spacing tightens automatically. Great for article layouts, form sections, or any vertical flow where you want uniform spacing without gap utilities.</p>
     </section>
 
     <!-- Flex -->
@@ -960,6 +1051,303 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
 <div class="col gap-xs">
   <label>Bio</label>
   <textarea rows="3" placeholder="..."></textarea>
+</div>`
+    }]
+  },
+
+  accordion: {
+    examples: [{
+      html: `<div class="accordion" style="max-width: 500px;">
+        <details>
+          <summary>What is grit.css?</summary>
+          <div class="accordion-body">One CSS file with beautiful defaults and 30+ components. No JavaScript. No build step. 8KB gzipped.</div>
+        </details>
+        <details>
+          <summary>Do I need a build tool?</summary>
+          <div class="accordion-body">No. Just add a <code>&lt;link&gt;</code> tag to your HTML and start writing. That's it.</div>
+        </details>
+        <details open>
+          <summary>Can I customize the theme?</summary>
+          <div class="accordion-body">Yes. Override any CSS custom property like <code>--grit-primary</code> and the entire framework updates.</div>
+        </details>
+      </div>`,
+      code: `<div class="accordion">
+  <details>
+    <summary>Question one</summary>
+    <div class="accordion-body">Answer one.</div>
+  </details>
+  <details open>
+    <summary>Open by default</summary>
+    <div class="accordion-body">This panel starts open.</div>
+  </details>
+</div>`
+    }]
+  },
+
+  tables: {
+    examples: [{
+      title: 'Striped & Hoverable',
+      html: `<div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead><tr><th>Name</th><th>Role</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Alice</td><td>Engineer</td><td><span class="badge badge-success">Active</span></td></tr>
+            <tr><td>Bob</td><td>Designer</td><td><span class="badge badge-warning">Away</span></td></tr>
+            <tr><td>Carol</td><td>PM</td><td><span class="badge badge-success">Active</span></td></tr>
+            <tr><td>Dave</td><td>QA</td><td><span class="badge badge-error">Offline</span></td></tr>
+          </tbody>
+        </table>
+      </div>`,
+      code: `<table class="table table-striped table-hover">
+  <thead>
+    <tr><th>Name</th><th>Role</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Alice</td><td>Engineer</td><td>Active</td></tr>
+  </tbody>
+</table>
+
+<!-- Wrap for mobile scroll -->
+<div class="table-responsive">
+  <table class="table">...</table>
+</div>`
+    }]
+  },
+
+  breadcrumb: {
+    examples: [{
+      html: `<nav>
+        <ul class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Widgets</a></li>
+          <li>Turbo Widget</li>
+        </ul>
+      </nav>`,
+      code: `<nav>
+  <ul class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li>Current Page</li>
+  </ul>
+</nav>`
+    }]
+  },
+
+  pagination: {
+    examples: [{
+      html: `<nav class="pagination">
+        <span class="disabled"><a href="#">&laquo;</a></span>
+        <a href="#">1</a>
+        <span class="active"><a href="#">2</a></span>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">&raquo;</a>
+      </nav>`,
+      code: `<nav class="pagination">
+  <span class="disabled"><a href="#">&laquo;</a></span>
+  <a href="#">1</a>
+  <span class="active"><a href="#">2</a></span>
+  <a href="#">3</a>
+  <a href="#">&raquo;</a>
+</nav>`
+    }]
+  },
+
+  'list-group': {
+    examples: [{
+      html: `<ul class="list-group" style="max-width: 320px;">
+        <li class="active">Dashboard</li>
+        <li>Profile Settings</li>
+        <li>Notifications</li>
+        <li>Billing</li>
+        <li>Sign Out</li>
+      </ul>`,
+      code: `<ul class="list-group">
+  <li class="active">Dashboard</li>
+  <li>Profile Settings</li>
+  <li>Notifications</li>
+</ul>
+
+<!-- Or with links -->
+<div class="list-group">
+  <a href="#" class="active">Dashboard</a>
+  <a href="#">Settings</a>
+</div>`
+    }]
+  },
+
+  chips: {
+    examples: [{
+      html: `<div class="row wrap gap-sm">
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Design</span>
+        <span class="chip">Accessibility</span>
+      </div>`,
+      code: `<span class="chip">HTML</span>
+<span class="chip">CSS</span>
+<span class="chip">JavaScript</span>`
+    }]
+  },
+
+  divider: {
+    examples: [{
+      html: `<div style="max-width: 400px;">
+        <p>Content above the divider.</p>
+        <div class="divider">or</div>
+        <p>Content below the divider.</p>
+      </div>`,
+      code: `<!-- Divider with text -->
+<div class="divider">or</div>
+
+<!-- Plain divider (no text) -->
+<div class="divider"></div>`
+    }]
+  },
+
+  skeleton: {
+    examples: [{
+      html: `<div class="col gap-md" style="max-width: 320px;">
+        <div class="row gap-sm">
+          <div class="skeleton-avatar"></div>
+          <div class="col gap-xs grow">
+            <div class="skeleton-title" style="width: 60%"></div>
+            <div class="skeleton-text"></div>
+          </div>
+        </div>
+        <div class="skeleton-text"></div>
+        <div class="skeleton-text" style="width: 80%"></div>
+        <div class="skeleton-text" style="width: 45%"></div>
+      </div>`,
+      code: `<!-- Avatar + text placeholder -->
+<div class="row gap-sm">
+  <div class="skeleton-avatar"></div>
+  <div class="col gap-xs grow">
+    <div class="skeleton-title" style="width: 60%"></div>
+    <div class="skeleton-text"></div>
+  </div>
+</div>
+
+<!-- Text lines -->
+<div class="skeleton-text"></div>
+<div class="skeleton-text" style="width: 80%"></div>`
+    }]
+  },
+
+  spinner: {
+    examples: [{
+      html: `<div class="row gap-lg" style="align-items: center;">
+        <div class="spinner spinner-sm"></div>
+        <div class="spinner"></div>
+        <div class="spinner spinner-lg"></div>
+        <div class="spinner spinner-lg text-primary"></div>
+      </div>`,
+      code: `<div class="spinner spinner-sm"></div>
+<div class="spinner"></div>
+<div class="spinner spinner-lg"></div>
+
+<!-- Inherits text color -->
+<div class="spinner text-primary"></div>`
+    }]
+  },
+
+  toast: {
+    examples: [{
+      html: `<div class="col gap-sm" style="max-width: 360px;">
+        <div class="toast toast-success" style="position: relative; animation: none;">Settings saved successfully.</div>
+        <div class="toast toast-error" style="position: relative; animation: none;">Failed to connect to server.</div>
+        <div class="toast toast-warning" style="position: relative; animation: none;">Your session expires in 5 minutes.</div>
+        <div class="toast toast-info" style="position: relative; animation: none;">A new version is available.</div>
+      </div>`,
+      code: `<!-- Container fixed to viewport corner -->
+<div class="toast-container">
+  <div class="toast toast-success">Saved!</div>
+  <div class="toast toast-error">Error occurred.</div>
+</div>
+
+<!-- Variants -->
+<div class="toast toast-success">...</div>
+<div class="toast toast-error">...</div>
+<div class="toast toast-warning">...</div>
+<div class="toast toast-info">...</div>
+
+<!-- Dismiss with .toast-out class -->
+<div class="toast toast-out">Bye!</div>`
+    }]
+  },
+
+  prose: {
+    examples: [{
+      html: `<div class="prose" style="max-width: 500px;">
+        <h3>The Case for Simplicity</h3>
+        <p>Most CSS frameworks ship <strong>megabytes</strong> of JavaScript alongside their stylesheets. They require build tools, config files, and a PhD in webpack.</p>
+        <blockquote>The best code is no code at all.</blockquote>
+        <p>grit.css takes a different approach: one file, zero dependencies, and semantic HTML that just <em>works</em>.</p>
+        <ul>
+          <li>No build step required</li>
+          <li>Under 10KB gzipped</li>
+          <li>Dark mode out of the box</li>
+        </ul>
+      </div>`,
+      code: `<div class="prose">
+  <h3>Article Title</h3>
+  <p>Paragraphs, <strong>bold</strong>, <em>italic</em>,
+    and <a href="#">links</a> all styled automatically.</p>
+  <blockquote>Blockquotes look great.</blockquote>
+  <ul>
+    <li>Lists too</li>
+  </ul>
+</div>`
+    }]
+  },
+
+  fieldset: {
+    examples: [{
+      html: `<fieldset style="max-width: 360px;">
+        <legend>Account Details</legend>
+        <div class="col gap-md">
+          <div class="col gap-xs">
+            <label>Full Name</label>
+            <input type="text" placeholder="Jane Doe">
+          </div>
+          <div class="col gap-xs">
+            <label>Email</label>
+            <input type="email" placeholder="jane@example.com">
+          </div>
+        </div>
+      </fieldset>`,
+      code: `<fieldset>
+  <legend>Account Details</legend>
+  <div class="col gap-md">
+    <div class="col gap-xs">
+      <label>Full Name</label>
+      <input type="text" placeholder="Jane Doe">
+    </div>
+    <div class="col gap-xs">
+      <label>Email</label>
+      <input type="email" placeholder="jane@example.com">
+    </div>
+  </div>
+</fieldset>`
+    }]
+  },
+
+  stack: {
+    examples: [{
+      html: `<div class="stack" style="max-width: 400px;">
+        <h3>Section Title</h3>
+        <p>First paragraph with some introductory text about the topic.</p>
+        <p>Second paragraph that continues the discussion with more detail.</p>
+        <button class="btn btn-primary">Continue</button>
+      </div>`,
+      code: `<!-- Automatic vertical spacing between children -->
+<div class="stack">
+  <h3>Title</h3>
+  <p>First paragraph.</p>
+  <p>Second paragraph.</p>
+  <button class="btn btn-primary">Action</button>
 </div>`
     }]
   },
