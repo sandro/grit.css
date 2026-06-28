@@ -899,10 +899,10 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
   avatars: {
     examples: [{
       html: `<div class="row gap-md">
-        <img src="https://i.pravatar.cc/24?u=x" alt="avatar" class="avatar avatar-sm">
-        <img src="https://i.pravatar.cc/40?u=y" alt="avatar" class="avatar">
-        <img src="https://i.pravatar.cc/56?u=z" alt="avatar" class="avatar avatar-lg">
-        <img src="https://i.pravatar.cc/80?u=w" alt="avatar" class="avatar avatar-xl">
+        <img src="https://i.pravatar.cc/64?img=52" alt="avatar" class="avatar avatar-sm">
+        <img src="https://i.pravatar.cc/80?img=69" alt="avatar" class="avatar">
+        <img src="https://i.pravatar.cc/112?img=16" alt="avatar" class="avatar avatar-lg">
+        <img src="https://i.pravatar.cc/160?img=9" alt="avatar" class="avatar avatar-xl">
       </div>`,
       code: `<img src="avatar.jpg" class="avatar avatar-sm">  <!-- 2rem -->
 <img src="avatar.jpg" class="avatar">             <!-- 2.5rem -->
@@ -1161,10 +1161,13 @@ function highlightHTML(code) {
 function highlightAttrs(str) {
   if (!str) return ''
   return str
-    // class="..." → highlight class name values specially
-    .replace(/(class)=(["'])(.*?)\2/g, '<span class="hl-attr">$1</span>=<span class="hl-str">$2<span class="hl-cls">$3</span>$2</span>')
-    // other-attr="value"
-    .replace(/([a-zA-Z_:@][a-zA-Z0-9_.:-]*)=(["'])(.*?)\2/g, '<span class="hl-attr">$1</span>=<span class="hl-str">$2$3$2</span>')
+    // Match all attr="value" pairs in one pass
+    .replace(/([a-zA-Z_:@][a-zA-Z0-9_.:-]*)=(["'])(.*?)\2/g, (m, attr, q, val) => {
+      if (attr === 'class') {
+        return `<span class="hl-attr">${attr}</span>=<span class="hl-str">${q}<span class="hl-cls">${val}</span>${q}</span>`
+      }
+      return `<span class="hl-attr">${attr}</span>=<span class="hl-str">${q}${val}${q}</span>`
+    })
     // boolean attrs (disabled, checked, etc)
     .replace(/\s(disabled|checked|required|readonly|hidden|open)\b/g, ' <span class="hl-attr">$1</span>')
 }
