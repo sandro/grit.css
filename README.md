@@ -15,10 +15,16 @@ grit.css is one file. Link it. Your HTML looks good immediately. Add a class whe
 ## Quick Start
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/grit-css/grit.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sandro/grit.css@main/grit.min.css">
 ```
 
 Or just drop the file in your project:
+
+```html
+<link rel="stylesheet" href="grit.min.css">
+```
+
+For development, use the unminified source:
 
 ```html
 <link rel="stylesheet" href="grit.css">
