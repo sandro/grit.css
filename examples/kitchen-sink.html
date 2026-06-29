@@ -31,6 +31,47 @@
       background: rgba(22, 22, 24, 0.85);
     }
 
+    /* === Component Sub-Nav === */
+    .component-nav {
+      position: sticky;
+      top: calc(3px + 3.5rem);
+      z-index: 99;
+      background: var(--grit-surface);
+      border-bottom: 1px solid var(--grit-border);
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      white-space: nowrap;
+      padding: 0 1rem;
+    }
+    .component-nav::-webkit-scrollbar { display: none; }
+    .component-nav-inner {
+      display: inline-flex;
+      gap: 0;
+      padding: 0;
+      min-width: 100%;
+    }
+    .component-nav a {
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--grit-muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+    .component-nav a:hover {
+      color: var(--grit-text);
+      text-decoration: none;
+    }
+    .component-nav a.active {
+      color: var(--grit-primary);
+      border-bottom-color: var(--grit-primary);
+    }
+
     /* === Hero === */
     .ks-hero {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -74,6 +115,11 @@
       opacity: 0.9;
       max-width: 520px;
       margin: 0 auto;
+    }
+
+    /* === Section scroll offset for sticky navs === */
+    section[id] {
+      scroll-margin-top: 6.5rem;
     }
 
     /* === Section Wrap === */
@@ -438,34 +484,70 @@
 </head>
 <body>
 
-<nav class="navbar navbar-sticky">
-  <a href="#" class="brand">grit.css</a>
+<nav class="navbar">
+  <a href="../index.html" class="brand">grit.css</a>
   <button class="navbar-toggle" aria-label="Menu" aria-expanded="false">
     <svg viewBox="0 0 24 24"><line class="bar-top" x1="3" y1="6" x2="21" y2="6"/><line class="bar-mid" x1="3" y1="12" x2="21" y2="12"/><line class="bar-bot" x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
   <div class="navbar-menu">
+    <a href="docs.html">Docs</a>
+    <a href="kitchen-sink.html" style="color: var(--grit-text); font-weight: 600;">Kitchen Sink</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="landing.html">Landing</a>
+    <div class="grow"></div>
+    <label class="theme-toggle-label">
+      <input type="checkbox" class="toggle" id="theme-toggle">
+      <span>Dark</span>
+    </label>
+    <a href="https://github.com/sandro/grit.css" class="btn btn-primary btn-sm">GitHub</a>
+  </div>
+</nav>
+
+<!-- Component Sub-Nav -->
+<nav class="component-nav" id="component-nav">
+  <div class="component-nav-inner">
     <a href="#navbar">Navbar</a>
     <a href="#typography">Typography</a>
     <a href="#buttons">Buttons</a>
-    <a href="#cards">Components</a>
+    <a href="#cards">Cards</a>
+    <a href="#badges">Badges</a>
+    <a href="#alerts">Alerts</a>
+    <a href="#tabs">Tabs</a>
+    <a href="#toggles">Toggles</a>
+    <a href="#avatars">Avatars</a>
+    <a href="#dropdown">Dropdown</a>
+    <a href="#tooltips">Tooltips</a>
+    <a href="#progress">Progress</a>
+    <a href="#modal">Modal</a>
+    <a href="#divider">Dividers</a>
+    <a href="#skeleton">Skeleton</a>
+    <a href="#chips">Chips</a>
+    <a href="#breadcrumb">Breadcrumb</a>
+    <a href="#pagination">Pagination</a>
+    <a href="#toast">Toast</a>
+    <a href="#accordion">Accordion</a>
+    <a href="#list-group">List Group</a>
+    <a href="#spinner">Spinner</a>
+    <a href="#stack">Stack</a>
+    <a href="#prose">Prose</a>
+    <a href="#tables">Tables</a>
+    <a href="#colors">Colors</a>
     <a href="#themes">Themes</a>
+    <a href="#composition">Composition</a>
     <a href="#forms">Forms</a>
-    <label class="theme-toggle-label">
-      <input type="checkbox" class="toggle" id="theme-toggle">
-      <span>Dark Mode</span>
-    </label>
+    <a href="#layout">Layout</a>
+    <a href="#utilities">Utilities</a>
   </div>
 </nav>
 
 <script>
-// Navbar toggle — vanilla JS, copy this snippet for any grit.css navbar
+// Navbar toggle
 document.querySelectorAll('.navbar-toggle').forEach(btn => {
   const menu = btn.nextElementSibling;
   btn.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
   });
-  // Auto-close menu when a link is tapped
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.remove('open');
@@ -1540,6 +1622,25 @@ console.log(greet("world"));</code></pre>
     t.textContent = msg;
     c.appendChild(t);
     setTimeout(() => { t.classList.add('toast-out'); t.addEventListener('animationend', () => t.remove()); }, duration);
+  }
+
+  // Active component nav tracking
+  const compNav = document.getElementById('component-nav');
+  if (compNav) {
+    const compObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          compNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+          const link = compNav.querySelector(`a[href="#${entry.target.id}"]`);
+          if (link) {
+            link.classList.add('active');
+            // Scroll the nav to keep active link visible
+            link.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+          }
+        }
+      }
+    }, { rootMargin: '-100px 0px -60% 0px' });
+    document.querySelectorAll('.section-wrap section[id]').forEach(s => compObserver.observe(s));
   }
 
   // Functional tabs
