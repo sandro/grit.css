@@ -122,6 +122,23 @@
       scroll-margin-top: 6.5rem;
     }
 
+    /* === Class hints — subtle code reference under section titles === */
+    .class-hint {
+      font-family: var(--grit-font-mono);
+      font-size: 0.75rem;
+      color: var(--grit-muted);
+      opacity: 0.7;
+      margin-top: -0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .class-hint code {
+      background: var(--grit-surface-2);
+      padding: 0.125rem 0.375rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      margin-right: 0.25rem;
+    }
+
     /* === Section Wrap === */
     .section-wrap {
       padding: 4rem 0;
@@ -571,6 +588,7 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
     <section id="navbar">
       <p class="section-label">00 — Navbar</p>
       <h2>Responsive Navbar</h2>
+      <p class="class-hint"><code>.navbar</code> <code>.brand</code> <code>.navbar-toggle</code> <code>.navbar-menu</code> <code>.navbar-sticky</code></p>
       <p>Sticky navigation with a hamburger toggle on mobile. Click the ☰ below to see it in action.</p>
 
       <!-- Demo: default (desktop) -->
@@ -637,6 +655,7 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
     <section id="typography">
       <p class="section-label">01 — Typography</p>
       <h2>Typography</h2>
+      <p class="class-hint">Semantic HTML — no classes needed. <code>.prose</code> for long-form content.</p>
       <h1>Heading 1 — The quick brown fox</h1>
       <h2>Heading 2 — The quick brown fox</h2>
       <h3>Heading 3 — The quick brown fox</h3>
@@ -661,6 +680,7 @@ console.log(greet("world"));</code></pre>
     <section id="buttons">
       <p class="section-label">02 — Buttons</p>
       <h2>Buttons</h2>
+      <p class="class-hint"><code>.btn</code> <code>.btn-primary</code> <code>.btn-outline</code> <code>.btn-ghost</code> <code>.btn-pill</code> <code>.btn-sm</code> <code>.btn-lg</code> <code>.btn-block</code></p>
       <h3>Color Variants</h3>
       <div class="row wrap gap-sm">
         <button class="btn">Default</button>
@@ -695,6 +715,7 @@ console.log(greet("world"));</code></pre>
     <section id="cards">
       <p class="section-label">03 — Cards</p>
       <h2>Cards</h2>
+      <p class="class-hint"><code>.card</code> <code>.card-body</code> <code>.card-title</code> <code>.card-actions</code></p>
       <div class="grid grid-3 gap-lg">
         <div class="card">
           <div class="card-img-overlay">
@@ -738,6 +759,7 @@ console.log(greet("world"));</code></pre>
     <section id="badges">
       <p class="section-label">04 — Badges</p>
       <h2>Badges</h2>
+      <p class="class-hint"><code>.badge</code> <code>.badge-primary</code> <code>.badge-success</code> <code>.badge-outline</code> <code>.badge-lg</code></p>
       <div class="row wrap gap-sm">
         <span class="badge">Default</span>
         <span class="badge badge-primary">Primary</span>
@@ -760,6 +782,7 @@ console.log(greet("world"));</code></pre>
     <section id="alerts">
       <p class="section-label">05 — Alerts</p>
       <h2>Alerts</h2>
+      <p class="class-hint"><code>.alert</code> <code>.alert-info</code> <code>.alert-success</code> <code>.alert-warning</code> <code>.alert-error</code></p>
       <div class="col gap-sm">
         <div class="alert alert-info"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Your trial expires in 3 days. Upgrade to keep your data.</div>
         <div class="alert alert-success"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Payment received — $49.00 charged to Visa ending 4242.</div>
@@ -776,6 +799,7 @@ console.log(greet("world"));</code></pre>
     <section id="tabs">
       <p class="section-label">06 — Tabs</p>
       <h2>Tabs</h2>
+      <p class="class-hint"><code>.tabs</code> <code>.tab</code> <code>.tab-active</code></p>
       <div class="tabs">
         <button class="tab tab-active">Overview</button>
         <button class="tab">Analytics</button>
@@ -787,6 +811,7 @@ console.log(greet("world"));</code></pre>
     <section id="toggles">
       <p class="section-label">07 — Toggle Switches</p>
       <h2>Toggle Switches</h2>
+      <p class="class-hint"><code>.toggle</code> on <code>&lt;input type="checkbox"&gt;</code></p>
       <div class="col gap-sm">
         <label class="row gap-sm">
           <input type="checkbox" class="toggle" checked>
@@ -811,6 +836,7 @@ console.log(greet("world"));</code></pre>
     <section id="avatars">
       <p class="section-label">08 — Avatars</p>
       <h2>Avatars</h2>
+      <p class="class-hint"><code>.avatar</code> <code>.avatar-sm</code> <code>.avatar-lg</code> <code>.avatar-xl</code></p>
       <div class="row gap-md">
         <img src="https://i.pravatar.cc/64?img=65" alt="Small avatar" class="avatar avatar-sm">
         <img src="https://i.pravatar.cc/80?img=55" alt="Default avatar" class="avatar">
@@ -827,6 +853,7 @@ console.log(greet("world"));</code></pre>
     <section id="dropdown">
       <p class="section-label">09 — Dropdown</p>
       <h2>Dropdown</h2>
+      <p class="class-hint"><code>.dropdown</code> <code>.dropdown-menu</code> on <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code></p>
       <details class="dropdown">
         <summary class="btn">Options ▾</summary>
         <div class="dropdown-menu">
@@ -847,6 +874,7 @@ console.log(greet("world"));</code></pre>
     <section id="tooltips">
       <p class="section-label">10 — Tooltips</p>
       <h2>Tooltips</h2>
+      <p class="class-hint"><code>data-tooltip="..."</code> attribute on any element</p>
       <div class="row gap-lg">
         <button class="btn" data-tooltip="Save your changes">Hover me</button>
         <button class="btn btn-primary" data-tooltip="Deploy to production">Deploy</button>
@@ -862,6 +890,7 @@ console.log(greet("world"));</code></pre>
     <section id="progress">
       <p class="section-label">11 — Progress Bars</p>
       <h2>Progress Bars</h2>
+      <p class="class-hint"><code>.progress</code> <code>.progress-bar</code> <code>.progress-bar-success</code> <code>.progress-bar-warning</code> <code>.progress-bar-error</code></p>
       <div class="col gap-md">
         <div>
           <small class="text-muted">Storage — 45%</small>
@@ -898,6 +927,7 @@ console.log(greet("world"));</code></pre>
     <section id="modal">
       <p class="section-label">12 — Modal</p>
       <h2>Modal</h2>
+      <p class="class-hint"><code>.modal</code> <code>.modal-body</code> <code>.modal-title</code> <code>.modal-actions</code> on <code>&lt;dialog&gt;</code></p>
       <button class="btn btn-primary" onclick="document.getElementById('demo-modal').showModal()">Open Modal</button>
       <dialog class="modal" id="demo-modal">
         <div class="modal-body">
@@ -919,6 +949,7 @@ console.log(greet("world"));</code></pre>
     <section id="divider">
       <p class="section-label">13 — Dividers</p>
       <h2>Dividers</h2>
+      <p class="class-hint"><code>.divider</code> — empty for a line, with text for a labeled break</p>
       <div class="divider"></div>
       <div class="divider">OR</div>
       <div class="divider">Section Break</div>
@@ -932,6 +963,7 @@ console.log(greet("world"));</code></pre>
     <section id="skeleton">
       <p class="section-label">14 — Skeleton Loading</p>
       <h2>Skeleton Loading</h2>
+      <p class="class-hint"><code>.skeleton</code> <code>.skeleton-text</code> <code>.skeleton-title</code> <code>.skeleton-avatar</code></p>
       <div class="card">
         <div class="card-body col gap-md">
           <div class="row gap-md">
@@ -955,6 +987,7 @@ console.log(greet("world"));</code></pre>
     <section id="chips">
       <p class="section-label">15 — Chips</p>
       <h2>Chips</h2>
+      <p class="class-hint"><code>.chip</code></p>
       <div class="row wrap gap-sm">
         <span class="chip">JavaScript</span>
         <span class="chip">TypeScript</span>
@@ -973,6 +1006,7 @@ console.log(greet("world"));</code></pre>
     <section id="breadcrumb">
       <p class="section-label">16 — Breadcrumb</p>
       <h2>Breadcrumb</h2>
+      <p class="class-hint"><code>.breadcrumb</code> on <code>&lt;ul&gt;</code></p>
       <ul class="breadcrumb">
         <li><a href="#">Home</a></li>
         <li><a href="#">Products</a></li>
@@ -989,6 +1023,7 @@ console.log(greet("world"));</code></pre>
     <section id="pagination">
       <p class="section-label">17 — Pagination</p>
       <h2>Pagination</h2>
+      <p class="class-hint"><code>.pagination</code> <code>.active</code> <code>.disabled</code></p>
       <ul class="pagination">
         <li class="disabled"><a href="#">← Prev</a></li>
         <li><a href="#">1</a></li>
@@ -1008,6 +1043,7 @@ console.log(greet("world"));</code></pre>
     <section id="toast">
       <p class="section-label">18 — Toast Notifications</p>
       <h2>Toast Notifications</h2>
+      <p class="class-hint"><code>.toast-container</code> <code>.toast</code> <code>.toast-success</code> <code>.toast-error</code> <code>.toast-out</code></p>
       <div class="row gap-sm wrap">
         <button class="btn btn-primary btn-sm" onclick="gritToast('Changes saved successfully.', 'success')">Success Toast</button>
         <button class="btn btn-sm" onclick="gritToast('Something went wrong.', 'error')">Error Toast</button>
@@ -1024,6 +1060,7 @@ console.log(greet("world"));</code></pre>
     <section id="accordion">
       <p class="section-label">19 — Accordion</p>
       <h2>Accordion</h2>
+      <p class="class-hint"><code>.accordion</code> <code>.accordion-body</code> on <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code></p>
       <div class="accordion">
         <details>
           <summary>What is grit.css?</summary>
@@ -1048,6 +1085,7 @@ console.log(greet("world"));</code></pre>
     <section id="list-group">
       <p class="section-label">20 — List Group</p>
       <h2>List Group</h2>
+      <p class="class-hint"><code>.list-group</code> <code>.active</code></p>
       <div class="grid-2 gap-lg">
         <div>
           <h3>Static</h3>
@@ -1079,6 +1117,7 @@ console.log(greet("world"));</code></pre>
     <section id="spinner">
       <p class="section-label">21 — Spinner</p>
       <h2>Spinner</h2>
+      <p class="class-hint"><code>.spinner</code> <code>.spinner-sm</code> <code>.spinner-lg</code></p>
       <div class="row gap-lg" style="align-items: center;">
         <div class="spinner-sm spinner"></div>
         <div class="spinner"></div>
@@ -1095,6 +1134,7 @@ console.log(greet("world"));</code></pre>
     <section id="stack">
       <p class="section-label">22 — Stack</p>
       <h2>Stack (responsive row → col)</h2>
+      <p class="class-hint"><code>.stack</code> — row on desktop, column on mobile</p>
       <div class="stack gap-md">
         <div class="card"><div class="card-body"><h3 class="card-title">Left</h3><p>Row on desktop, column on mobile.</p></div></div>
         <div class="card"><div class="card-body"><h3 class="card-title">Center</h3><p>Resize the browser to see.</p></div></div>
@@ -1110,6 +1150,7 @@ console.log(greet("world"));</code></pre>
     <section id="prose">
       <p class="section-label">23 — Prose</p>
       <h2>Prose</h2>
+      <p class="class-hint"><code>.prose</code> — typographic styling for long-form content</p>
       <div class="prose">
         <h2>Why grit.css exists</h2>
         <p>CSS frameworks got complicated. Tailwind needs a compiler. Bootstrap ships 160KB and a JavaScript bundle. You need a PhD in config files before you write your first style.</p>
@@ -1147,6 +1188,7 @@ console.log(greet("world"));</code></pre>
     <section id="tables">
       <p class="section-label">24 — Tables</p>
       <h2>Tables</h2>
+      <p class="class-hint"><code>.table</code> <code>.table-striped</code> <code>.table-hover</code> <code>.table-responsive</code></p>
       <div class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
@@ -1207,6 +1249,7 @@ console.log(greet("world"));</code></pre>
     <section id="colors">
       <p class="section-label">25 — Color Palette</p>
       <h2>Color Palette</h2>
+      <p class="class-hint">CSS custom properties: <code>--grit-primary</code> <code>--grit-success</code> <code>--grit-error</code> etc.</p>
       <div class="color-palette-grid">
         <div class="color-swatch-card">
           <div class="color-swatch" style="background: var(--grit-primary)"></div>
@@ -1279,6 +1322,7 @@ console.log(greet("world"));</code></pre>
     <section id="themes">
       <p class="section-label">26 — Themes</p>
       <h2>Themes</h2>
+      <p class="class-hint"><code>.theme-midnight</code> <code>.theme-forest</code> <code>.theme-rose</code> <code>.dark</code> <code>.light</code></p>
       <div class="grid grid-3 gap-lg">
         <div class="theme-midnight theme-card theme-card-midnight">
           <h4 style="margin-bottom: 0.25rem;">Midnight</h4>
@@ -1348,6 +1392,7 @@ console.log(greet("world"));</code></pre>
     <section id="composition">
       <p class="section-label">27 — Composition</p>
       <h2>Composition</h2>
+      <p class="class-hint">Combining components: <code>.card</code> + <code>.badge</code> + <code>.avatar</code> + <code>.row</code>/<code>.col</code></p>
       <div class="grid grid-2 gap-lg">
         <div class="card notification-card">
           <div class="card-body">
@@ -1432,6 +1477,7 @@ console.log(greet("world"));</code></pre>
     <section id="forms">
       <p class="section-label">28 — Forms</p>
       <h2>Forms</h2>
+      <p class="class-hint"><code>&lt;input&gt;</code> <code>&lt;select&gt;</code> <code>&lt;textarea&gt;</code> <code>.input-group</code> <code>.input-group-text</code> <code>&lt;fieldset&gt;</code></p>
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Create Account</h3>
@@ -1500,6 +1546,7 @@ console.log(greet("world"));</code></pre>
     <section id="layout">
       <p class="section-label">29 — Layout</p>
       <h2>Layout</h2>
+      <p class="class-hint"><code>.grid</code> <code>.grid-2</code> <code>.grid-3</code> <code>.grid-4</code> <code>.grid-auto</code> <code>.row</code> <code>.col</code> <code>.between</code> <code>.center</code></p>
 
       <h3>Grid — 2 Columns</h3>
       <div class="grid grid-2 gap-md">
@@ -1559,6 +1606,7 @@ console.log(greet("world"));</code></pre>
     <section id="utilities">
       <p class="section-label">30 — Utilities</p>
       <h2>Utilities</h2>
+      <p class="class-hint"><code>.text-sm</code> <code>.text-lg</code> <code>.text-muted</code> <code>.font-bold</code> <code>.font-mono</code> <code>.truncate</code> <code>.shadow</code> <code>.rounded</code></p>
 
       <h3>Text Sizes</h3>
       <p class="text-sm">text-sm — Small text for captions and fine print</p>
