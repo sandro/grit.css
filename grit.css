@@ -863,6 +863,7 @@ input[type="radio"]:focus-visible {
   border-bottom: 2px solid var(--grit-border);
   gap: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
