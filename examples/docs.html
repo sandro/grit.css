@@ -293,7 +293,7 @@ document.querySelectorAll('.navbar-toggle').forEach(btn => {
     <!-- Themes -->
     <section class="doc-section" id="themes">
       <h2>Themes</h2>
-      <p class="doc-desc">Themes restyle everything inside a container by overriding grit's CSS custom properties. Apply <code>.theme-midnight</code>, <code>.theme-forest</code>, or <code>.theme-rose</code> to any element and all child components — buttons, badges, cards, alerts — pick up the new colors automatically. You can nest themes, scope them to a single card, or apply them to the whole page.</p>
+      <p class="doc-desc">Themes restyle everything inside a container by overriding grit's CSS custom properties. Apply the built-in <code>.theme-midnight</code> to any element and all child components — buttons, badges, cards, alerts — pick up the new colors automatically. Create your own themes by overriding properties like <code>--grit-primary</code>, <code>--grit-bg</code>, and <code>--grit-surface</code>. You can nest themes, scope them to a single card, or apply them to the whole page.</p>
     </section>
 
     <!-- Navbar -->
@@ -639,39 +639,35 @@ const examples = {
   themes: {
     examples: [{
       title: null,
-      html: `<div class="grid grid-3 gap-lg">
+      html: `<div class="grid grid-2 gap-lg">
         <div class="theme-midnight pad-lg rounded" style="border: 1px solid var(--grit-border);">
           <h4 style="margin-bottom: 0.25rem;">Midnight</h4>
-          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Dark blue theme</p>
+          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Built-in dark blue theme</p>
           <div class="row gap-sm wrap">
             <button class="btn btn-primary btn-sm">Button</button>
             <span class="badge badge-primary">Badge</span>
           </div>
         </div>
-        <div class="theme-forest pad-lg rounded" style="border: 1px solid var(--grit-border);">
-          <h4 style="margin-bottom: 0.25rem;">Forest</h4>
-          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Natural green theme</p>
-          <div class="row gap-sm wrap">
-            <button class="btn btn-primary btn-sm">Button</button>
-            <span class="badge badge-primary">Badge</span>
-          </div>
-        </div>
-        <div class="theme-rose pad-lg rounded" style="border: 1px solid var(--grit-border);">
-          <h4 style="margin-bottom: 0.25rem;">Rose</h4>
-          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Warm pink theme</p>
+        <div class="pad-lg rounded" style="border: 1px solid var(--grit-border);">
+          <h4 style="margin-bottom: 0.25rem;">Default</h4>
+          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">The standard light theme</p>
           <div class="row gap-sm wrap">
             <button class="btn btn-primary btn-sm">Button</button>
             <span class="badge badge-primary">Badge</span>
           </div>
         </div>
       </div>`,
-      code: `<!-- Apply theme class to any container -->
+      code: `<!-- Built-in theme -->
 <div class="theme-midnight">
   <button class="btn btn-primary">Themed</button>
 </div>
 
-<div class="theme-forest">...</div>
-<div class="theme-rose">...</div>`
+<!-- Or create your own by overriding properties -->
+:root {
+  --grit-primary: #e11d48;
+  --grit-bg: #0a0a0a;
+  --grit-surface: #1a1a1a;
+}`
     }]
   },
 

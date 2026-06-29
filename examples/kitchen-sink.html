@@ -1323,8 +1323,8 @@ console.log(greet("world"));</code></pre>
     <section id="themes">
       <p class="section-label">26 — Themes</p>
       <h2>Themes</h2>
-      <p class="class-hint"><code>.theme-midnight</code> <code>.theme-forest</code> <code>.theme-rose</code> <code>.dark</code> <code>.light</code></p>
-      <div class="grid grid-3 gap-lg">
+      <p class="class-hint"><code>.theme-midnight</code> <code>.dark</code> <code>.light</code> — or override <code>--grit-primary</code> etc. for your own theme</p>
+      <div class="grid grid-2 gap-lg">
         <div class="theme-midnight theme-card theme-card-midnight">
           <h4 style="margin-bottom: 0.25rem;">Midnight</h4>
           <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Dark blue theme</p>
@@ -1344,43 +1344,13 @@ console.log(greet("world"));</code></pre>
             </label>
           </div>
         </div>
-        <div class="theme-forest theme-card">
-          <h4 style="margin-bottom: 0.25rem;">Forest</h4>
-          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Natural green theme</p>
-          <div class="col gap-md">
-            <div class="row gap-sm wrap">
-              <button class="btn btn-primary btn-sm">Button</button>
-              <span class="badge badge-primary">Badge</span>
-              <span class="badge badge-success">Success</span>
-            </div>
-            <div class="progress progress-gradient-green" style="height: 0.5rem !important;">
-              <div class="progress-bar progress-bar-success" style="width: 80%"></div>
-            </div>
-            <div class="alert alert-success" style="padding: 0.5rem 0.75rem; font-size: 0.8rem; margin: 0;">Tests passed</div>
-            <label class="row gap-sm" style="font-size: 0.8rem;">
-              <input type="checkbox" class="toggle" checked>
-              <span>Monitoring</span>
-            </label>
-          </div>
-        </div>
-        <div class="theme-rose theme-card">
-          <h4 style="margin-bottom: 0.25rem;">Rose</h4>
-          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Warm pink theme</p>
-          <div class="col gap-md">
-            <div class="row gap-sm wrap">
-              <button class="btn btn-primary btn-sm">Button</button>
-              <span class="badge badge-primary">Badge</span>
-              <span class="badge badge-error">Error</span>
-            </div>
-            <div class="progress progress-gradient-red" style="height: 0.5rem !important;">
-              <div class="progress-bar progress-bar-error" style="width: 45%"></div>
-            </div>
-            <div class="alert alert-warning" style="padding: 0.5rem 0.75rem; font-size: 0.8rem; margin: 0;">Review needed</div>
-            <label class="row gap-sm" style="font-size: 0.8rem;">
-              <input type="checkbox" class="toggle">
-              <span>Notifications</span>
-            </label>
-          </div>
+        <div class="theme-card" style="background: var(--grit-bg);">
+          <h4 style="margin-bottom: 0.25rem;">Custom</h4>
+          <p class="text-sm" style="color: var(--grit-muted); margin-bottom: 1rem;">Override CSS custom properties</p>
+          <pre style="font-size: 0.75rem; margin: 0; padding: 0.75rem; background: var(--grit-surface); border-radius: 8px;"><code>:root {
+  --grit-primary: #e11d48;
+  --grit-radius: 0;
+}</code></pre>
         </div>
       </div>
     </section>

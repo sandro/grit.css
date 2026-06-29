@@ -1864,28 +1864,4 @@ input[type="radio"]:focus-visible {
   color: var(--grit-text);
 }
 
-.theme-forest {
-  --grit-primary: #16a34a;
-  --grit-primary-content: #ffffff;
-  --grit-bg: #f0fdf4;
-  --grit-text: #14532d;
-  --grit-muted: #4d7c0f;
-  --grit-surface: #dcfce7;
-  --grit-surface-2: #bbf7d0;
-  --grit-border: #86efac;
-  background-color: var(--grit-bg);
-  color: var(--grit-text);
-}
 
-.theme-rose {
-  --grit-primary: #e11d48;
-  --grit-primary-content: #ffffff;
-  --grit-bg: #fff1f2;
-  --grit-text: #4c0519;
-  --grit-muted: #9f1239;
-  --grit-surface: #ffe4e6;
-  --grit-surface-2: #fecdd3;
-  --grit-border: #fda4af;
-  background-color: var(--grit-bg);
-  color: var(--grit-text);
-}
