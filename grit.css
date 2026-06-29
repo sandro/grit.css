@@ -1787,8 +1787,8 @@ input[type="radio"]:focus-visible {
     --grit-warning-content: #422006;
     --grit-error: #f87171;
     --grit-error-content: #450a0a;
-    --grit-info: #60a5fa;
-    --grit-info-content: #1e3a5f;
+    --grit-info: #38bdf8;
+    --grit-info-content: #0c4a6e;
   }
 
   .skeleton, .skeleton-text, .skeleton-title, .skeleton-avatar {
@@ -1821,8 +1821,8 @@ input[type="radio"]:focus-visible {
   --grit-warning-content: #422006;
   --grit-error: #f87171;
   --grit-error-content: #450a0a;
-  --grit-info: #60a5fa;
-  --grit-info-content: #1e3a5f;
+  --grit-info: #38bdf8;
+  --grit-info-content: #0c4a6e;
   background-color: var(--grit-bg);
   color: var(--grit-text);
 }
